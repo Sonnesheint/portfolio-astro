@@ -1,0 +1,249 @@
+---
+import CaseLayout from "@layouts/CaseLayout.astro";
+import ResultsGrid from "@components/ResultsGrid.astro";
+import Callout from "@components/Callout.astro";
+
+const toc = [
+  { href: "#company", label: "Company & product" },
+  { href: "#scope", label: "Scope of work" },
+  { href: "#research", label: "Domain research" },
+  { href: "#jargon", label: "The Jargon Paradox" },
+  { href: "#tov", label: "Tone of voice" },
+  { href: "#decisions", label: "Writing decisions" },
+  { href: "#copy", label: "Copy in practice" },
+  { href: "#solution", label: "Solution" },
+  { href: "#results", label: "Results" },
+  { href: "#learned", label: "What I learned" },
+];
+---
+
+<CaseLayout
+  title="Thermal satellite data, explained in plain language."
+  tag="Deep Tech / Space"
+  heading="Thermal satellite data, explained in plain language."
+  lead="Full website copy for a B2B Earth observation platform pivoting from agriculture to government markets. Plain language as competitive differentiator — not a simplification."
+  client="Constellr"
+  year={2025}
+  role="Lead UX Writer & Content Strategist"
+  tools="Figma · Notion · Confluence"
+  tocItems={toc}
+>
+
+  <section class="case-section" id="company">
+    <h2>Company and product</h2>
+    <p>Constellr is a German deep-tech startup that owns and operates its own thermal satellites in orbit. They deliver the world's most accurate commercially available thermal intelligence — measuring surface temperature from space for clients in agriculture, construction, and climate monitoring. Their rare differentiator: they own the hardware. Most competitors sell roadmaps and promises. Constellr delivers data today.</p>
+    <p>As demand from government and institutional clients grew, Constellr needed to reposition. They were a startup with agricultural roots trying to earn trust from buyers who treat startups with suspicion — and sometimes that suspicion is a dealbreaker. The copywriting challenge: write for two audiences with opposite expectations, without alienating either.</p>
+    <Callout text="Government buyers view startups with suspicion. Sometimes it's a dealbreaker. They need proven stability and operational certainty." />
+  </section>
+
+  <section class="case-section" id="scope">
+    <h2>Scope of work</h2>
+    <p>I joined this project at Flying Bisons as lead UX writer and content strategist. The scope covered the full website rebuild — homepage, product pages, use case narratives, about and careers sections. Every word was written as strategic content: backed by competitive research, audience analysis, and a tone of voice framework built specifically for this project.</p>
+    <div class="deliverables">
+      <div class="deliverable">Website copy — all pages</div>
+      <div class="deliverable">Tone of voice framework</div>
+      <div class="deliverable">Competitive content analysis</div>
+      <div class="deliverable">Use case narratives</div>
+      <div class="deliverable">Strategic messaging framework</div>
+    </div>
+  </section>
+
+  <section class="case-section" id="research">
+    <h2>Domain research</h2>
+    <h3>Understanding the domain</h3>
+    <p>I wasn't in every stakeholder meeting — but the recordings were. I went through hours of client conversations to absorb how the Constellr team talked about their own technology: what they emphasised, what they glossed over, what made them visibly proud. That language became source material. Desk research and competitor analysis filled the rest.</p>
+    <h3>Competitor content audit</h3>
+    <p>I audited nearly 20 direct competitors and adjacent players across Earth observation, defence aerospace, and data intelligence platforms. The goal wasn't inspiration — it was mapping the communication landscape Constellr would have to stand out in.</p>
+    <div class="comp-table-wrap">
+      <table class="comp-table">
+        <thead>
+          <tr>
+            <th>Company</th><th>Model</th><th>Sector</th><th>Communication style</th><th>Tone</th><th class="th-c">Plain?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="td-co">NASA</td>
+            <td><span class="tag-sm b2c">B2C / B2G</span></td>
+            <td>Space, Earth obs., science</td>
+            <td>Plain language + storytelling. Reference model for accessible government communication.</td>
+            <td><span class="tag-sm plain">Plain</span> <span class="tag-sm story">Storytelling</span></td>
+            <td class="td-c td-plain yes">Yes</td>
+          </tr>
+          <tr>
+            <td class="td-co">ICEYE</td>
+            <td><span class="tag-sm b2g">B2B / B2G</span></td>
+            <td>SAR imagery, defence, disaster response</td>
+            <td>Technical-military. Precise, jargon-heavy.</td>
+            <td><span class="tag-sm military">Military</span></td>
+            <td class="td-c td-plain no">No</td>
+          </tr>
+          <tr>
+            <td class="td-co">Planet Labs</td>
+            <td><span class="tag-sm b2g">B2B / B2G</span></td>
+            <td>Earth observation, agri, government</td>
+            <td>Accessible + environmental mission narrative. Closer to storytelling than military.</td>
+            <td><span class="tag-sm story">Storytelling</span></td>
+            <td class="td-c td-plain partial">Partial</td>
+          </tr>
+          <tr>
+            <td class="td-co">OroraTech</td>
+            <td><span class="tag-sm b2b">B2B / B2C</span></td>
+            <td>Wildfire detection, thermal satellites</td>
+            <td>Hero narrative — client as protagonist saving the world from fires.</td>
+            <td><span class="tag-sm story">Storytelling</span></td>
+            <td class="td-c td-plain partial">Partial</td>
+          </tr>
+          <tr>
+            <td class="td-co">Vantor <span class="td-note">ex-Maxar</span></td>
+            <td><span class="tag-sm b2g">B2G / B2B</span></td>
+            <td>Satellite imagery, defence, intelligence</td>
+            <td>Corporate-technical, government-grade. Heavy on credentials and capability specs.</td>
+            <td><span class="tag-sm corporate">Corporate</span></td>
+            <td class="td-c td-plain no">No</td>
+          </tr>
+          <tr>
+            <td class="td-co">Airbus D&amp;S</td>
+            <td><span class="tag-sm b2g">B2B / B2G</span></td>
+            <td>Defence, aerospace, satellites</td>
+            <td>Corporate-technical. Jargon-heavy, traditional defence communication.</td>
+            <td><span class="tag-sm corporate">Corporate</span></td>
+            <td class="td-c td-plain no">No</td>
+          </tr>
+          <tr>
+            <td class="td-co">Northrop Grumman</td>
+            <td><span class="tag-sm b2g">B2G</span></td>
+            <td>Defence, space systems</td>
+            <td>Military-corporate. Very formal, jargon dominates.</td>
+            <td><span class="tag-sm military">Military</span></td>
+            <td class="td-c td-plain no">No</td>
+          </tr>
+          <tr>
+            <td class="td-co">Palantir</td>
+            <td><span class="tag-sm b2g">B2G / B2B</span></td>
+            <td>Data analytics, intelligence</td>
+            <td>Direct and bold — relatively clean for the government sector.</td>
+            <td><span class="tag-sm military">Military</span></td>
+            <td class="td-c td-plain partial">Partial</td>
+          </tr>
+          <tr>
+            <td class="td-co">ASML</td>
+            <td><span class="tag-sm b2b">B2B</span></td>
+            <td>Semiconductor equipment</td>
+            <td>Communication benchmark: extremely complex technology, increasingly well-explained.</td>
+            <td><span class="tag-sm technical">Technical</span></td>
+            <td class="td-c td-plain partial">Partial</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="case-section" id="jargon">
+    <h2>The Jargon Paradox</h2>
+    <div class="jargon-box">
+      <h3>Why complexity isn't credibility</h3>
+      <p>Every established competitor I analysed used heavy technical language. Not because it helped users understand — but because complexity <em>felt</em> like credibility. The implicit logic: if it sounds difficult, it must be serious.</p>
+      <p>This assumption has a long history. Military communication was once a model of brevity. Churchill's 1940 brevity memorandum famously demanded shorter documents during wartime. But as Cold War-era technology programmes grew, the language inflated again. NASA-era technical writing became the new default for the entire sector. And it stuck.</p>
+      <p>Research tells a different story. UK Government's own content studies show that plain language increases perceived expertise, not decreases it. Readers trust what they understand. Jargon signals effort; clarity signals confidence.</p>
+      <div class="jargon-stat">
+        <div class="num">0 of 9</div>
+        <p>direct competitors combined plain language with a government or institutional audience. That gap was Constellr's opportunity — and language could be a differentiator as meaningful as the satellites themselves.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="case-section" id="tov">
+    <h2>Tone of voice</h2>
+    <h3>Defining the voice</h3>
+    <p>I mapped three distinct communication models operating in the space sector: military-style language, plain language (NASA-style), and storytelling. Constellr's leadership chose plain language combined with operational authority — not storytelling, not jargon. Three tone attributes guided everything written.</p>
+    <div class="tov-grid">
+      <div class="tov-card">
+        <div class="tov-card-label">Model A</div>
+        <h4>Military register</h4>
+        <p>Defence-heavy companies mirroring military language. Terse, operational, hierarchy-aware.</p>
+      </div>
+      <div class="tov-card chosen">
+        <div class="tov-card-label">Model B · Constellr</div>
+        <h4>Plain language + precision</h4>
+        <p>Government-facing platforms (NASA, UK GOV style). Accessible, task-oriented, built for clarity.</p>
+        <span class="tov-chosen">Chosen direction</span>
+      </div>
+      <div class="tov-card">
+        <div class="tov-card-label">Model C</div>
+        <h4>Storytelling / hero narrative</h4>
+        <p>Environmental monitoring companies positioning the client as protagonist saving the planet.</p>
+      </div>
+    </div>
+    <div class="tov-attrs">
+      <span class="tov-attr">Plain</span>
+      <span class="tov-attr">Professional</span>
+      <span class="tov-attr">Accessible</span>
+    </div>
+  </section>
+
+  <section class="case-section" id="decisions">
+    <h2>Key writing decisions</h2>
+    <div class="decisions">
+      <div class="decision">Content-first, not content-last. On most projects, copy arrives after design. I pushed for the opposite: write first, design around the content. With a tight timeline and a strategic pivot that lived entirely in the messaging, waiting for mockups would have produced worse copy and created a bottleneck. Content became the backbone of the entire project.</div>
+      <div class="decision">Language as a competitive asset. Every established competitor used heavy technical language as a proxy for credibility. Research consistently shows plain language builds more trust, not less. Among all direct competitors analysed, not one combined plain language with a government or institutional audience. That gap was Constellr's opportunity.</div>
+      <div class="decision">Frame the pivot as urgency, not retreat. The move from agriculture to government markets could have sounded defensive. Instead, I framed it as a limited-time opportunity: orbital slots are finite, satellite launches are rare, early partners secure a permanent advantage. Constellr wasn't moving away from something — they were opening a door that wouldn't stay open forever.</div>
+    </div>
+  </section>
+
+  <section class="case-section" id="copy">
+    <h2>Copy in practice</h2>
+    <h3>What the Jargon Paradox looks like on the page</h3>
+    <p>The homepage hero is the clearest illustration of the content strategy in action.</p>
+    <div class="copy-example">
+      <div class="copy-col">
+        <span class="copy-badge before">Industry default</span>
+        <blockquote class="muted">Leveraging our proprietary multi-spectral thermal sensing infrastructure and advanced Earth Observation capabilities, our enterprise-grade platform delivers actionable geospatial intelligence for complex operational environments.</blockquote>
+        <p class="copy-note">Technically accurate. Completely opaque. Indistinguishable from any competitor.</p>
+      </div>
+      <div class="copy-col">
+        <span class="copy-badge after">What I wrote</span>
+        <blockquote>Optical satellites see structures. Radar satellites see through clouds. Our satellites see heat patterns = human activity, infrastructure load, and environmental stress.</blockquote>
+        <p class="copy-note">Three parallel sentences. Same technical depth. Zero jargon. The "=" translates sensor data into intelligence without losing precision.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="case-section" id="solution">
+    <h2>Solution</h2>
+    <p>I delivered the complete copy for the redesigned constellr.com — every page written as strategic content, not filler. The tone of voice framework gave the client a replicable voice they could carry beyond the launch. The content-first workflow meant designers had clear, final copy to work with from early in the process — no placeholder text, no late-stage rewrites. The project was contracted as a website copy refresh. It became something closer to a brand repositioning.</p>
+  </section>
+
+  <section class="case-section" id="results">
+    <h2>Results</h2>
+    <ResultsGrid items={[
+      { number: "0 of 9",        desc: "direct competitors combined plain language with an institutional audience — Constellr was the first" },
+      { number: "Content-first", desc: "workflow adopted from day one — copy drove design, not the other way around" },
+      { number: "Extra mile",    desc: "Client noted the team went beyond contract scope to deliver strategic quality" },
+    ]} />
+    <p>No post-launch metrics were shared — the project concluded before measurement data became available. What's documented: strong client satisfaction expressed consistently at stakeholder touchpoints, and a strategic repositioning implemented in full.</p>
+    <div class="result-quote-block">
+      <blockquote>Treat this as a collaborative partnership, not a transactional engagement. Flying Bisons brings strong thinking, moves quickly, and will go the extra mile to deliver high-quality results.</blockquote>
+      <cite>Conner Reinhardt — Chief of Staff, Constellr</cite>
+    </div>
+  </section>
+
+  <section class="case-section" id="learned">
+    <h2>What I learned</h2>
+    <div class="lessons-list">
+      <div class="lesson-item">
+        <span class="lesson-num">01</span>
+        <p>Deep-tech content doesn't need simplification — it needs precision of a different kind. The goal isn't to make things easier; it's to remove unnecessary complexity while preserving technical accuracy. Those are not the same thing.</p>
+      </div>
+      <div class="lesson-item">
+        <span class="lesson-num">02</span>
+        <p>In a sector where every player sounds the same, a clear voice is a competitive asset — not a stylistic preference. The Jargon Paradox isn't unique to space tech. It appears anywhere expertise is performed rather than demonstrated.</p>
+      </div>
+      <div class="lesson-item">
+        <span class="lesson-num">03</span>
+        <p>The contract was for website copy. The real deliverable was a strategic repositioning. If I repeated this project, I'd surface that gap earlier and make strategy a formal part of the scope from day one — not something discovered mid-process.</p>
+      </div>
+    </div>
+  </section>
+
+</CaseLayout>

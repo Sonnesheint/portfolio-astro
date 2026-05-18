@@ -1,0 +1,43 @@
+---
+import { SITE } from "@data/site";
+---
+
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-inner">
+    <div class="hero-left">
+      <p class="hero-eyebrow">
+        <span>UX WRITER</span> ·
+        <span>CONTENT DESIGNER</span>
+      </p>
+      <h1 class="hero-tagline">
+        Good UX writing<br />
+        is like <em>bass guitar</em>
+      </h1>
+      <div class="hero-sub">
+        <br />
+        <p>Most people don't notice it.</p>
+        <p>Unless something goes wrong.</p>
+        <p>Then you know.</p>
+        <p>It was holding everything together.</p>
+        <p>I'm Piotr. I make sure nothing goes wrong.</p>
+      </div>
+      <div class="hero-cta">
+        <a href="#work" class="btn-primary">View projects →</a>
+        <a href="#contact" class="btn-secondary">Get in touch</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-photo-wrap">
+        <div class="hero-photo-accent"></div>
+        <img
+          class="hero-photo"
+          src="/images/piotr.jpg"
+          alt={`${SITE.author} — Senior UX Writer`}
+        />
+      </div>
+    </div>
+  </div>
+  <div class="hero-transition-overlay"></div>
+</section>

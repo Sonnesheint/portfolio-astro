@@ -1,0 +1,38 @@
+---
+import { BIO } from "@data/bio";
+
+const bodyParagraphs = BIO.body.split("\n").filter((p) => p.trim());
+---
+
+<section id="bio">
+  <div class="section-inner">
+    <div class="bio-grid">
+      <div class="bio-text">
+        <p>{BIO.hook}</p>
+
+        <details class="bio-details">
+          <summary>
+            <svg class="chevron" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" width="16" height="16">
+              <path d="M3 6l5 5 5-5" stroke="#7a4e28" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </summary>
+          <div class="bio-expanded">
+            {bodyParagraphs.map((p) => <p>{p}</p>)}
+            <p class="bio-footer">
+              <strong>{BIO.footer}</strong>
+            </p>
+          </div>
+          <button class="bio-collapse" onclick="this.closest('details').removeAttribute('open')">
+            <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:16px;height:16px;transform:rotate(180deg);">
+              <path d="M3 6l5 5 5-5" stroke="#7a4e28" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+        </details>
+      </div>
+
+      <div class="bio-tags">
+        {BIO.tags.map((tag) => <div class="bio-tag">{tag}</div>)}
+      </div>
+    </div>
+  </div>
+</section>

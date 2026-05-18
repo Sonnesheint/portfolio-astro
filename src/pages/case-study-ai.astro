@@ -1,0 +1,93 @@
+---
+import CaseLayout from "@layouts/CaseLayout.astro";
+import ResultsGrid from "@components/ResultsGrid.astro";
+import Callout from "@components/Callout.astro";
+
+const toc = [
+  { href: "#context", label: "Context" },
+  { href: "#challenges", label: "Challenge" },
+  { href: "#process", label: "Process" },
+  { href: "#solution", label: "Solution" },
+  { href: "#results", label: "Results" },
+  { href: "#learned", label: "Lessons" },
+];
+---
+
+<CaseLayout
+  title="Can you replace the entire content team with a single button?"
+  tag="AI / Tooling"
+  heading="Can you replace the entire content team with a single button?"
+  lead="Six AI agents in sequence that mirror a full content team. Multi-day production cycle reduced to minutes."
+  client="Flying Bisons"
+  year={2025}
+  role="UX Writer + AI Workflow Designer"
+  tools="Make.com, Claude API, Notion, Figma"
+  tocItems={toc}
+>
+
+  <section class="case-section" id="context">
+    <h2>Context</h2>
+    <p>I created a content pipeline where multiple AI agents work together like a real editorial team. A strategist creates the brief and defines the angle. A writer drafts the article with SEO built in. A copywriter adds marketing hooks that convert. A UX writer simplifies the language, ensures readability, and checks Nielsen's heuristics. A proofreader hunts down AI tells like Title Case and long dashes. An editor does the final quality check.</p>
+    <p>How it works: Open the form. Enter your article topic and publication format (LinkedIn, newsletter, case study, etc.). Add a bit of context. Click the button. Wait 2 minutes. That's it. Publication-ready content appears in Notion database.</p>
+    <figure class="case-image">
+      <img src="/images/case_studies/make_com_webhook_form.png" alt="Make.com automation flow — 6 AI agents in sequence" />
+      <figcaption>The full automation flow in Make.com</figcaption>
+    </figure>
+    <figure class="case-image">
+      <img src="/images/case_studies/make_com_notion_database.png" alt="Notion database output" />
+      <figcaption>Publication-ready output in Notion database</figcaption>
+    </figure>
+    <Callout text="It's a great tool. Probably even a game changer if you have an active social media profile and publish content daily." />
+  </section>
+
+  <section class="case-section" id="challenges">
+    <h2>AI-specific challenges</h2>
+    <p>Each role is a carefully crafted prompt with guidelines. We can define rules for any content type our org needs—LinkedIn posts, newsletters, case studies, whatever. The system just follows them.</p>
+  </section>
+
+  <section class="case-section" id="process">
+    <h2>Process</h2>
+    <h3>Research & audit</h3>
+    <p>After many attempts, I found the workflow that works best: Strategist → Content writer → Copywriter → UX Writer → Corrector → Final Check. I also tested character limits between agent responses — to make sure each output passes cleanly to the next agent and the model uses tokens efficiently in Make.com.</p>
+    <figure class="case-image">
+      <img src="/images/case_studies/make_com_workflow.png" alt="Make.com automation flow — 6 AI agents in sequence" />
+      <figcaption>The full automation flow in Make.com</figcaption>
+    </figure>
+    <h3>Pipeline principles</h3>
+    <p>Room for improvement: Refine each prompt to boost output quality (this is just v1.0). Add Slack notifications and email alerts. Schedule automated publishing at specific times. Set up regular social media posts to increase visibility.</p>
+    <h3>Before / after</h3>
+    <div class="before-after">
+      <div class="ba-card before">
+        <div class="ba-label">Before</div>
+        <div class="ba-text">What used to take hours of coordination between five people.</div>
+      </div>
+      <div class="ba-card after">
+        <div class="ba-label">After</div>
+        <div class="ba-text">Now takes 2 minutes and one click.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="case-section" id="solution">
+    <h2>Solution</h2>
+    <p>What's next: Direct CMS integration (articles go straight to publish). Auto-posting to LinkedIn. Custom guidelines for every content format we use.</p>
+  </section>
+
+  <section class="case-section" id="results">
+    <h2>Results</h2>
+    <ResultsGrid items={[
+      { number: "40+",   desc: "hours saved per month" },
+      { number: "2 min", desc: "vs. multi-day production cycle" },
+      { number: "v1.0",  desc: "with clear roadmap for expansion" },
+    ]} />
+    <p>And the quality? Better than I expected. If this isn't a "wow" moment for content teams, I don't know what is.</p>
+  </section>
+
+  <section class="case-section" id="learned">
+    <h2>What I learned</h2>
+    <p>This automation genuinely speeds up content production. But that's only part of the story. The flow works well for simple formats — social media posts, short updates. Anything meant to keep a profile active. Longer forms, such as full case studies or in-depth articles, are a different story. Without solid subject matter input, they sound hollow.</p>
+    <p>There's another weak spot. The agents run in sequence. If one messes up, the rest won't fix it. Hallucinations happen too. A human needs to stay in the loop.</p>
+    <p>For short-form content, I'd recommend it without hesitation. It's a great tool. Probably even a game changer if you have an active social media profile and publish content daily.</p>
+  </section>
+
+</CaseLayout>

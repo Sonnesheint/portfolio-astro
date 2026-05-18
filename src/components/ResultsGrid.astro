@@ -1,0 +1,21 @@
+---
+interface Result {
+  number: string;
+  desc: string;
+}
+
+interface Props {
+  items: [Result, Result, Result];
+}
+
+const { items } = Astro.props;
+---
+
+<div class="results-grid">
+  {items.map((item) => (
+    <div class="result-card">
+      <div class="result-number">{item.number}</div>
+      <div class="result-desc">{item.desc}</div>
+    </div>
+  ))}
+</div>

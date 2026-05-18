@@ -1,0 +1,91 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Nav from "@components/Nav.astro";
+import Hero from "@components/Hero.astro";
+import Bio from "@components/Bio.astro";
+import WorkCard from "@components/WorkCard.astro";
+import AccordionItem from "@components/AccordionItem.astro";
+import Clients from "@components/Clients.astro";
+import Contact from "@components/Contact.astro";
+import Footer from "@components/Footer.astro";
+import { PROJECTS } from "@data/projects";
+import { MINI_CASES } from "@data/miniCases";
+---
+
+<Layout>
+  <Nav />
+
+  <Hero />
+
+  <Bio />
+
+  <!-- === SELECTED WORK === -->
+  <section id="work">
+    <div class="section-inner">
+      <p class="eyebrow">Full stories</p>
+      <h2 class="section-title">Featured projects</h2>
+
+      <div class="work-carousel-viewport">
+        <div class="work-grid" id="work-track">
+          {PROJECTS.map((project) => <WorkCard project={project} />)}
+        </div>
+      </div>
+      <div class="carousel-controls">
+        <button class="carousel-btn" id="carousel-prev" aria-label="Previous projects" disabled>←</button>
+        <button class="carousel-btn" id="carousel-next" aria-label="Next projects">→</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- === MORE WORK (ACCORDIONS) === -->
+  <section id="more-work">
+    <div class="section-inner">
+      <p class="eyebrow">Mini-case studies</p>
+      <h2 class="section-title">Bytes from everyday work</h2>
+
+      <div class="accordion-list">
+        {MINI_CASES.map((item, i) => <AccordionItem item={item} index={i} />)}
+      </div>
+    </div>
+  </section>
+
+  <Clients />
+
+  <Contact />
+
+  <Footer />
+</Layout>
+
+<script>
+  document.querySelectorAll<HTMLButtonElement>(".accordion-trigger").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const item = btn.closest(".accordion-item");
+      const isOpen = item?.classList.contains("open");
+      document.querySelectorAll(".accordion-item.open").forEach((el) => {
+        el.classList.remove("open");
+      });
+      if (!isOpen) item?.classList.add("open");
+    });
+  });
+
+  (function () {
+    const track = document.getElementById("work-track");
+    const prev = document.getElementById("carousel-prev") as HTMLButtonElement | null;
+    const next = document.getElementById("carousel-next") as HTMLButtonElement | null;
+    if (!track || !prev || !next) return;
+
+    let current = 0;
+    const max = 1;
+
+    function update() {
+      track!.style.transform = current === 0 ? "" : "translateX(-33.333%)";
+      prev!.disabled = current === 0;
+      next!.disabled = current === max;
+    }
+
+    prev.addEventListener("click", () => { if (current > 0) { current--; update(); } });
+    next.addEventListener("click", () => { if (current < max) { current++; update(); } });
+
+    update();
+  })();
+</script>

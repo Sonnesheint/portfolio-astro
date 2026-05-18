@@ -1,0 +1,64 @@
+---
+import CaseLayout from "@layouts/CaseLayout.astro";
+import ResultsGrid from "@components/ResultsGrid.astro";
+import Callout from "@components/Callout.astro";
+
+const toc = [
+  { href: "#context", label: "Context" },
+  { href: "#process", label: "Process" },
+  { href: "#solution", label: "Solution" },
+  { href: "#results", label: "Results" },
+  { href: "#learned", label: "What I learned" },
+];
+---
+
+<CaseLayout
+  title="How I built this website (Deep dive)"
+  tag="Personal project"
+  heading="How I built this website (Deep dive)"
+  lead="I decided to publish this case to help people with setting up their first professional portfolio. Everything is documented from top to bottom."
+  client="Personal project"
+  year={2025}
+  role="Designer, developer, writer"
+  tools="HTML, CSS, JS, Git, Netlify, Cloudflare"
+  tocItems={toc}
+>
+
+  <section class="case-section" id="context">
+    <h2>Context</h2>
+    <p>[TODO: Opisz dlaczego zdecydowałeś się na budowę portfolio od zera zamiast użycia gotowego szablonu lub kreatora. Co cię motywowało — kontrola nad treścią, możliwość pokazania umiejętności technicznych, coś innego?]</p>
+    <p>[TODO: Opisz wyzwanie. Co było najtrudniejsze na starcie?]</p>
+    <Callout text="[TODO: Jedno zdanie — cytat lub wniosek, który oddaje sedno całego projektu.]" />
+  </section>
+
+  <section class="case-section" id="process">
+    <h2>Process</h2>
+    <h3>Discovery</h3>
+    <p>[TODO: Jak zaczęłeś? Research, inspiracje, wireframes, decyzje o stosie technologicznym.]</p>
+    <h3>Defining the structure</h3>
+    <p>[TODO: Jak definiowałeś strukturę i zawartość? Jakie decyzje architektoniczne podjąłeś?]</p>
+    <h3>Iterations</h3>
+    <p>[TODO: Ile iteracji przeszedł projekt? Co zmieniałeś po drodze?]</p>
+  </section>
+
+  <section class="case-section" id="solution">
+    <h2>Solution</h2>
+    <p>[TODO: Opisz gotowe portfolio. Co zostało zbudowane, jak działa, co wyróżnia je od szablonowych rozwiązań.]</p>
+  </section>
+
+  <section class="case-section" id="results">
+    <h2>Results</h2>
+    <ResultsGrid items={[
+      { number: "1",    desc: "solo owner — od discovery po maintenance" },
+      { number: "0",    desc: "szablonów, kreatorów ani frameworków" },
+      { number: "100%", desc: "decyzji projektowych udokumentowanych" },
+    ]} />
+    <p>[TODO: Co osiągnąłeś? Czy portfolio przyciągnęło klientów, zapytania, rozmowy rekrutacyjne?]</p>
+  </section>
+
+  <section class="case-section" id="learned">
+    <h2>What I learned</h2>
+    <p>[TODO: Czego się nauczyłeś? Zarówno technicznie jak i o sobie jako twórcy.]</p>
+  </section>
+
+</CaseLayout>

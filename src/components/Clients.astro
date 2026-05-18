@@ -1,0 +1,20 @@
+---
+import { CLIENTS } from "@data/clients";
+---
+
+<section id="clients">
+  <div class="section-inner">
+    <p class="eyebrow">Companies I've worked with</p>
+    <p class="clients-list">
+      {
+        CLIENTS.map((name, i) => (
+          <>
+            <span class="client-name">{name}</span>
+            {i < CLIENTS.length - 1 ? ", " : "."}
+          </>
+        ))
+      }
+    </p>
+    <p class="clients-cta">Want to be next?</p>
+  </div>
+</section>

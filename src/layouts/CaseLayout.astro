@@ -1,0 +1,141 @@
+---
+import "@styles/global.css";
+import { SITE } from "@data/site";
+
+interface TocItem {
+  href: string;
+  label: string;
+}
+
+interface Props {
+  title: string;
+  tag: string;
+  heading: string;
+  lead: string;
+  client: string;
+  year: string | number;
+  role: string;
+  tools: string;
+  tocItems: TocItem[];
+}
+
+const { title, tag, heading, lead, client, year, role, tools, tocItems } = Astro.props;
+const currentYear = new Date().getFullYear();
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=Playfair+Display:ital,wght@0,700;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <title>{title} — {SITE.author} UX Writer</title>
+  </head>
+  <body>
+
+    <nav class="case-nav">
+      <a href="/" class="nav-logo">{SITE.author}</a>
+      <div class="nav-links">
+        <a href="/#work">Work</a>
+        <a href="/#contact">Contact</a>
+      </div>
+    </nav>
+
+    <main>
+      <div class="container">
+        <header class="case-hero">
+          <a class="back-link" href="/">All projects</a>
+          <div class="case-tag">{tag}</div>
+          <h1>{heading}</h1>
+          <p class="lead">{lead}</p>
+          <div class="case-meta">
+            <div class="meta-item">
+              <span class="meta-label">Client</span>
+              <span class="meta-value">{client}</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Year</span>
+              <span class="meta-value">{year}</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">My role</span>
+              <span class="meta-value">{role}</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Tools</span>
+              <span class="meta-value">{tools}</span>
+            </div>
+          </div>
+        </header>
+      </div>
+
+      <div class="case-layout">
+        <aside class="toc-sidebar" aria-label="Table of contents">
+          <nav class="toc-nav" id="toc-nav">
+            {
+              tocItems.map((item, i) => (
+                <a href={item.href} class="toc-item">
+                  <span class="toc-num">[ {String(i + 1).padStart(2, "0")} ]</span>
+                  <span class="toc-label">{item.label}</span>
+                </a>
+              ))
+            }
+          </nav>
+        </aside>
+        <div class="case-content">
+          <slot />
+        </div>
+      </div>
+    </main>
+
+    <footer class="case-footer">
+      <div class="case-footer-inner">
+        <a href={`mailto:${SITE.email}`} class="case-footer-email">{SITE.email}</a>
+        <span class="case-footer-center">© {currentYear} {SITE.author} · UX Writer · Poznań, PL</span>
+        <div>
+          <a href={SITE.linkedin} target="_blank" rel="noopener" class="case-footer-linkedin">LinkedIn ↗</a>
+        </div>
+      </div>
+    </footer>
+
+  </body>
+</html>
+
+<script>
+  (function () {
+    const items = document.querySelectorAll<HTMLAnchorElement>(".toc-item");
+    if (!items.length) return;
+
+    const sectionIds = Array.from(items).map((a) =>
+      a.getAttribute("href")!.replace("#", "")
+    );
+
+    function updateActive() {
+      let current = sectionIds[0]!;
+      sectionIds.forEach((id) => {
+        const el = document.getElementById(id);
+        if (el && el.getBoundingClientRect().top < 140) current = id;
+      });
+      items.forEach((a) => {
+        const id = a.getAttribute("href")!.replace("#", "");
+        a.classList.toggle("active", id === current);
+      });
+    }
+
+    items.forEach((a) => {
+      a.addEventListener("click", () => {
+        items.forEach((i) => i.classList.remove("active"));
+        a.classList.add("active");
+      });
+    });
+
+    window.addEventListener("scroll", updateActive, { passive: true });
+    updateActive();
+  })();
+</script>

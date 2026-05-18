@@ -1,0 +1,23 @@
+---
+import { SITE } from "@data/site";
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer>
+  <div class="footer-inner">
+    <hr class="footer-rule" />
+    <div class="footer-main">
+      <div class="footer-left">
+        <span class="footer-name">{SITE.author}</span>
+        <span class="footer-role">{SITE.role}</span>
+      </div>
+      <div class="footer-right">
+        <a href={`mailto:${SITE.email}`} class="footer-email">{SITE.email}</a>
+        <a href={SITE.linkedin} target="_blank" rel="noopener" class="footer-linkedin">LinkedIn ↗</a>
+      </div>
+    </div>
+    <hr class="footer-rule" />
+    <p class="footer-copy">© {currentYear} {SITE.author}</p>
+  </div>
+</footer>

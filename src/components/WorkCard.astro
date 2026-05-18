@@ -1,0 +1,39 @@
+---
+import type { Project } from "@data/projects";
+
+interface Props {
+  project: Project;
+}
+
+const { project } = Astro.props;
+const { href, category, meta, title, description, stats } = project;
+---
+
+<a href={href} class="work-card">
+  <div class="work-card-meta">
+    <span class="work-card-category">{category}</span>
+    <span class="work-card-meta-sep">/</span>
+    <span class="work-card-meta-text">{meta}</span>
+  </div>
+  <div class="work-card-title">{title}</div>
+  <div class="work-card-desc">{description}</div>
+  <div class="work-divider"></div>
+  <div class="work-card-stats">
+    {
+      stats.map((stat, i) => (
+        <>
+          {i > 0 && <span class="stat-sep">·</span>}
+          {stat.value ? (
+            <span class="stat-val">{stat.value}</span>
+          ) : (
+            <span class="stat-plain">{stat.label}</span>
+          )}
+          {stat.value && stat.label && (
+            <span class="stat-plain">{stat.label}</span>
+          )}
+        </>
+      ))
+    }
+  </div>
+  <div class="work-card-cta">Read more →</div>
+</a>

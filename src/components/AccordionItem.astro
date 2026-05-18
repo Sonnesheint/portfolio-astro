@@ -1,0 +1,65 @@
+---
+import type { MiniCase } from "@data/miniCases";
+
+interface Props {
+  item: MiniCase;
+  index: number;
+}
+
+const { item, index } = Astro.props;
+const num = String(index + 1).padStart(2, "0");
+---
+
+<div class="accordion-item">
+  <button class="accordion-trigger">
+    <span class="accordion-num">{num}</span>
+    <div class="accordion-head">
+      <div class="accordion-head-meta">
+        <span class="accordion-tag">{item.tag}</span>
+        <span class="accordion-meta-text">{item.companyYear}</span>
+      </div>
+      <div class="accordion-title">{item.title}</div>
+    </div>
+    <span class="accordion-icon">+</span>
+  </button>
+  <div class="accordion-body">
+    <div class="accordion-body-inner">
+      <div class="accordion-content">
+        <div class="accordion-desc">
+          {item.desc1 && <p>{item.desc1}</p>}
+          {item.desc2 && <p>{item.desc2}</p>}
+        </div>
+        <div class="accordion-aside">
+          {
+            item.skills.length > 0 && (
+              <>
+                <div class="accordion-aside-label">What I did</div>
+                <div class="aside-tags">
+                  {item.skills.map((s) => (
+                    <span class="aside-tag">{s}</span>
+                  ))}
+                </div>
+              </>
+            )
+          }
+          {
+            item.industry && (
+              <>
+                <div class="accordion-aside-label">Industry</div>
+                <div class="accordion-aside-text">{item.industry}</div>
+              </>
+            )
+          }
+          {
+            item.asideValue && (
+              <>
+                <div class="accordion-aside-label">{item.asideLabel ?? "Context"}</div>
+                <div class="accordion-aside-text">{item.asideValue}</div>
+              </>
+            )
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
