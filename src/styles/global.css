@@ -1,17 +1,17 @@
 @import "tailwindcss";
 
 @theme {
-  /* Colors */
-  --color-bg:           #fdf6ec;
-  --color-bg-alt:       #f5ede0;
-  --color-ink:          #1a0e04;
-  --color-ink-mid:      #4a2e12;
-  --color-ink-soft:     #5c3d1e;
-  --color-ink-muted:    #7a4e28;
-  --color-border:       #c9a882;
-  --color-border-light: #e2d0b8;
-  --color-accent:       #c44e10;
-  --color-accent-dark:  #a33c0a;
+  /* Colors — indigo dark palette */
+  --color-bg:           #080810;
+  --color-bg-alt:       #0f0f1c;
+  --color-ink:          #e8e4ff;
+  --color-ink-mid:      #b0a8d8;
+  --color-ink-soft:     #8880b8;
+  --color-ink-muted:    #6058a0;
+  --color-border:       #2d2852;
+  --color-border-light: #1e1a38;
+  --color-accent:       #6366f1;
+  --color-accent-dark:  #4f46e5;
 
   /* Fonts */
   --font-sans:   "DM Sans", Helvetica, sans-serif;
@@ -20,16 +20,16 @@
 
     /* === TOKENS === */
     :root {
-      --bg:           #fdf6ec;
-      --bg-alt:       #f5ede0;
-      --ink:          #1a0e04;
-      --ink-mid:      #4a2e12;
-      --ink-soft:     #5c3d1e;
-      --ink-muted:    #7a4e28;
-      --border:       #c9a882;
-      --border-light: #e2d0b8;
-      --accent:       #c44e10;
-      --accent-hover: #a33c0a;
+      --bg:           #080810;
+      --bg-alt:       #0f0f1c;
+      --ink:          #e8e4ff;
+      --ink-mid:      #b0a8d8;
+      --ink-soft:     #8880b8;
+      --ink-muted:    #6058a0;
+      --border:       #2d2852;
+      --border-light: #1e1a38;
+      --accent:       #6366f1;
+      --accent-hover: #4f46e5;
       --serif:        'Playfair Display', Georgia, serif;
       --sans:         'DM Sans', Helvetica, sans-serif;
     }
@@ -158,7 +158,7 @@ body {
 
     /* === MORE WORK === */
     #more-work { background: var(--bg-alt); border-bottom: 1px solid rgba(201,168,130,0.3); }
-    .accordion-list { display: flex; flex-direction: column; }
+    .accordion-list { display: flex; flex-direction: column; gap: 4px; }
 
 
 

@@ -6,29 +6,27 @@ interface Props {
   index: number;
 }
 
-const { item, index } = Astro.props;
-const num = String(index + 1).padStart(2, "0");
+const { item } = Astro.props;
 ---
 
-<div class="accordion-item border-b border-border-light first:border-t">
-  <button class="accordion-trigger group grid w-full cursor-pointer items-center border-none bg-transparent text-left font-sans text-ink [grid-template-columns:40px_1fr_auto] gap-x-4 py-5 md:[grid-template-columns:56px_1fr_auto] md:gap-x-8 md:py-7">
-    <span class="font-serif italic text-[13px] text-ink-muted">{num}</span>
+<div class="accordion-item">
+  <button class="accordion-trigger group flex w-full cursor-pointer items-center justify-between border-none bg-transparent py-5 text-left font-sans text-ink">
     <div>
-      <div class="mb-1.5 flex items-center gap-2.5">
+      <div class="mb-1 flex items-center gap-2">
         <span class="font-sans text-[10px] font-semibold uppercase tracking-[0.14em] text-[#8c3208]">{item.tag}</span>
         <span class="text-[10px] text-border">/</span>
         <span class="font-sans text-[10px] font-normal uppercase tracking-[0.12em] text-ink-muted">{item.companyYear}</span>
       </div>
-      <div class="font-sans text-[18px] font-medium leading-[1.35] text-ink transition-colors duration-150 group-hover:text-ink-soft md:text-[17px]">
+      <div class="font-sans text-[17px] font-medium leading-[1.35] text-ink transition-colors duration-150 group-hover:text-ink-soft">
         {item.title}
       </div>
     </div>
-    <span class="accordion-icon shrink-0 text-[22px] font-light leading-none text-ink-muted transition-transform duration-[250ms] ease-in-out">+</span>
+    <span class="accordion-icon ml-4 shrink-0 text-[20px] font-light leading-none text-ink-muted transition-transform duration-[250ms] ease-in-out">+</span>
   </button>
 
-  <div class="accordion-body grid pl-14 [grid-template-rows:0fr] transition-[grid-template-rows] duration-300 ease-in-out md:pl-22">
+  <div class="accordion-body grid [grid-template-rows:0fr] transition-[grid-template-rows] duration-300 ease-in-out">
     <div class="overflow-hidden">
-      <div class="grid grid-cols-1 gap-6 pb-9 md:[grid-template-columns:1fr_260px] md:gap-12">
+      <div class="grid grid-cols-1 gap-6 pb-8 md:[grid-template-columns:1fr_260px] md:gap-12">
 
         <div class="space-y-4 text-[15px] leading-[1.8] text-ink-soft">
           {item.desc1 && <p>{item.desc1}</p>}
