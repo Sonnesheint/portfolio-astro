@@ -2,9 +2,16 @@
 import { SITE } from "@data/site";
 ---
 
-<nav>
-  <a href="/" class="nav-logo">{SITE.author}</a>
-  <div class="nav-links">
-    <a href="#contact">Contact</a>
+<nav class="hidden">
+  <a href="/" class="font-serif text-lg font-bold text-ink tracking-[-0.01em]">
+    {SITE.author}
+  </a>
+  <div class="flex items-center gap-9">
+    <a
+      href="#contact"
+      class="relative text-sm font-normal text-ink-soft transition-colors duration-150 hover:text-ink hover:font-semibold after:absolute after:bottom-[-2px] after:left-0 after:h-[1.5px] after:w-0 after:bg-ink after:transition-[width] after:duration-200 hover:after:w-full"
+    >
+      Contact
+    </a>
   </div>
 </nav>

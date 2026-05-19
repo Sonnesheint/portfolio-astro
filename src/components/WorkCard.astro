@@ -9,31 +9,36 @@ const { project } = Astro.props;
 const { href, category, meta, title, description, stats } = project;
 ---
 
-<a href={href} class="work-card">
-  <div class="work-card-meta">
-    <span class="work-card-category">{category}</span>
-    <span class="work-card-meta-sep">/</span>
-    <span class="work-card-meta-text">{meta}</span>
+<a
+  href={href}
+  class="work-card-grid-item group flex flex-col gap-3 rounded-3xl bg-[#ede4d6] px-7 py-8 no-underline transition-colors duration-200 hover:bg-[#ede0ce]"
+>
+  <div class="flex flex-wrap items-center">
+    <span class="font-sans text-[10px] font-semibold uppercase tracking-[0.14em] text-[#8c3208]">{category}</span>
+    <span class="mx-[7px] font-sans text-[10px] text-border">/</span>
+    <span class="font-sans text-[10px] font-normal uppercase tracking-[0.12em] text-ink-muted">{meta}</span>
   </div>
-  <div class="work-card-title">{title}</div>
-  <div class="work-card-desc">{description}</div>
-  <div class="work-divider"></div>
-  <div class="work-card-stats">
+  <div class="font-serif text-[22px] font-black leading-[1.15] tracking-[-0.01em] text-ink">{title}</div>
+  <div class="flex-1 text-sm font-normal leading-[1.7] text-ink-soft">{description}</div>
+  <div class="h-px bg-border-light"></div>
+  <div class="flex flex-wrap items-center gap-1">
     {
       stats.map((stat, i) => (
         <>
-          {i > 0 && <span class="stat-sep">·</span>}
+          {i > 0 && <span class="mx-0.5 font-sans text-[11px] text-border">·</span>}
           {stat.value ? (
-            <span class="stat-val">{stat.value}</span>
+            <span class="font-sans text-xs font-medium text-ink-soft">{stat.value}</span>
           ) : (
-            <span class="stat-plain">{stat.label}</span>
+            <span class="font-sans text-xs font-light text-ink-muted">{stat.label}</span>
           )}
           {stat.value && stat.label && (
-            <span class="stat-plain">{stat.label}</span>
+            <span class="font-sans text-xs font-light text-ink-muted">{stat.label}</span>
           )}
         </>
       ))
     }
   </div>
-  <div class="work-card-cta">Read more →</div>
+  <div class="inline-flex items-center gap-1 text-[13px] font-semibold text-accent transition-[gap] duration-150 group-hover:gap-2">
+    Read more →
+  </div>
 </a>

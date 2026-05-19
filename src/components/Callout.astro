@@ -6,4 +6,8 @@ interface Props {
 const { text } = Astro.props;
 ---
 
-<div class="callout"><p>{text}</p></div>
+<div class="my-6 rounded-r-[4px] border-l-[3px] border-accent bg-bg-alt px-6 py-5">
+  <p class="m-0 font-serif text-[17px] italic text-ink-mid">
+    &ldquo;{text}&rdquo;
+  </p>
+</div>

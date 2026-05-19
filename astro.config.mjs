@@ -3,6 +3,8 @@ import { defineConfig } from "astro/config";
 import { fileURLToPath } from "url";
 import path from "path";
 
+import tailwindcss from "@tailwindcss/vite";
+
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
@@ -15,5 +17,7 @@ export default defineConfig({
         "@styles": path.resolve(__dirname, "src/styles"),
       },
     },
+
+    plugins: [tailwindcss()],
   },
 });

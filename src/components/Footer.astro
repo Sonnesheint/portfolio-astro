@@ -4,20 +4,34 @@ import { SITE } from "@data/site";
 const currentYear = new Date().getFullYear();
 ---
 
-<footer>
-  <div class="footer-inner">
-    <hr class="footer-rule" />
-    <div class="footer-main">
-      <div class="footer-left">
-        <span class="footer-name">{SITE.author}</span>
-        <span class="footer-role">{SITE.role}</span>
+<footer class="bg-bg-alt">
+  <div class="mx-auto max-w-[1100px] px-12 pb-8">
+    <hr style="border: none; border-top: 0.5px solid #C5B9AB; margin: 0;" />
+    <div class="flex items-center justify-between py-7">
+      <div class="flex flex-col gap-1">
+        <span class="font-serif text-lg font-bold tracking-[-0.01em] text-[#2C1810]">
+          {SITE.author}
+        </span>
+        <span class="text-[13px] text-[#7A6355]">{SITE.role}</span>
       </div>
-      <div class="footer-right">
-        <a href={`mailto:${SITE.email}`} class="footer-email">{SITE.email}</a>
-        <a href={SITE.linkedin} target="_blank" rel="noopener" class="footer-linkedin">LinkedIn ↗</a>
+      <div class="flex flex-col items-end gap-1.5">
+        <a
+          href={`mailto:${SITE.email}`}
+          class="text-sm font-medium text-ink underline decoration-[#A0442A] underline-offset-[3px] transition-colors duration-150 hover:text-[#A0442A]"
+        >
+          {SITE.email}
+        </a>
+        <a
+          href={SITE.linkedin}
+          target="_blank"
+          rel="noopener"
+          class="text-sm font-medium text-[#7A6355] transition-colors duration-150 hover:text-ink"
+        >
+          LinkedIn ↗
+        </a>
       </div>
     </div>
-    <hr class="footer-rule" />
-    <p class="footer-copy">© {currentYear} {SITE.author}</p>
+    <hr style="border: none; border-top: 0.5px solid #C5B9AB; margin: 0;" />
+    <p class="pt-5 text-xs text-[#9C8C80]">© {currentYear} {SITE.author}</p>
   </div>
 </footer>

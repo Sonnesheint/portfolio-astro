@@ -2,19 +2,19 @@
 import { CLIENTS } from "@data/clients";
 ---
 
-<section id="clients">
+<section id="clients" class="border-b border-b-border/30 bg-bg">
   <div class="section-inner">
     <p class="eyebrow">Companies I've worked with</p>
-    <p class="clients-list">
+    <p class="text-base font-medium leading-[1.8] text-ink">
       {
         CLIENTS.map((name, i) => (
           <>
-            <span class="client-name">{name}</span>
+            <span class="whitespace-nowrap">{name}</span>
             {i < CLIENTS.length - 1 ? ", " : "."}
           </>
         ))
       }
     </p>
-    <p class="clients-cta">Want to be next?</p>
+    <p class="mt-6 text-base font-medium text-ink-muted">Want to be next?</p>
   </div>
 </section>
