@@ -32,6 +32,9 @@ const { item } = Astro.props;
           {item.desc1 && <p>{item.desc1}</p>}
           {item.desc2 && <p>{item.desc2}</p>}
           {item.desc3 && <p>{item.desc3}</p>}
+          {item.caseLink && (
+            <p class="text-[13px]">Wanna read the full story? <a href={item.caseLink} class="font-medium text-[#8c3208] hover:underline">Dive in →</a></p>
+          )}
         </div>
 
         <div>

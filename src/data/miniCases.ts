@@ -9,6 +9,7 @@ export interface MiniCase {
   industry: string;
   asideLabel?: string;
   asideValue?: string;
+  caseLink?: string;
 }
 
 export const MINI_CASES: MiniCase[] = [
@@ -47,6 +48,19 @@ export const MINI_CASES: MiniCase[] = [
     industry: "Leisure / Entertainment",
     asideLabel: "Context",
     asideValue: "Website · ticketing system · 3 languages (PL, EN, UA)",
+  },
+  {
+    tag: "FMCG",
+    companyYear: "NDA · 2025",
+    title: "I used AI to build a plugin that saved 67 hours of manual work.",
+    desc1: "A compliance request landed on my desk: replace one word across an entire e-commerce app — hundreds of screens, 9 massive Figma files. Estimated manually: 67 hours. I built a custom Figma plugin instead and finished in 3.",
+    desc2: "The game changer was intelligent grouping — the same word appearing 100 times became one input field. One decision, applied everywhere. The plugin also exported a full DOCX audit trail with direct links to every changed frame in Figma — exactly what legal and compliance needed.",
+    desc3: "Delivered ahead of time. Total plugin development: 2 hours with AI assistance.",
+    skills: ["Figma plugin development", "Content ops", "AI-assisted tooling", "Compliance documentation"],
+    industry: "FMCG / E-commerce",
+    asideLabel: "Context",
+    asideValue: "9 Figma files · mass content change · full audit trail · NDA client",
+    caseLink: "/case-study-fmcg-plugin",
   },
   {
     tag: "E-commerce",

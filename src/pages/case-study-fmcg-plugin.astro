@@ -1,0 +1,122 @@
+---
+import CaseLayout from "@layouts/CaseLayout.astro";
+import ResultsGrid from "@components/ResultsGrid.astro";
+import Callout from "@components/Callout.astro";
+
+const toc = [
+  { href: "#task", label: "The task" },
+  { href: "#problem", label: "Why it was harder than it looked" },
+  { href: "#decision", label: "The decision" },
+  { href: "#plugin", label: "Building the plugin" },
+  { href: "#iterations", label: "Iterations" },
+  { href: "#output", label: "Output & reporting" },
+  { href: "#results", label: "Results" },
+  { href: "#applications", label: "Broader applications" },
+  { href: "#learned", label: "What I learned" },
+];
+---
+
+<CaseLayout
+  title="I used AI to build a plugin that saved 67 hours of manual work."
+  tag="FMCG / Content Ops"
+  heading="I used AI to build a plugin that saved 67 hours of manual work."
+  lead="One word changed across 9 Figma files, hundreds of screens — with a full audit trail for legal and compliance."
+  client="NDA — FMCG sector"
+  year={2024}
+  role="Senior UX Writer"
+  tools="Figma Plugin API · JavaScript · Python · python-docx · Claude"
+  tocItems={toc}
+>
+
+  <section class="case-section" id="task">
+    <h2>The task</h2>
+    <p>One day I received an unexpected message. A leading FMCG client needed a single word changed across their entire app: every instance of <em>promocja</em> (promotion) had to become <em>oferta</em> (offer). Legal and compliance had flagged a risk. The change was urgent.</p>
+    <p>The scope: hundreds of screens, dozens of flows, 9 massive Figma files — each with multiple pages inside. And the client didn't just want the change made. They wanted a full DOCX report listing every single instance that had been updated, with a reference to its location.</p>
+    <p>I won't pretend I wasn't frustrated at first. Mass find-and-replace feels like work you hand to a junior, not a senior. But I sat with it — and that's when the interesting part started.</p>
+    <Callout text="The client didn't just want the word changed. They wanted proof of every change made — a documented audit trail." />
+  </section>
+
+  <section class="case-section" id="problem">
+    <h2>Why it was harder than it looked</h2>
+    <p>Figma's built-in find and replace seemed like the obvious answer. It wasn't going to work — for two reasons that had nothing to do with technology.</p>
+    <div class="decisions">
+      <div class="decision"><strong>Polish grammar doesn't cooperate.</strong> The word <em>promocja</em> appears in multiple grammatical forms depending on context: <em>promocja, promocji, promocją, promocję, promocje</em> — and each one may require a different replacement. Swapping every instance blindly would produce broken Polish in many places. Each change needed a human eye on the surrounding sentence.</div>
+      <div class="decision"><strong>There was no change log.</strong> The client required an audit trail — a documented record of every change, where it appeared, and what it was changed to. Figma's native replace function leaves no trace. There was no registry, no export, no way to prove what had been done.</div>
+    </div>
+    <p>This wasn't a find-and-replace problem. It was a content audit problem with a compliance requirement attached.</p>
+  </section>
+
+  <section class="case-section" id="decision">
+    <h2>The decision</h2>
+    <p>Once I cooled down, I started thinking differently. There had to be a better way than opening each file manually and hunting through screens one by one. That path led to weeks of work, human error, and a report nobody could trust.</p>
+    <p>I had built Figma plugins before — including a complex UX Writing Assistance plugin and several smaller tools. I knew what the Figma Plugin API could do. And somewhere in that research, it clicked: I could build a plugin that solved exactly this problem.</p>
+    <Callout text="The question wasn't 'how do I do this faster?' It was 'what kind of tool would make this task fundamentally different?'" />
+  </section>
+
+  <section class="case-section" id="plugin">
+    <h2>Building the plugin</h2>
+    <p>I wrote down the requirements for what the plugin needed to do. The MVP was essentially a smarter version of Figma's native search — but with one capability that native Figma doesn't have at all: searching across multiple Figma files simultaneously.</p>
+    <p>That was the game changer. Instead of opening nine files one by one, I could run a single search across all of them. Every result — with its file name, page, frame, and surrounding context — appeared in one view.</p>
+    <p>The plugin was built with AI assistance — around 20 iterations over roughly 2 hours. I specified the requirements, iterated on the logic, and tested each build. The tool itself contains no AI — it's pure Figma Plugin API and JavaScript. But AI made building it faster and within reach.</p>
+    {/* TODO: add plugin screenshot here */}
+    <div class="deliverables">
+      <div class="deliverable">Multi-file search across Figma projects</div>
+      <div class="deliverable">Context preview for each result</div>
+      <div class="deliverable">Full control over which instances to change</div>
+      <div class="deliverable">DOCX export with a complete change log</div>
+      <div class="deliverable">Direct links to each frame in Figma</div>
+    </div>
+  </section>
+
+  <section class="case-section" id="iterations">
+    <h2>Iterations</h2>
+    <p>The MVP did the job. But during the work, I identified one more feature that made the whole experience significantly faster: grouping similar results.</p>
+    <p>Instead of reviewing each instance individually, the plugin grouped occurrences by their grammatical form or surrounding pattern. Promocja appearing 100 times across the file became a single input field — one decision, applied everywhere. This meant I could work at the category level rather than evaluating every single string in isolation.</p>
+    <p>For a language like Polish, where one concept can appear in five or six grammatical forms across a document, this wasn't a nice-to-have. It was essential for quality control.</p>
+    {/* TODO: add plugin screenshot here */}
+  </section>
+
+  <section class="case-section" id="output">
+    <h2>Output and reporting</h2>
+    <p>When the work was done, the plugin exported a DOCX file listing every change: the original text, the replacement, the file, the page, and a direct link to the exact frame in Figma. The client could open any entry and land on the precise location in under two clicks.</p>
+    <p>Because there were nine separate Figma files, the plugin produced nine separate reports. I wrote a short Python script to merge them into a single, clean document — one file, consistently formatted, ready to hand over.</p>
+    <p>The client received a change log they could share internally with legal and compliance. Every decision was traceable.</p>
+  </section>
+
+  <section class="case-section" id="results">
+    <h2>Results</h2>
+    <ResultsGrid items={[
+      { number: "Weeks → hours", desc: "original time estimate collapsed after the plugin was built and deployed" },
+      { number: "9 files",       desc: "searched and processed simultaneously — something Figma's native tools cannot do" },
+      { number: "Ahead of time", desc: "task delivered before the deadline with full documentation, client satisfied" },
+    ]} />
+    <p>The client received a complete audit trail: every changed instance documented, linked, and formatted into a single report. Legal and compliance had the evidence they needed. The project closed without a single follow-up correction request.</p>
+  </section>
+
+  <section class="case-section" id="applications">
+    <h2>Broader applications</h2>
+    <p>The plugin was built for one urgent task. But the problem it solves isn't unique to that project.</p>
+    <p>Any situation that requires mass content changes across large Figma systems — with context control and a documented audit trail — is a candidate for this tool. That includes rebranding (product name changes, terminology updates), legal and compliance reviews (regulated language, restricted terms), and localisation QA across multi-language file sets.</p>
+    <p>The key insight: Polish grammar made the context requirement obvious in this project. But context control matters in any language, for any mass change where the surrounding sentence determines the right replacement. Find and replace doesn't know that. This plugin does.</p>
+    <Callout text="The tool contains no AI. It doesn't need to. It gives a human the right context to make the right call — at scale." />
+  </section>
+
+  <section class="case-section" id="learned">
+    <h2>What I learned</h2>
+    <div class="lessons-list">
+      <div class="lesson-item">
+        <span class="lesson-num">01</span>
+        <p>The first reaction to a task tells you nothing about whether the task is worth doing. I was annoyed. Then I built something I'm genuinely proud of. The frustration was a signal that the problem was interesting — not that it wasn't worth my time.</p>
+      </div>
+      <div class="lesson-item">
+        <span class="lesson-num">02</span>
+        <p>Seniority isn't about which tasks you accept — it's about how you approach them. A junior executes. A senior looks at the task, looks at the system around the task, and asks whether there's a better way to solve the whole problem.</p>
+      </div>
+      <div class="lesson-item">
+        <span class="lesson-num">03</span>
+        <p>Tools you build for one job often solve a broader class of problems. This plugin now exists. The next time a rebranding or compliance review lands on my desk, the estimation conversation starts from a very different place.</p>
+      </div>
+    </div>
+  </section>
+
+</CaseLayout>

@@ -4,61 +4,178 @@ import ResultsGrid from "@components/ResultsGrid.astro";
 import Callout from "@components/Callout.astro";
 
 const toc = [
-  { href: "#context", label: "Context" },
-  { href: "#process", label: "Process" },
-  { href: "#solution", label: "Solution" },
-  { href: "#results", label: "Results" },
-  { href: "#learned", label: "What I learned" },
+  { href: "#context",    label: "Why a custom site at all" },
+  { href: "#process",    label: "One human. Two AI tools. Zero Figma." },
+  { href: "#iterations", label: "Iterations" },
+  { href: "#content",    label: "The cobbler's children have no shoes" },
+  { href: "#upgrade",    label: "The invisible upgrade" },
+  { href: "#results",    label: "Results" },
+  { href: "#learned",    label: "What I learned" },
 ];
 ---
 
 <CaseLayout
-  title="How I built this website (Deep dive)"
+  title="Can you build a portfolio website in 5 minutes?"
   tag="Personal project"
-  heading="How I built this website (Deep dive)"
-  lead="I decided to publish this case to help people with setting up their first professional portfolio. Everything is documented from top to bottom."
+  heading="Can you build a portfolio website in 5 minutes?"
+  lead="One UX Writer. Two AI tools. Zero Figma. A full production stack — and a 10-year procrastination problem finally solved."
   client="Personal project"
-  year={2025}
+  year={2026}
   role="Designer, developer, writer"
-  tools="HTML, CSS, JS, Git, Netlify, Cloudflare"
+  tools="Claude Design, Claude Code, Astro, Tailwind, Git, Netlify, Cloudflare"
   tocItems={toc}
 >
 
   <section class="case-section" id="context">
-    <h2>Context</h2>
-    <p>[TODO: Opisz dlaczego zdecydowałeś się na budowę portfolio od zera zamiast użycia gotowego szablonu lub kreatora. Co cię motywowało — kontrola nad treścią, możliwość pokazania umiejętności technicznych, coś innego?]</p>
-    <p>[TODO: Opisz wyzwanie. Co było najtrudniejsze na starcie?]</p>
-    <Callout text="[TODO: Jedno zdanie — cytat lub wniosek, który oddaje sedno całego projektu.]" />
+    <h2>Why a custom site at all</h2>
+
+    <p>I have about 10 years of experience in content work — banking, fintech, and now content design and UX writing for enterprise software. I hold a Plain Language Certificate. I've built content documentation systems from scratch.</p>
+
+    <p>At some point I decided that if I'm going to position myself properly on the market, I need a portfolio that I own completely. Not a Notion page. Not Readymag. Not a template someone else designed.</p>
+
+    <p>My own domain. My own code. My own rules.</p>
+
+    <p>The first question was hosting. I spent some time evaluating options — a private server (Mikrus), GitHub Pages, Netlify. I landed on Netlify: free plan, deploy straight from Git, custom domain, HTTPS out of the box. The hosting had to be invisible. The site was supposed to be a business card, not a tutorial on how I built a business card.</p>
   </section>
 
   <section class="case-section" id="process">
-    <h2>Process</h2>
-    <h3>Discovery</h3>
-    <p>[TODO: Jak zaczęłeś? Research, inspiracje, wireframes, decyzje o stosie technologicznym.]</p>
-    <h3>Defining the structure</h3>
-    <p>[TODO: Jak definiowałeś strukturę i zawartość? Jakie decyzje architektoniczne podjąłeś?]</p>
-    <h3>Iterations</h3>
-    <p>[TODO: Ile iteracji przeszedł projekt? Co zmieniałeś po drodze?]</p>
+    <h2>One human. Two AI tools. Zero Figma.</h2>
+
+    <p>Here's something that will sound strange coming from someone in the design-adjacent world: I never opened Figma. Not once.</p>
+
+    <p>I used Claude as my design partner instead — specifically Claude Design for wireframing and Claude Code for building. Each tool for what it was actually made for.</p>
+
+    <p>Wireframing in Claude Design was fast and ruthlessly content-focused. I prompted for clean HTML with no styles — just semantic structure. No colours, no typography, no spacing. Just: what goes where, and why. It turned out that wireframing in raw HTML is faster than Figma if you care about content hierarchy rather than pixel perfection. And when you're the designer and the developer and the copywriter all at once, there's no handoff to design for. The wireframe was an artefact for my own decision-making, nothing more.</p>
+
+    {/* [SCREENSHOT: wireframe HTML vs. finalny widok strony — before/after] */}
+
+    <p>Once I had a structure I believed in, I moved to Claude Code for the actual build. This is where the real work began.</p>
+
+    <p>Claude Code runs directly in VS Code — which meant my entire workflow lived in one place. I'd describe a problem in the terminal, get code back, see it update in the browser preview, commit to Git, and watch Netlify deploy automatically within seconds. The loop was tight enough that it felt like pair programming rather than prompting.</p>
+
+    <p>I came into this project thinking Git was a developer tool. I left understanding it's a safety net for anyone who makes decisions. Every meaningful change was a commit. At one point a single commit saved the project — I'd broken something I couldn't easily reconstruct, and <code>git checkout</code> brought it back in ten seconds. The Git log also became an honest timeline of the whole project: you can see exactly when decisions were made, reversed, or replaced with better ones.</p>
+
+    <p>From GitHub, every push triggered an automatic deploy to Netlify. I'd hit save, wait fifteen seconds, and the live site was updated. No FTP. No manual upload. No "did it actually go through?"</p>
+
+    <p>The domain — <code>piotrdudzinski.com</code> — runs through Cloudflare. This sits between the domain and Netlify and handles caching, SSL, and a layer of performance optimisation I didn't have to configure manually. It also meant I had analytics without adding any tracking scripts to the site itself.</p>
+
+    <Callout text="Netlify's free plan comes with a build credits limit. Every push to GitHub triggers a deploy, and every deploy costs 6 credits. Committing locally is free — it's the push that kicks off the build. You don't need to push just to preview your changes. Install the Live Server extension in VS Code and you get an instant local preview that updates as you save — no push, no deploy, no credits spent. It's faster than waiting for Netlify to build, and completely free. Push to production when something is genuinely ready, not every time you tweak a margin." />
+
+    <p>I described problems in plain language, not in CSS or JavaScript. "The footer doesn't feel grounded." "The hero text is too heavy on mobile." "The sidebar disappears behind the content on narrow screens." Claude translated these into code. I reviewed, pushed back, iterated.</p>
+
+    <p>It was slow. It was occasionally frustrating. But it was the only approach I knew. And it worked.</p>
   </section>
 
-  <section class="case-section" id="solution">
-    <h2>Solution</h2>
-    <p>[TODO: Opisz gotowe portfolio. Co zostało zbudowane, jak działa, co wyróżnia je od szablonowych rozwiązań.]</p>
+  <section class="case-section" id="iterations">
+    <h2>The floating TOC problem</h2>
+
+    <p>There's a moment in every AI-assisted project where you hit a wall, and the wall teaches you something important.</p>
+
+    <p>For me it was the floating table of contents sidebar on case study pages. Six iterations. Six times Claude gave me a solution that looked right in isolation and broke something else. Sixth time, I stopped and looked at the problem myself.</p>
+
+    <p>One CSS variable. <code>--bg-alt: #f5ede000</code>. That was it.</p>
+
+    <p>Did I fix it properly? Looking at the code — absolutely not. Looking the way a user looks — oh yes I did.</p>
+
+    <p>The lesson wasn't that AI failed. The lesson was that humans have a tendency to come up with creative, non-schematic solutions that AI simply won't reach. We combine things sideways. We think around corners. We paint an element the same colour as the background just to make it disappear — and somehow that works.</p>
+
+    <p>That's exactly what this was. Not a fix. A workaround that looked like a fix to everyone who mattered.</p>
+
+    {/* [SCREENSHOT: floating TOC w akcji na desktopie] */}
+  </section>
+
+  <section class="case-section" id="content">
+    <h2>The cobbler's children have no shoes</h2>
+
+    <p><em>It turned out, writing is hard.</em></p>
+
+    <p>I'm a UX Writer. I help teams find the right words for their products. I simplify complex language, I write microcopy, I build content guidelines. And when I sat down to write my own hero section, I froze.</p>
+
+    <p>Every sentence was suspicious. Too confident. Too vague. Too much like every other UX Writer's homepage. Not enough like me.</p>
+
+    <p>Perfectionism and imposter syndrome arrived at exactly the same time and sat down on either side of me.</p>
+
+    <p>The trap, I think, is specific to people who know what good writing looks like. The better your eye, the harder it is to accept your own draft as good enough. You can see exactly what's wrong with it. What you can't see is that "wrong enough to fix later" and "right enough to publish" are often the same draft.</p>
+
+    <p>At some point I made a decision: let it go. Imperfect content on production is infinitely better than a perfect version that doesn't exist.</p>
+
+    <p>I published. The hero wasn't perfect. It was good enough. And it was live.</p>
+
+    {/* [SCREENSHOT: hero section — wersja 1 vs. finał] */}
+  </section>
+
+  <section class="case-section" id="upgrade">
+    <h2>The invisible upgrade</h2>
+
+    <p>The site was live. It loaded. The case studies were readable. The domain resolved. By any reasonable definition, the project was done.</p>
+
+    <p>Then I found Mikołaj Dobrucki's free course, <em>Design with Code</em>. I can't thank you enough, Mikołaj. Huge applause to this guy.</p>
+
+    <p>I went in curious. I came out uncomfortable — in the best way. Because I now had vocabulary for something I'd felt but couldn't name: my site worked, but it wasn't well-built. The difference matters, and a UX Writer should understand it better than anyone. Words can work and still be the wrong words. Code can work and still be the wrong code.</p>
+
+    <p>I made a decision that's hard to justify rationally: I rewrote a functioning website from scratch.</p>
+
+    <p>The migration had two parts: the HTML architecture (to Astro) and the CSS (to Tailwind). Together, they took the site from "it works" to "it's properly done."</p>
+
+    <p><strong>Why Astro.</strong> My original structure was a set of separate HTML files that shared almost nothing. Every time I updated navigation, I updated it in four places. Every case study was a copy of another case study with different content. Astro gave me components — update once, change everywhere. It gave me a content layer where case studies are Markdown files with frontmatter, not hand-edited HTML. It gave me a structure that scales.</p>
+
+    <p>The number I keep coming back to: migrating to Astro reduced my codebase by 59%. Not through optimisation. Not through cleanup. Just by using the right tool.</p>
+
+    {/* [SCREENSHOT: git diff --stat z commitu migracji — liczba linii przed i po] */}
+
+    <p><strong>Why Tailwind.</strong> Because Tailwind classes read like a description of appearance. <code>flex gap-4 items-center</code> isn't programmer notation — it's almost plain language. For someone who thinks in words first, this turned out to be a more natural way to style a page than writing CSS properties in a separate file.</p>
+
+    <p>There's another reason Tailwind works particularly well in an AI-assisted workflow: AI loves its syntax. Tailwind classes are explicit, predictable, and self-contained — no cascade, no inheritance, no context needed. This means Claude Code generates Tailwind with far fewer errors than traditional CSS. You describe what you want, you get working code, first try. That alone changed the pace of iteration significantly.</p>
+
+    <p>The migration wasn't smooth. After switching to Tailwind, the site completely broke — all styles gone. The culprit was old CSS resets conflicting with Tailwind's Preflight. Classic migration trap. Diagnosed, fixed, done.</p>
+
+    <p>Final verdict on the whole migration: 100% success. Claude Code gets top marks.</p>
+
+    <p>Visitors to my site today don't see anything different from its previous version. Before the huge code update. The content is the same. The layout is essentially the same. The fonts are the same.</p>
+
+    <p>But the site now loads faster, ranks better in search, has a codebase I can actually maintain, lets me add content once and have it appear everywhere it should, and doesn't require me to touch four files every time I update a single component.</p>
+
+    <p>This is the part of the work that has no portfolio moment. There's no before/after screenshot. There's no visible proof. It's the kind of improvement that matters most and shows least — which, again, a UX Writer should understand intuitively. The best content work often looks like nothing happened.</p>
   </section>
 
   <section class="case-section" id="results">
     <h2>Results</h2>
+
     <ResultsGrid items={[
-      { number: "1",    desc: "solo owner — od discovery po maintenance" },
-      { number: "0",    desc: "szablonów, kreatorów ani frameworków" },
-      { number: "100%", desc: "decyzji projektowych udokumentowanych" },
+      { number: "59%",  desc: "reduction in codebase size after migrating to Astro — no optimisation, just the right tool" },
+      { number: "1",    desc: "solo owner — from discovery to maintenance" },
+      { number: "0",    desc: "templates, builders, or frameworks used in v1" },
     ]} />
-    <p>[TODO: Co osiągnąłeś? Czy portfolio przyciągnęło klientów, zapytania, rozmowy rekrutacyjne?]</p>
+
+    <p>No. You cannot build a portfolio website in five minutes. Even if you could generate a working page in five minutes, I don't believe it would be functional in any meaningful sense. And even if it were functional, I don't believe it would hold anyone's attention. And even if it held attention, it would still need content. Real content. Because no serious professional publishes a portfolio with made-up copy, and AI can't write your story for you. It can help you shape it. It can't invent it.</p>
+
+    <p>So no. You cannot build a website in five minutes.</p>
+
+    <p>And you certainly can't build one like mine. Integrated with Git. Deployed automatically through Netlify. Running through Cloudflare on a custom domain. Built on Astro with Tailwind. With case studies that actually say something.</p>
   </section>
 
   <section class="case-section" id="learned">
     <h2>What I learned</h2>
-    <p>[TODO: Czego się nauczyłeś? Zarówno technicznie jak i o sobie jako twórcy.]</p>
+
+    <p>Not because I'm looking for a job — though I am.</p>
+
+    <p>But because for nearly ten years I put off building a portfolio. Ten years of "I'll do it properly when I have time." Ten years of watching other people launch their sites while I was still deciding on a stack. Ten years of knowing exactly what good looks like and using that knowledge as an excuse not to start.</p>
+
+    <p>What finally got me through it wasn't a better plan. It wasn't a perfect brief or the right tools or a free weekend. It was deciding that done matters more than perfect — and then sitting with the discomfort of publishing something I wasn't fully happy with.</p>
+
+    <p>Building a portfolio as a UX Writer feels uniquely hard because we know too much. We know what bad copy looks like. We know what an unconvincing hero says about a person. We know that "passionate about creating user-centered experiences" is the content equivalent of a vanilla shake.</p>
+
+    <p>And so we freeze.</p>
+
+    <p>I froze for ten years. And I'll be honest about what finally moved me: the launch of Claude Design. I'm not sure I would have started at all without the rise of AI tools that made the technical side feel approachable for the first time. That's not a disclaimer — it's part of the story.</p>
+
+    <p>Then I built the thing.</p>
+
+    <p>Then I rebuilt it better.</p>
+
+    <p>And maybe one person reads this and decides that today is the day they finally start.</p>
+
+    <p>That would be enough.</p>
   </section>
 
 </CaseLayout>

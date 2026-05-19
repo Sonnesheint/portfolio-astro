@@ -34,6 +34,19 @@ export const PROJECTS: Project[] = [
     ],
   },
   {
+    href: "/case-study-fmcg-plugin",
+    category: "FMCG / Content Ops",
+    meta: "NDA · 2024",
+    title: "I used AI to build a plugin that saved 67 hours of manual work.",
+    description:
+      "Legal flagged a word used across 9 Figma files. I built a plugin to find, review, replace, and document every instance — with a full audit trail for compliance.",
+    stats: [
+      { value: "Weeks → hours" },
+      { label: "9 files processed" },
+      { label: "Full audit trail" },
+    ],
+  },
+  {
     href: "/case-study-constellr",
     category: "Deep Tech",
     meta: "Constellr · 2024",
@@ -48,15 +61,15 @@ export const PROJECTS: Project[] = [
   },
   {
     href: "/case-study-portfolio",
-    category: "Deep Tech",
-    meta: "Personal project · 2025",
-    title: "I built the house I live in",
+    category: "Personal project",
+    meta: "Personal project · 2026",
+    title: "Can you build a portfolio website in 5 minutes?",
     description:
-      "A UX writer who builds his own portfolio from scratch — no templates, no no-code tools. Just HTML, CSS, JavaScript, Git, Netlify, and Cloudflare.",
+      "One UX Writer. Two AI tools. Zero Figma. A full production stack — and a 10-year procrastination problem finally solved.",
     stats: [
-      { value: "1 solo owner" },
-      { label: "0 templates" },
-      { label: "100% decisions documented" },
+      { value: "59%" },
+      { label: "codebase reduction after Astro migration" },
+      { label: "0 templates used" },
     ],
   },
 ];
