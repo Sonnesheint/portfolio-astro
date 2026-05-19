@@ -4,6 +4,7 @@ export interface MiniCase {
   title: string;
   desc1: string;
   desc2?: string;
+  desc3?: string;
   skills: string[];
   industry: string;
   asideLabel?: string;
@@ -13,36 +14,39 @@ export interface MiniCase {
 export const MINI_CASES: MiniCase[] = [
   {
     tag: "Fintech",
-    companyYear: "Santander Bank Polska · 2014–2024",
-    title: "10 years. 3M users. One plain language certificate.",
-    desc1: "A decade of UX writing for a mobile banking app — from copywriter to content lead. Building editorial standards, a translation framework for five languages, and earning a Plain Language Certificate while navigating legal and compliance at every step.",
-    desc2: "Led content for a mobile banking app with 3M active users. Managed 3,000+ translation keys across 5 languages (PL, EN, UA, RU, ES).",
-    skills: ["UX writing", "Plain language", "Localization", "Content systems", "Tone of voice"],
+    companyYear: "Santander Bank Polska · 2024",
+    title: "Plain language certificate for Poland's second-largest bank.",
+    desc1: "I pushed for this certification, ran the process from start to finish, and collected the certificate on behalf of the bank. That meant coordinating the teams gathering app strings, working directly with the certifying institution, and building a statistically valid 400-item sample from 6,000+ texts across the app.",
+    desc2: "The certificate was issued by the Plain Polish Lab at the University of Wrocław — a team of linguists and communication researchers whose scoring system assesses 10 language features simultaneously, making it the most comprehensive plain language evaluation tool of its kind. Santander Bank Polska is now one of the few Polish banks with external proof they write clearly for their customers.",
+    desc3: "This matters beyond language. Research consistently shows a direct link between plain language and NPS — clearer writing means users trust the product more, get stuck less, and recommend it more often.",
+    skills: ["Plain language", "Content audit", "Cross-team coordination", "Total ownership"],
     industry: "Digital banking",
     asideLabel: "Context",
-    asideValue: "Mobile banking app · 3M active users · 5 languages",
+    asideValue: "Santander mobile app · 3M active users · external certification",
   },
   {
     tag: "Retail",
-    companyYear: "Hebe · 2023",
-    title: "Poland's second-largest cosmetics retailer, end-to-end.",
-    desc1: "End-to-end UX writing for a retail digital product — app and web flows, onboarding, checkout, and tone of voice alignment across touchpoints.",
-    desc2: "The challenge: the digital experience had grown organically, and the copy reflected that — inconsistent tone, unclear flows, checkout friction that users felt but couldn't name.",
-    skills: ["Tone of voice", "App copy", "Checkout flows", "Push notifications", "Loyalty copy"],
-    industry: "Retail / Beauty E-commerce",
+    companyYear: "Hebe · 2025",
+    title: "Driven by intuition.",
+    desc1: "Sometimes the brief simply isn't enough. Do you like it when someone you're paying does exactly what you asked — and nothing more? Neither does your client. And you're the expert. They hired you because they don't know what they don't know.",
+    desc2: "A major Polish cosmetics retailer brought me in to review post-purchase surveys — online and in-store. I delivered what was asked. Then I kept going. The copy had inconsistencies the client hadn't noticed. I drafted a tone of voice framework on the spot and rewrote the survey's validation messages from scratch. Both landed. This client appreciated the thinking behind it — not just the output. Not all of them will. But when they do, they really do.",
+    desc3: "The lesson: if you're the expert in the room, act like one. Question the brief. Take initiative.",
+    skills: ["UX writing", "Survey copy", "Tone of voice", "Content audit"],
+    industry: "Retail / Beauty",
     asideLabel: "Context",
-    asideValue: "Mobile app + web platform redesign",
+    asideValue: "Post-purchase surveys · online and in-store",
   },
   {
     tag: "Leisure",
-    companyYear: "Park of Poland · 2023",
-    title: "Europe's biggest tropical water park. Every sign, flow, and ticket.",
-    desc1: "Content design for one of Poland's largest entertainment destinations — ticketing flows, wayfinding microcopy, and visitor communication across the full digital journey.",
-    desc2: "The copy had to work for a wide audience: families with small children, international visitors, group bookings, and season-pass holders. Clarity was the priority.",
-    skills: ["Ticketing flows", "Wayfinding copy", "App microcopy", "Visitor comms"],
-    industry: "Leisure / Hospitality",
-    asideLabel: "Audience",
-    asideValue: "Families, international visitors, groups",
+    companyYear: "Park of Poland · 2025",
+    title: "Maintaining content infrastructure for Europe's biggest tropical water park.",
+    desc1: "Some projects are about making sure nothing breaks. I had one job: make sure every visitor always knew where to go and what to do.",
+    desc2: "I managed the full content design infrastructure for Park of Poland across three languages: Polish, English, and Ukrainian. That meant owning promotions, special offers, ticketing flows, and microcopy across the website and booking system.",
+    desc3: "Real UX writing support means someone takes ownership. Keeps standards high and makes sure nothing quietly goes wrong.",
+    skills: ["Content design", "Microcopy", "Copywriting", "TMS", "Content system maintenance"],
+    industry: "Leisure / Entertainment",
+    asideLabel: "Context",
+    asideValue: "Website · ticketing system · 3 languages (PL, EN, UA)",
   },
   {
     tag: "E-commerce",

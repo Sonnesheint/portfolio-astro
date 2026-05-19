@@ -308,6 +308,8 @@ body {
 
 .img-placeholder { background: var(--bg-alt); border: 1px dashed var(--border); border-radius: 4px; height: 200px; display: flex; align-items: center; justify-content: center; color: var(--ink-muted); font-size: 13px; margin: 24px 0; }
 
+.case-img { width: 100%; border-radius: 8px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); margin: 24px 0; display: block; }
+
 .result-number { font-family: var(--sans); font-size: 36px; font-weight: 600; color: var(--accent); line-height: 1; }
 .result-desc { font-size: 13px; color: var(--ink-soft); margin-top: 8px; line-height: 1.5; }
 
