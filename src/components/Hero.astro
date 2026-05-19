@@ -2,42 +2,60 @@
 import { SITE } from "@data/site";
 ---
 
-<section id="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-overlay"></div>
-  <div class="hero-inner">
-    <div class="hero-left">
-      <p class="hero-eyebrow">
+<section id="hero" class="relative overflow-hidden [border-bottom:1px_solid_rgba(201,168,130,0.3)]">
+
+  <div class="absolute inset-0 z-0 bg-cover bg-center" style="background-image: url('/images/bass-guitar.jpg')"></div>
+  <div class="absolute inset-0 z-[1] bg-[rgba(253,246,236,0.92)]"></div>
+
+  <div class="relative z-[15] mx-auto grid max-w-[1100px] grid-cols-1 items-center gap-10 px-6 pt-5 pb-6 md:grid-cols-2 md:gap-20 md:px-12 md:pt-[100px] md:pb-[88px]">
+
+    <div>
+      <p class="mb-7 hidden font-sans text-[11px] font-semibold uppercase tracking-[0.12em] text-ink-muted md:block">
         <span>UX WRITER</span> ·
         <span>CONTENT DESIGNER</span>
       </p>
-      <h1 class="hero-tagline">
+      <h1 class="font-serif text-center text-[36px] font-bold leading-none tracking-[-0.02em] text-ink md:text-left md:text-[56px]">
         Good UX writing<br />
-        is like <em>bass guitar</em>
+        is like <em class="mt-2 inline-block bg-accent px-2 pb-[6px] text-white">bass guitar</em>
       </h1>
-      <div class="hero-sub">
+      <div class="mx-auto max-w-[90%] pb-2 text-center text-[15px] leading-[1.6] text-ink-mid md:mx-0 md:max-w-none md:text-left md:text-[17px] md:leading-[1.8]">
         <br />
-        <p>Most people don't notice it.</p>
-        <p>Unless something goes wrong.</p>
-        <p>Then you know.</p>
-        <p>It was holding everything together.</p>
-        <p>I'm Piotr. I make sure nothing goes wrong.</p>
+        <p class="mb-[2px]">Most people don't notice it.</p>
+        <p class="mb-[2px]">Unless something goes wrong.</p>
+        <p class="mb-[2px]">Then you know.</p>
+        <p class="mb-[2px]">It was holding everything together.</p>
+        <p class="mt-5 hidden font-medium text-ink md:block">I'm Piotr. I make sure nothing goes wrong.</p>
       </div>
-      <div class="hero-cta">
-        <a href="#work" class="btn-primary">View projects →</a>
-        <a href="#contact" class="btn-secondary">Get in touch</a>
-      </div>
-    </div>
-    <div class="hero-right">
-      <div class="hero-photo-wrap">
-        <div class="hero-photo-accent"></div>
-        <img
-          class="hero-photo"
-          src="/images/piotr.jpg"
-          alt={`${SITE.author} — Senior UX Writer`}
-        />
+      <div class="mt-2 mb-3 flex flex-col items-center gap-4 md:mt-8 md:mb-0 md:flex-row">
+        <a href="#work" class="w-full rounded-lg bg-accent px-6 py-4 text-center font-sans text-[15px] font-semibold text-white no-underline md:w-auto md:py-3.5">
+          View projects →
+        </a>
+        <a href="#contact" class="w-full rounded-lg border border-ink-muted px-6 py-4 text-center font-sans text-[15px] font-semibold text-ink no-underline md:w-auto md:py-3.5">
+          Get in touch
+        </a>
       </div>
     </div>
+
+    <div class="order-first flex justify-center md:order-none">
+      <div class="relative mb-3 mr-3 h-[240px] w-[200px] shrink-0 md:h-[380px] md:w-[320px]">
+        <div class="absolute -bottom-2 -right-2 z-0 h-full w-full rounded-[4px] border-2 border-accent md:-bottom-3 md:-right-3"></div>
+        <div class="relative z-[1] h-full w-full overflow-hidden rounded-[4px]">
+          <img
+            class="h-full w-full object-cover object-top"
+            src="/images/piotr.jpg"
+            width="320"
+            height="380"
+            alt={`${SITE.author} — Senior UX Writer`}
+          />
+        </div>
+      </div>
+    </div>
+
   </div>
-  <div class="hero-transition-overlay"></div>
+
+  <div
+    class="pointer-events-none absolute bottom-0 left-0 z-[5] h-20 w-full backdrop-blur-[4px]"
+    style="background: linear-gradient(to bottom, rgba(253,246,236,0) 0%, rgba(253,246,236,0.4) 30%, rgba(253,246,236,1) 100%);"
+  ></div>
+
 </section>

@@ -160,42 +160,7 @@ body {
     #more-work { background: var(--bg-alt); border-bottom: 1px solid rgba(201,168,130,0.3); }
     .accordion-list { display: flex; flex-direction: column; }
 
-    /* === HERO === */
-    #hero { position: relative; border-bottom: 1px solid rgba(201,168,130,0.3); overflow: hidden; }
-    .hero-bg { position: absolute; inset: 0; background-image: url('/images/bass-guitar.jpg'); background-size: cover; background-position: center; z-index: 0; }
-    .hero-overlay { position: absolute; inset: 0; background: rgba(253,246,236,0.92); z-index: 1; }
-    .hero-inner { max-width: 1100px; margin: 0 auto; padding: 100px 48px 88px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; position: relative; z-index: 15; }
-    .hero-right { display: flex; justify-content: center; }
-    .hero-photo-wrap { position: relative; width: 320px; height: 380px; flex-shrink: 0; overflow: visible; margin-bottom: 12px; margin-right: 12px; }
-    .hero-photo-accent { position: absolute; bottom: -12px; right: -12px; width: 320px; height: 380px; border: 2px solid var(--accent); border-radius: 4px; z-index: 0; }
-    .hero-photo { position: absolute; top: 0; left: 0; z-index: 1; width: 100%; height: 100%; object-fit: cover; object-position: center top; border-radius: 4px; display: block; }
-    .hero-eyebrow { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 28px; }
-    .hero-tagline { font-family: var(--serif); font-size: 56px; font-weight: 700; line-height: 1; letter-spacing: -0.02em; color: var(--ink); }
-    .hero-tagline em { font-style: italic; background: var(--accent); color: #fff; padding: 0 8px 6px; display: inline-block; margin-top: 8px; }
-    .hero-sub { font-size: 17px; line-height: 1.8; color: var(--ink-mid); padding-bottom: 8px; }
-    .hero-sub p { margin-bottom: 2px; }
-    .hero-sub p:last-child { color: var(--ink); font-weight: 500; margin-top: 20px; }
-    .hero-transition-overlay { position: absolute; bottom: 0; left: 0; width: 100%; height: 80px; background: linear-gradient(to bottom, rgba(253,246,236,0) 0%, rgba(253,246,236,0.4) 30%, rgba(253,246,236,1) 100%); pointer-events: none; z-index: 5; backdrop-filter: blur(4px); }
-    .hero-cta { display: flex; flex-direction: row; gap: 16px; margin-top: 32px; }
-    .hero-cta a { padding: 14px 24px; border-radius: 8px; font-family: var(--sans); font-size: 15px; font-weight: 600; text-align: center; text-decoration: none; }
-    .btn-primary { background: var(--accent); color: #fff; }
-    .btn-secondary { border: 1px solid var(--ink-muted); color: var(--ink); }
 
-    /* === BIO === */
-    #bio { background: var(--bg-alt); border-bottom: 1px solid rgba(201,168,130,0.3); }
-    .bio-grid { display: grid; grid-template-columns: 1fr 300px; gap: 64px; align-items: center; }
-    .bio-text { font-size: 17px; line-height: 1.8; color: var(--ink-mid); }
-    .bio-tags { display: flex; flex-direction: row; flex-wrap: wrap; gap: 8px; }
-    .bio-tag { display: inline-block; background: #1a0e04; color: #f5ede0; border-radius: 20px; padding: 5px 16px; font-family: var(--sans); font-size: 13px; font-weight: 500; border: none; }
-    .bio-details { margin-top: 1rem; }
-    .bio-details summary { list-style: none; display: inline-flex; align-items: center; cursor: pointer; color: var(--ink-muted); border-bottom: 1px solid rgba(0,0,0,0.2); padding-bottom: 2px; }
-    .bio-details summary::-webkit-details-marker { display: none; }
-    .bio-details[open] summary { display: none; }
-    .bio-collapse { display: none; background: none; border: none; cursor: pointer; padding: 0 0 2px; margin-top: 1rem; color: var(--ink-muted); border-bottom: 1px solid rgba(0,0,0,0.2); }
-    .bio-details[open] .bio-collapse { display: inline-flex; align-items: center; }
-    .bio-expanded { animation: fadeIn 0.5s ease-out; }
-    .bio-expanded p { margin-top: 1.5rem; }
-    .bio-footer { }
 
 
     /* === TOOL TAGS === */
@@ -217,19 +182,7 @@ body {
     /* === MOBILE RESPONSIVE === */
     @media (max-width: 768px) {
       .avail-badge { font-size: 11px; padding: 3px 10px; }
-      .hero-inner { grid-template-columns: 1fr; gap: 40px; padding: 20px 24px 24px; }
-      .hero-right { order: -1; }
-      .hero-photo-wrap { width: 200px; height: 240px; }
-      .hero-photo-accent { width: 200px; height: 240px; bottom: -8px; right: -8px; }
-      .hero-photo { width: 200px; height: 240px; }
-      .hero-tagline { font-size: 36px; text-align: center; }
-      .hero-eyebrow, .hero-sub p:last-child { display: none !important; }
-      .hero-sub { font-size: 15px; line-height: 1.6; text-align: center; margin-left: auto; margin-right: auto; max-width: 90%; }
-      .hero-cta { flex-direction: column; width: 100%; margin-top: 8px; margin-bottom: 12px; text-align: center; }
-      .hero-cta a { padding: 16px; }
-      .hero-tagline { margin-bottom: 8px !important; }
-      .bio-grid { grid-template-columns: 1fr; gap: 32px; }
-      .bio-tags { flex-direction: row; flex-wrap: wrap; }
+
       .section-inner { padding: 56px 24px; }
       .carousel-controls { display: none; }
       .work-carousel-viewport { overflow: visible; }

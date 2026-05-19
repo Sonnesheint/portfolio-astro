@@ -4,25 +4,27 @@ import { BIO } from "@data/bio";
 const bodyParagraphs = BIO.body.split("\n").filter((p) => p.trim());
 ---
 
-<section id="bio">
+<section id="bio" class="[border-bottom:1px_solid_rgba(201,168,130,0.3)] bg-bg-alt">
   <div class="section-inner">
-    <div class="bio-grid">
-      <div class="bio-text">
+    <div class="grid grid-cols-1 items-center gap-8 md:[grid-template-columns:1fr_300px] md:gap-16">
+
+      <div class="text-[17px] leading-[1.8] text-ink-mid">
         <p>{BIO.hook}</p>
 
-        <details class="bio-details">
-          <summary>
-            <svg class="chevron" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" width="16" height="16">
+        <details class="group mt-4">
+          <summary class="inline-flex cursor-pointer items-center border-b border-b-[rgba(0,0,0,0.2)] pb-0.5 text-ink-muted [list-style:none] [&::-webkit-details-marker]:hidden group-open:hidden">
+            <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" width="16" height="16">
               <path d="M3 6l5 5 5-5" stroke="#7a4e28" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
           </summary>
-          <div class="bio-expanded">
-            {bodyParagraphs.map((p) => <p>{p}</p>)}
-            <p class="bio-footer">
-              <strong>{BIO.footer}</strong>
-            </p>
+          <div class="animate-[fadeIn_0.5s_ease-out]">
+            {bodyParagraphs.map((p) => <p class="mt-6">{p}</p>)}
+            <p class="mt-6"><strong>{BIO.footer}</strong></p>
           </div>
-          <button class="bio-collapse" onclick="this.closest('details').removeAttribute('open')">
+          <button
+            class="mt-4 hidden cursor-pointer items-center border-0 border-b border-b-[rgba(0,0,0,0.2)] bg-transparent pb-0.5 text-ink-muted group-open:inline-flex"
+            onclick="this.closest('details').removeAttribute('open')"
+          >
             <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:16px;height:16px;transform:rotate(180deg);">
               <path d="M3 6l5 5 5-5" stroke="#7a4e28" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
@@ -30,9 +32,14 @@ const bodyParagraphs = BIO.body.split("\n").filter((p) => p.trim());
         </details>
       </div>
 
-      <div class="bio-tags">
-        {BIO.tags.map((tag) => <div class="bio-tag">{tag}</div>)}
+      <div class="flex flex-row flex-wrap gap-2">
+        {BIO.tags.map((tag) => (
+          <div class="inline-block rounded-[20px] bg-ink px-4 py-[5px] font-sans text-[13px] font-medium text-bg-alt">
+            {tag}
+          </div>
+        ))}
       </div>
+
     </div>
   </div>
 </section>
