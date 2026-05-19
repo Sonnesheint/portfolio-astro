@@ -75,10 +75,11 @@ import { MINI_CASES } from "@data/miniCases";
     if (!track || !prev || !next) return;
 
     let current = 0;
-    const max = 1;
+    const visibleCards = 3;
+    const max = track.children.length - visibleCards;
 
     function update() {
-      track!.style.transform = current === 0 ? "" : "translateX(-33.333%)";
+      track!.style.transform = current === 0 ? "" : `translateX(${current * -33.333}%)`;
       prev!.disabled = current === 0;
       next!.disabled = current === max;
     }
