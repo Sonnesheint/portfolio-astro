@@ -11,7 +11,7 @@ export const PROJECTS: Project[] = [
   {
     href: "/case-study-figma",
     category: "AI / Tooling",
-    meta: "Flying Bisons · 2024",
+    meta: "Flying Bisons · 2025",
     title: "Devs hate him. He built a Figma plugin alone",
     description:
       "Built a Figma plugin from scratch — no prior JS experience — that lets designers produce review-ready microcopy independently. 86 iterations in 60 days.",
@@ -23,8 +23,8 @@ export const PROJECTS: Project[] = [
   },
   {
     href: "/case-study-ai",
-    category: "AI / Tooling",
-    meta: "Flying Bisons · 2024",
+    category: "AI / Content Automation",
+    meta: "Flying Bisons · 2025",
     title: "Can you replace the entire team with one button?",
     description: "I build the workflow. I tested it. Here is my conclusion.",
     stats: [
@@ -36,7 +36,7 @@ export const PROJECTS: Project[] = [
   {
     href: "/case-study-fmcg-plugin",
     category: "FMCG / Content Ops",
-    meta: "NDA · 2024",
+    meta: "NDA · 2025",
     title: "I used AI to build a plugin that saved 67 hours of manual work.",
     description:
       "Legal flagged a word used across 9 Figma files. I built a plugin to find, review, replace, and document every instance — with a full audit trail for compliance.",
@@ -49,7 +49,7 @@ export const PROJECTS: Project[] = [
   {
     href: "/case-study-constellr",
     category: "Deep Tech",
-    meta: "Constellr · 2024",
+    meta: "Constellr · 2025",
     title: "Even rocket science can be written simply",
     description:
       "Interface copy for a B2B Earth observation platform. Plain language as precision — not simplification.",

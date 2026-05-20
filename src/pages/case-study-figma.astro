@@ -44,7 +44,10 @@ const toc = [
   <section class="case-section" id="solution">
     <h2>Solution</h2>
     <p>Designers select text layers in Figma, choose their project context, and hit "Improve." The plugin detects all layers, sends them to Claude API with project-specific guidelines, and returns copy that follows plain language principles and brand tone. It evolved into a suite including safety guardrails, a translation module (PL, EN, AR, UA), batch processing, RTL support, and context detection based on layer names.</p>
-    <div class="img-placeholder">[Screenshot — plugin in action]</div>
+    <div class="case-screenshots">
+      <img src="/images/case_studies/figma-cs-1%20(2).png" alt="Figma plugin — plugin interface in action" class="case-img" />
+      <img src="/images/case_studies/figma-cs-1%20(4).png" alt="Figma plugin — output example" class="case-img" />
+    </div>
   </section>
 
   <section class="case-section" id="results">
@@ -69,4 +72,30 @@ const toc = [
     </PullQuote>
   </section>
 
+
 </CaseLayout>
+
+<style>
+  .case-screenshots {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+  .case-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: 1px solid var(--color-separator, #c9a07a);
+    cursor: zoom-in;
+    transition: opacity 0.15s ease;
+  }
+  .case-img:hover {
+    opacity: 0.85;
+  }
+  @media (max-width: 640px) {
+    .case-screenshots {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
