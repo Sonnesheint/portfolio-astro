@@ -1,0 +1,187 @@
+---
+import "@styles/global.css";
+import MonoBracketToggle from "@components/MonoBracketToggle.astro";
+import StampedCard from "@components/StampedCard.astro";
+import AccentBlockHairline from "@components/AccentBlockHairline.astro";
+import FolderTabCard from "@components/FolderTabCard.astro";
+import NotchedTicketStub from "@components/NotchedTicketStub.astro";
+import StampedButton from "@components/StampedButton.astro";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Nunito+Sans:wght@400;600&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <title>Component Preview</title>
+  </head>
+  <body class="bg-bg text-ink min-h-screen">
+
+    <div class="max-w-5xl mx-auto px-8 py-16">
+      <header class="mb-16">
+        <p
+          class="text-[10.5px] uppercase tracking-[0.14em] text-ink-muted mb-2"
+          style="font-family:'JetBrains Mono',monospace"
+        >
+          Design System
+        </p>
+        <h1 class="font-serif text-[36px] font-black text-ink">Component Preview</h1>
+        <p class="mt-2 text-[15px] text-ink-muted">5 components exported from Claude Design, rewritten as Astro + Tailwind.</p>
+      </header>
+
+      <div class="space-y-20">
+
+        <!-- 1. Mono Bracket Toggle -->
+        <section>
+          <div class="mb-6 flex items-center gap-3">
+            <span class="text-[10.5px] uppercase tracking-[0.14em] text-ink-muted" style="font-family:'JetBrains Mono',monospace">A</span>
+            <div class="flex-1 h-px bg-border-light"></div>
+            <span class="text-[13px] text-ink-muted">Mono bracket toggle</span>
+          </div>
+          <div class="flex flex-col gap-0">
+            <MonoBracketToggle
+              title="Plain-language certificate for Santander"
+              category="FINTECH"
+              year="2024"
+            />
+            <MonoBracketToggle
+              title="AI-powered onboarding for Flying Bisons"
+              category="AI / TOOLING"
+              year="2023"
+              defaultActive={true}
+            />
+            <MonoBracketToggle
+              title="UX writing system for Allegro Pay"
+              category="E-COMMERCE"
+              year="2022"
+            />
+          </div>
+        </section>
+
+        <!-- 2. Stamped + Offset Shadow -->
+        <section>
+          <div class="mb-6 flex items-center gap-3">
+            <span class="text-[10.5px] uppercase tracking-[0.14em] text-ink-muted" style="font-family:'JetBrains Mono',monospace">A</span>
+            <div class="flex-1 h-px bg-border-light"></div>
+            <span class="text-[13px] text-ink-muted">Stamped + offset shadow</span>
+          </div>
+          <div class="flex flex-wrap gap-8">
+            <StampedCard
+              title="Write me"
+              label="CONTACT"
+              description="Got a project or want to collaborate? Let's talk."
+              href="mailto:hello@example.com"
+            />
+            <StampedCard
+              title="See the work"
+              label="PORTFOLIO"
+              description="12 years of UX writing across fintech, AI, and e-commerce."
+              href="#"
+            />
+          </div>
+        </section>
+
+        <!-- 3. Accent Block + Hairline -->
+        <section>
+          <div class="mb-6 flex items-center gap-3">
+            <span class="text-[10.5px] uppercase tracking-[0.14em] text-ink-muted" style="font-family:'JetBrains Mono',monospace">B</span>
+            <div class="flex-1 h-px bg-border-light"></div>
+            <span class="text-[13px] text-ink-muted">Accent block + hairline</span>
+          </div>
+          <div class="flex flex-wrap gap-8">
+            <AccentBlockHairline
+              heading="Selected Work"
+              body="A decade of UX writing across banking, AI products, and digital platforms."
+              category="PORTFOLIO"
+              year="2024"
+            />
+            <AccentBlockHairline
+              heading="About Me"
+              body="Senior UX Writer specialising in plain language, content design systems, and AI-assisted writing."
+              category="BIO"
+              year="2024"
+            />
+          </div>
+        </section>
+
+        <!-- 4. Folder Tab + Offset Shadow -->
+        <section>
+          <div class="mb-6 flex items-center gap-3">
+            <span class="text-[10.5px] uppercase tracking-[0.14em] text-ink-muted" style="font-family:'JetBrains Mono',monospace">B</span>
+            <div class="flex-1 h-px bg-border-light"></div>
+            <span class="text-[13px] text-ink-muted">Folder tab + offset shadow</span>
+          </div>
+          <div class="flex flex-wrap gap-8">
+            <FolderTabCard
+              tab="AI / TOOLING"
+              title="Conversational UI system for onboarding"
+              description="Designed the full voice and microcopy framework for an AI-powered onboarding flow with 40+ unique states."
+              company="FLYING BISONS"
+              year="2024"
+              href="#"
+            />
+            <FolderTabCard
+              tab="FINTECH"
+              title="Plain-language certificate for Santander"
+              description="Rewrote 200+ legal disclosures into plain language, reducing support calls by 22%."
+              company="SANTANDER"
+              year="2023"
+              href="#"
+            />
+          </div>
+        </section>
+
+        <!-- 5. Notched Ticket Stub -->
+        <section>
+          <div class="mb-6 flex items-center gap-3">
+            <span class="text-[10.5px] uppercase tracking-[0.14em] text-ink-muted" style="font-family:'JetBrains Mono',monospace">B</span>
+            <div class="flex-1 h-px bg-border-light"></div>
+            <span class="text-[13px] text-ink-muted">Notched ticket-stub</span>
+          </div>
+          <div class="flex flex-wrap gap-8">
+            <NotchedTicketStub
+              title="LinkedIn"
+              label="CONNECT"
+              description="Senior UX Writer & Content Designer · Open to opportunities"
+              href="https://linkedin.com"
+            />
+            <NotchedTicketStub
+              title="Read CV"
+              label="RESUME"
+              description="12 years · Fintech · AI · E-commerce · Design systems"
+              href="#"
+            />
+          </div>
+        </section>
+
+        <!-- 6. Stamped Button -->
+        <section>
+          <div class="mb-6 flex items-center gap-3">
+            <span class="text-[10.5px] uppercase tracking-[0.14em] text-ink-muted" style="font-family:'JetBrains Mono',monospace">A</span>
+            <div class="flex-1 h-px bg-border-light"></div>
+            <span class="text-[13px] text-ink-muted">Stamped button</span>
+          </div>
+          <div class="flex flex-wrap gap-6 items-start">
+            <StampedButton label="Write me" href="/contact" />
+            <StampedButton label="See the work" href="#" />
+            <StampedButton label="Download CV" href="#" target="_blank" />
+          </div>
+        </section>
+
+      </div>
+
+      <footer class="mt-24 pt-8 border-t border-border-light">
+        <p class="text-[11px] text-ink-muted" style="font-family:'JetBrains Mono',monospace">
+          Components preview — portfolio-astro
+        </p>
+      </footer>
+    </div>
+
+  </body>
+</html>

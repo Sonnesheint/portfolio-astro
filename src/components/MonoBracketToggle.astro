@@ -1,0 +1,70 @@
+---
+interface Props {
+  title?: string;
+  category?: string;
+  year?: string;
+  defaultActive?: boolean;
+}
+
+const {
+  title = "Plain-language certificate for Santander",
+  category = "FINTECH",
+  year = "2024",
+  defaultActive = false,
+} = Astro.props;
+---
+
+<div
+  class="mono-bracket-toggle group w-full max-w-[460px] bg-bg px-6 py-5 cursor-pointer select-none"
+  data-active={defaultActive ? "true" : "false"}
+>
+  <div class="flex items-center justify-between mb-2">
+    <span class="text-ink-muted text-[10.5px] uppercase tracking-[0.1em]" style="font-family:'JetBrains Mono',monospace">
+      {category} • {year}
+    </span>
+    <button
+      class="bracket-btn flex items-center gap-1 text-[13px] leading-none px-2 py-1 hover:opacity-80 transition-opacity"
+      style="font-family:'JetBrains Mono',monospace"
+      aria-label="Toggle"
+    >
+      <span class="bracket-icon text-accent font-medium">[ + ]</span>
+    </button>
+  </div>
+
+  <div class="font-serif text-[18px] font-semibold leading-snug text-ink">
+    {title}
+  </div>
+
+  <div class="bracket-body mt-3 text-[13px] text-ink-muted leading-relaxed hidden">
+    <slot>
+      No icon font — mono <span class="text-accent" style="font-family:'JetBrains Mono',monospace">[ + ]</span> /
+      <span class="text-ink" style="font-family:'JetBrains Mono',monospace">[ ✓ ]</span> as accent toggle state.
+    </slot>
+  </div>
+</div>
+
+<style>
+  .mono-bracket-toggle {
+    border-top: 1px dashed var(--color-ink);
+    border-bottom: 2px solid var(--color-ink);
+  }
+  .mono-bracket-toggle[data-active="true"] .bracket-icon {
+    color: var(--color-ink);
+  }
+  .mono-bracket-toggle[data-active="true"] .bracket-body {
+    display: block;
+  }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>(".mono-bracket-toggle").forEach((card) => {
+    const btn = card.querySelector<HTMLButtonElement>(".bracket-btn");
+    const icon = card.querySelector<HTMLElement>(".bracket-icon");
+
+    btn?.addEventListener("click", () => {
+      const isActive = card.dataset.active === "true";
+      card.dataset.active = isActive ? "false" : "true";
+      if (icon) icon.textContent = isActive ? "[ + ]" : "[ ✓ ]";
+    });
+  });
+</script>

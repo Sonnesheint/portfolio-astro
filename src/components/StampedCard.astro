@@ -1,0 +1,43 @@
+---
+interface Props {
+  title?: string;
+  label?: string;
+  href?: string;
+  description?: string;
+}
+
+const {
+  title = "Write me",
+  label = "CONTACT",
+  href = "#",
+  description = "Got a project or want to collaborate?",
+} = Astro.props;
+---
+
+<a class="stamped-card block w-full max-w-[440px] bg-bg p-6 no-underline text-ink" href={href}>
+  <span
+    class="block text-ink-muted text-[10.5px] uppercase tracking-[0.1em] mb-3"
+    style="font-family:'JetBrains Mono',monospace"
+  >
+    {label}
+  </span>
+
+  <p class="text-[15px] text-ink-muted leading-relaxed mb-4">{description}</p>
+
+  <div class="flex items-center justify-between">
+    <span class="font-serif text-[22px] font-bold text-ink">{title}</span>
+    <span class="text-[22px] text-ink transition-transform duration-150 stamped-arrow">→</span>
+  </div>
+</a>
+
+<style>
+  .stamped-card {
+    border: 1.5px solid var(--color-ink);
+    box-shadow: 6px 6px 0px 0px var(--color-ink);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .stamped-card:hover {
+    transform: translate(4px, 4px);
+    box-shadow: 2px 2px 0px 0px var(--color-ink);
+  }
+</style>

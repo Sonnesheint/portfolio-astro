@@ -1,0 +1,33 @@
+---
+interface Props {
+  label?: string;
+  href?: string;
+  target?: string;
+}
+
+const {
+  label = "LinkedIn",
+  href = "#",
+  target,
+} = Astro.props;
+---
+
+<a class="notched-btn inline-flex items-center gap-3 px-6 py-3.5 no-underline" href={href} target={target} rel={target === "_blank" ? "noopener noreferrer" : undefined}>
+  <span class="font-serif text-[1.25rem] font-bold leading-none">{label}</span>
+  <span class="text-[1.25rem] leading-none">↗</span>
+</a>
+
+<style>
+  .notched-btn {
+    background: #faf6f1;
+    color: #1a0e04;
+    border: 1.5px solid #1a0e04;
+    border-radius: 0;
+    clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 0 100%);
+    transition: background-color 0.15s ease, color 0.15s ease;
+  }
+  .notched-btn:hover {
+    background-color: #1a0e04;
+    color: #faf6f1;
+  }
+</style>

@@ -1,0 +1,54 @@
+---
+interface Props {
+  tab?: string;
+  title?: string;
+  description?: string;
+  company?: string;
+  year?: string;
+  href?: string;
+}
+
+const {
+  tab = "AI / TOOLING",
+  title = "Conversational UI system for onboarding",
+  description = "Designed the full voice and microcopy framework for an AI-powered onboarding flow.",
+  company = "FLYING BISONS",
+  year = "2024",
+  href = "#",
+} = Astro.props;
+---
+
+<a class="folder-card group block w-full max-w-[460px] bg-bg no-underline text-ink" href={href}>
+  <div
+    class="folder-tab inline-block bg-ink text-bg text-[10.5px] uppercase tracking-[0.1em] px-5 py-2.5"
+    style="font-family:'JetBrains Mono',monospace; clip-path: polygon(0 0, 100% 0, calc(100% - 10px) 100%, 0 100%); padding-right: 28px;"
+  >
+    {tab}
+  </div>
+
+  <div class="folder-body px-6 py-5">
+    <h3 class="font-serif text-[21px] font-extrabold leading-tight text-ink mb-3">{title}</h3>
+    <p class="text-[14px] leading-relaxed text-ink-muted mb-5">{description}</p>
+
+    <div class="flex items-center justify-between">
+      <span
+        class="text-ink-muted text-[10.5px] uppercase tracking-[0.08em]"
+        style="font-family:'JetBrains Mono',monospace"
+      >
+        {company} • {year}
+      </span>
+      <span class="text-accent text-[18px] transition-transform duration-150 group-hover:translate-x-0.5">→</span>
+    </div>
+  </div>
+</a>
+
+<style>
+  .folder-card {
+    border: 1.5px solid var(--color-ink);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .folder-card:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 4px 4px 0px 0px var(--color-accent);
+  }
+</style>

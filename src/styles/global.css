@@ -14,8 +14,8 @@
   --color-accent-dark:  #a33c0a;
 
   /* Fonts */
-  --font-sans:   "DM Sans", Helvetica, sans-serif;
-  --font-serif:  "Playfair Display", Georgia, serif;
+  --font-sans:   "Nunito Sans", system-ui, sans-serif;
+  --font-serif:  "Outfit", system-ui, sans-serif;
 }
 
     /* === TOKENS === */
@@ -30,8 +30,8 @@
       --border-light: #e2d0b8;
       --accent:       #c44e10;
       --accent-hover: #a33c0a;
-      --serif:        'Playfair Display', Georgia, serif;
-      --sans:         'DM Sans', Helvetica, sans-serif;
+      --serif:        'Outfit', system-ui, sans-serif;
+      --sans:         'Nunito Sans', system-ui, sans-serif;
     }
 
     /* === RESET === */
@@ -237,7 +237,7 @@ body {
   box-shadow: none;
 }
 .toc-num {
-  font-family: 'Courier New', monospace;
+  font-family: 'JetBrains Mono', monospace;
   font-size: 10px;
   letter-spacing: 0.02em;
   color: #9B8B70;
