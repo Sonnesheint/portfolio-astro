@@ -1,0 +1,116 @@
+﻿---
+interface Props {
+  title: string;
+  meta: string;
+  open?: boolean;
+}
+
+const { title, meta, open = false } = Astro.props;
+---
+
+<div class="accordion-row" data-open={open ? "true" : "false"}>
+  <div class="accordion-row-header">
+    <span class="accordion-row-toggle">[ + ]</span>
+    <div class="accordion-row-main">
+      <h3 class="accordion-row-title">{title}</h3>
+      <span class="accordion-row-meta">{meta}</span>
+    </div>
+  </div>
+  <div class="accordion-row-body">
+    <div class="accordion-row-content">
+      <slot />
+    </div>
+  </div>
+</div>
+
+<style>
+  .accordion-row {
+    border-top: 1px solid var(--color-separator, #c9a07a);
+    padding: 1.25rem 0;
+    cursor: pointer;
+    transition: border-bottom 0.1s ease;
+  }
+  .accordion-row[data-open="true"] {
+    border-bottom: 2px solid var(--color-ink, #1a0e04);
+  }
+  .accordion-row-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  .accordion-row-toggle {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1rem;
+    color: var(--color-accent, #c44e10);
+    flex-shrink: 0;
+    padding-top: 0.1rem;
+    user-select: none;
+  }
+  .accordion-row-main {
+    flex: 1;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    min-width: 0;
+  }
+  .accordion-row-title {
+    font-family: var(--serif);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-ink, #1a0e04);
+    line-height: 1.3;
+    min-width: 0;
+  }
+  .accordion-row-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-muted, #b5552a);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  @media (max-width: 640px) {
+    .accordion-row-main {
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+    .accordion-row-meta {
+      font-size: 0.7rem;
+    }
+  }
+  .accordion-row-body {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.25s ease;
+  }
+  .accordion-row[data-open="true"] .accordion-row-body {
+    grid-template-rows: 1fr;
+  }
+  .accordion-row-content {
+    overflow: hidden;
+    padding-top: 0;
+    transition: padding-top 0.25s ease;
+  }
+  .accordion-row[data-open="true"] .accordion-row-content {
+    padding-top: 1rem;
+  }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>(".accordion-row").forEach((row) => {
+    const header = row.querySelector<HTMLElement>(".accordion-row-header");
+    const toggle = row.querySelector<HTMLElement>(".accordion-row-toggle");
+
+    header?.addEventListener("click", () => {
+      const isOpen = row.dataset.open === "true";
+      row.dataset.open = isOpen ? "false" : "true";
+      if (toggle) toggle.textContent = isOpen ? "[ + ]" : "[ - ]";
+    });
+
+    if (row.dataset.open === "true" && toggle) {
+      toggle.textContent = "[ - ]";
+    }
+  });
+</script>

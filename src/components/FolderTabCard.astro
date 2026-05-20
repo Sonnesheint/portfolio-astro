@@ -1,4 +1,4 @@
----
+﻿---
 interface Props {
   tab?: string;
   title?: string;
@@ -44,11 +44,11 @@ const {
 
 <style>
   .folder-card {
-    border: 1.5px solid var(--color-ink);
+    border: 1.5px solid var(--color-ink, #1a0e04);
     transition: transform 0.15s ease, box-shadow 0.15s ease;
   }
   .folder-card:hover {
     transform: translate(-2px, -2px);
-    box-shadow: 4px 4px 0px 0px var(--color-accent);
+    box-shadow: 4px 4px 0px 0px var(--color-accent, #c44e10);
   }
 </style>

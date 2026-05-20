@@ -1,0 +1,63 @@
+﻿---
+interface Props {
+  tools: string;
+  label?: string;
+}
+
+const { tools, label = "Tools" } = Astro.props;
+const tags = tools.split(",").map((t) => t.trim()).filter(Boolean);
+---
+
+<div class="tool-tags">
+  <span class="tool-tags-label">{label}</span>
+  <div class="tool-tags-list">
+    {tags.map((tag) => (
+      <span class="tool-tag">
+        <span class="bracket">[</span>
+        {" "}{tag}{" "}
+        <span class="bracket">]</span>
+      </span>
+    ))}
+  </div>
+</div>
+
+<style>
+  .tool-tags {
+    margin-top: 0.25rem;
+  }
+  .tool-tags-label {
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--color-muted, #b5552a);
+    margin-bottom: 0.75rem;
+  }
+  .tool-tags-list {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 10px;
+    column-gap: 4px;
+  }
+  .tool-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--color-ink, #1a0e04);
+    background: transparent;
+    border: none;
+    padding: 0;
+    white-space: nowrap;
+    transition: background-color 0.12s ease;
+    padding: 2px 4px;
+    border-radius: 2px;
+  }
+  .tool-tag:hover {
+    background-color: #f5ede0;
+  }
+  .bracket {
+    color: var(--color-accent, #c44e10);
+  }
+</style>

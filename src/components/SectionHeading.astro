@@ -1,0 +1,58 @@
+﻿---
+interface Props {
+  title: string;
+  subtitle?: string;
+  id?: string;
+}
+
+const { title, subtitle, id } = Astro.props;
+---
+
+<div class="section-heading" id={id}>
+  <div class="section-rule">
+    <div class="accent-block"></div>
+    <div class="hairline"></div>
+  </div>
+  <h2 class="section-heading-title">{title}</h2>
+  {subtitle && <p class="section-heading-subtitle">{subtitle}</p>}
+</div>
+
+<style>
+  .section-heading {
+    margin-bottom: 2rem;
+  }
+  .section-rule {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 1.5rem;
+  }
+  .accent-block {
+    width: 64px;
+    height: 8px;
+    background: var(--color-accent, #c44e10);
+    flex-shrink: 0;
+  }
+  .hairline {
+    height: 1px;
+    background: var(--color-ink, #1a0e04);
+    flex: 1;
+  }
+  .section-heading-title {
+    font-family: var(--serif);
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--color-ink, #1a0e04);
+  }
+  .section-heading-subtitle {
+    margin-top: 0.5rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--color-muted, #b5552a);
+  }
+</style>

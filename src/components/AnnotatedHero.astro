@@ -1,0 +1,126 @@
+﻿---
+interface Sentence {
+  text: string;
+  pivot?: boolean;
+}
+
+interface Props {
+  sentences: Sentence[];
+  name: string;
+  tagline: string;
+  annotationLabel?: string;
+  annotationText: string;
+}
+
+const {
+  sentences,
+  name,
+  tagline,
+  annotationLabel = "The pivot",
+  annotationText,
+} = Astro.props;
+---
+
+<section class="annotated-hero">
+  <div class="hero-grid">
+
+    <div class="hero-prose">
+      <p class="hero-sentences">
+        {sentences.map((s, i) => (
+          <>
+            <span class={s.pivot ? "pivot-sentence" : undefined}>{s.text}</span>
+            {i < sentences.length - 1 && <span class="separator"> / </span>}
+          </>
+        ))}
+      </p>
+
+      <div class="hero-signature">
+        <p class="hero-name">{name}</p>
+        <p class="hero-tagline">{tagline}</p>
+      </div>
+    </div>
+
+    <aside class="margin-note">
+      <p class="margin-note-label">← {annotationLabel}</p>
+      <p class="margin-note-text">{annotationText}</p>
+    </aside>
+
+  </div>
+</section>
+
+<style>
+  .annotated-hero {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 80px 48px;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 160px;
+    gap: 2rem;
+    align-items: start;
+  }
+  .hero-sentences {
+    font-family: var(--serif);
+    font-size: 1.75rem;
+    font-weight: 700;
+    line-height: 1.35;
+    color: var(--color-ink, #1a0e04);
+  }
+  .pivot-sentence {
+    border-bottom: 2px solid var(--color-accent, #c44e10);
+  }
+  .separator {
+    color: var(--color-accent, #c44e10);
+  }
+  .hero-signature {
+    margin-top: 2rem;
+  }
+  .hero-name {
+    font-family: var(--serif);
+    font-size: 1.55rem;
+    font-weight: 800;
+    color: var(--color-ink, #1a0e04);
+    line-height: 1.2;
+  }
+  .hero-tagline {
+    font-family: var(--sans);
+    font-size: 1.15rem;
+    color: var(--color-body, #3a2a1a);
+    margin-top: 0.35rem;
+    line-height: 1.5;
+  }
+  .margin-note {
+    border-left: 1.5px dashed var(--color-separator, #c9a07a);
+    padding-left: 1rem;
+  }
+  .margin-note-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-accent, #c44e10);
+    margin-bottom: 0.6rem;
+  }
+  .margin-note-text {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    color: #6b3a1f;
+    line-height: 1.7;
+  }
+  @media (max-width: 640px) {
+    .annotated-hero {
+      padding: 48px 24px;
+    }
+    .hero-grid {
+      grid-template-columns: 1fr;
+    }
+    .margin-note {
+      border-left: none;
+      border-top: 1.5px dashed var(--color-separator, #c9a07a);
+      padding-left: 0;
+      padding-top: 1rem;
+    }
+  }
+</style>

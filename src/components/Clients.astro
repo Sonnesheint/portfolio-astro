@@ -1,10 +1,11 @@
 ---
 import { CLIENTS } from "@data/clients";
+import SectionHeading from "@components/SectionHeading.astro";
 ---
 
 <section id="clients" class="border-b border-b-border/30 bg-bg">
   <div class="section-inner">
-    <p class="eyebrow">Companies I've worked with</p>
+    <SectionHeading title="Companies I've worked with" />
     <p class="text-base font-medium leading-[1.8] text-ink">
       {
         CLIENTS.map((name, i) => (

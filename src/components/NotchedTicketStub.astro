@@ -1,4 +1,4 @@
----
+﻿---
 interface Props {
   title?: string;
   label?: string;
@@ -35,12 +35,12 @@ const {
 <style>
   .notched-ticket {
     background: var(--color-bg);
-    border: 1.5px solid var(--color-ink);
+    border: 1.5px solid var(--color-ink, #1a0e04);
     clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%);
     transition: background 0.15s ease, color 0.15s ease;
   }
   .notched-ticket:hover {
-    background: var(--color-ink);
+    background: var(--color-ink, #1a0e04);
     color: var(--color-bg);
   }
 </style>

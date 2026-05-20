@@ -1,0 +1,106 @@
+---
+import Layout from "@layouts/Layout.astro";
+import SectionHeading from "@components/SectionHeading.astro";
+import StampedButton from "@components/StampedButton.astro";
+import NotchedButton from "@components/NotchedButton.astro";
+import ProjectCard from "@components/ProjectCard.astro";
+import AccordionRow from "@components/AccordionRow.astro";
+import AnnotatedHero from "@components/AnnotatedHero.astro";
+import PullQuote from "@components/PullQuote.astro";
+---
+
+<Layout title="Component library">
+  <div class="mx-auto max-w-[1100px] px-6 py-16 md:px-12">
+
+    <SectionHeading title="Component library" subtitle="DEV REFERENCE" />
+
+    <div class="components-list">
+
+      <div class="component-block">
+        <span class="component-label">StampedButton</span>
+        <StampedButton label="Write me" href="#" />
+      </div>
+
+      <div class="component-block">
+        <span class="component-label">NotchedButton</span>
+        <NotchedButton label="LinkedIn" href="#" target="_blank" />
+      </div>
+
+      <div class="component-block">
+        <span class="component-label">SectionHeading</span>
+        <SectionHeading title="Featured projects" subtitle="FULL STORIES — 03" />
+      </div>
+
+      <div class="component-block">
+        <span class="component-label">ProjectCard</span>
+        <ProjectCard
+          title="Devs hate him. He built a Figma plugin alone"
+          description="No prior JS experience. 86 iterations in 60 days."
+          category="AI / Tooling"
+          client="Flying Bisons"
+          year="2024"
+          href="#"
+        />
+      </div>
+
+      <div class="component-block">
+        <span class="component-label">AccordionRow</span>
+        <AccordionRow title="Plain-language certificate for Santander" meta="Fintech · 2024">
+          <p style="font-size: 0.95rem; color: var(--color-body); line-height: 1.7;">Przykładowa treść po rozwinięciu.</p>
+        </AccordionRow>
+      </div>
+
+      <div class="component-block">
+        <span class="component-label">AnnotatedHero</span>
+        <AnnotatedHero
+          sentences={[
+            { text: "Most people don't notice it." },
+            { text: "Unless something goes wrong." },
+            { text: "Then you know.", pivot: true },
+            { text: "It was holding everything together." },
+          ]}
+          name="I'm Piotr."
+          tagline="I make sure nothing goes wrong."
+          annotationLabel="The pivot"
+          annotationText="The sentence where the reader realises the thing was working all along."
+        />
+      </div>
+
+      <div class="component-block">
+        <span class="component-label">PullQuote</span>
+        <PullQuote
+          lede="You open an app and every sentence feels identical. Same patterns, same structures. This is Generative AI speak. It's the sound of a product that has lost its soul."
+          accentPhrase="lost its soul"
+          thesis="The best products sound like a person. That's not an accident. That's craft."
+        >
+          <p>Good writing doesn't announce itself. It just works — quietly, invisibly.</p>
+          <p>That's what UX writing does. It holds the product together.</p>
+        </PullQuote>
+      </div>
+
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .components-list {
+    margin-top: 3rem;
+  }
+  .component-block {
+    padding-bottom: 3rem;
+    margin-bottom: 3rem;
+    border-bottom: 1px dashed var(--color-separator);
+  }
+  .component-block:last-child {
+    border-bottom: none;
+  }
+  .component-label {
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-muted);
+    margin-bottom: 1rem;
+  }
+</style>

@@ -6,6 +6,9 @@ import AccentBlockHairline from "@components/AccentBlockHairline.astro";
 import FolderTabCard from "@components/FolderTabCard.astro";
 import NotchedTicketStub from "@components/NotchedTicketStub.astro";
 import StampedButton from "@components/StampedButton.astro";
+import ProjectCard from "@components/ProjectCard.astro";
+import AccordionRow from "@components/AccordionRow.astro";
+import PullQuote from "@components/PullQuote.astro";
 ---
 
 <!doctype html>
@@ -171,6 +174,72 @@ import StampedButton from "@components/StampedButton.astro";
             <StampedButton label="Write me" href="/contact" />
             <StampedButton label="See the work" href="#" />
             <StampedButton label="Download CV" href="#" target="_blank" />
+          </div>
+        </section>
+
+        <!-- 7. Project Card -->
+        <section>
+          <div class="mb-6 flex items-center gap-3">
+            <span class="text-[10.5px] uppercase tracking-[0.14em] text-ink-muted" style="font-family:'JetBrains Mono',monospace">B</span>
+            <div class="flex-1 h-px bg-border-light"></div>
+            <span class="text-[13px] text-ink-muted">Project card — folder tab + offset shadow</span>
+          </div>
+          <div class="flex flex-col gap-6 max-w-2xl">
+            <ProjectCard
+              title="Devs hate him. He built a Figma plugin alone"
+              description="No prior JS experience. 86 iterations in 60 days."
+              category="AI / Tooling"
+              client="Flying Bisons"
+              year="2024"
+              href="/case-study-figma"
+            />
+            <ProjectCard
+              title="Plain-language certificate for Santander"
+              description="Rewrote 200+ legal disclosures. Support calls down 22%."
+              category="Fintech"
+              client="Santander"
+              year="2023"
+              href="#"
+            />
+          </div>
+        </section>
+
+        <!-- 8. Accordion Row -->
+        <section>
+          <div class="mb-6 flex items-center gap-3">
+            <span class="text-[10.5px] uppercase tracking-[0.14em] text-ink-muted" style="font-family:'JetBrains Mono',monospace">B</span>
+            <div class="flex-1 h-px bg-border-light"></div>
+            <span class="text-[13px] text-ink-muted">Accordion row</span>
+          </div>
+          <div class="max-w-2xl">
+            <AccordionRow title="Plain-language certificate for Santander" meta="Fintech · 2024">
+              <p class="text-[15px] leading-relaxed text-ink-muted">Rewrote 200+ legal disclosures into plain language. Support calls dropped 22% in the first quarter after launch.</p>
+            </AccordionRow>
+            <AccordionRow title="Can you replace the entire team with one button?" meta="AI / Tooling · 2024" open={true}>
+              <p class="text-[15px] leading-relaxed text-ink-muted">Built an AI-assisted workflow that saved 40+ hours per month. Spoiler: no, you can't replace the team — but you can make them faster.</p>
+            </AccordionRow>
+            <AccordionRow title="Even rocket science can be written simply" meta="Deep Tech · 2024">
+              <p class="text-[15px] leading-relaxed text-ink-muted">Interface copy for a B2B Earth observation platform. Plain language as precision — not simplification.</p>
+            </AccordionRow>
+          </div>
+        </section>
+
+        <!-- 9. Pull Quote -->
+        <section>
+          <div class="mb-6 flex items-center gap-3">
+            <span class="text-[10.5px] uppercase tracking-[0.14em] text-ink-muted" style="font-family:'JetBrains Mono',monospace">C</span>
+            <div class="flex-1 h-px bg-border-light"></div>
+            <span class="text-[13px] text-ink-muted">Pull quote</span>
+          </div>
+          <div class="max-w-2xl">
+            <PullQuote
+              lede="You open an app and every sentence feels identical. Same patterns, same structures. This is Generative AI speak. It's the sound of a product that has lost its soul."
+              accentPhrase="lost its soul"
+              thesis="The best products sound like a person. That's not an accident. That's craft."
+            >
+              <p>Good writing doesn't announce itself. It just works — quietly, invisibly.</p>
+              <p>That's what UX writing does. It holds the product together.</p>
+            </PullQuote>
           </div>
         </section>
 

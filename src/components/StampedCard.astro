@@ -1,4 +1,4 @@
----
+﻿---
 interface Props {
   title?: string;
   label?: string;
@@ -32,12 +32,12 @@ const {
 
 <style>
   .stamped-card {
-    border: 1.5px solid var(--color-ink);
-    box-shadow: 6px 6px 0px 0px var(--color-ink);
+    border: 1.5px solid var(--color-ink, #1a0e04);
+    box-shadow: 6px 6px 0px 0px var(--color-ink, #1a0e04);
     transition: transform 0.15s ease, box-shadow 0.15s ease;
   }
   .stamped-card:hover {
     transform: translate(4px, 4px);
-    box-shadow: 2px 2px 0px 0px var(--color-ink);
+    box-shadow: 2px 2px 0px 0px var(--color-ink, #1a0e04);
   }
 </style>

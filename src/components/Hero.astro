@@ -1,5 +1,7 @@
----
+﻿---
 import { SITE } from "@data/site";
+import StampedButton from "@components/StampedButton.astro";
+import NotchedButton from "@components/NotchedButton.astro";
 ---
 
 <section id="hero" class="relative overflow-hidden [border-bottom:1px_solid_rgba(201,168,130,0.3)]">
@@ -18,21 +20,17 @@ import { SITE } from "@data/site";
         Good UX writing<br />
         is like <em class="mt-2 inline-block bg-accent px-2 pb-[6px] text-white">bass guitar</em>
       </h1>
-      <div class="mx-auto max-w-[90%] pb-2 text-center text-[15px] leading-[1.6] text-ink-mid md:mx-0 md:max-w-none md:text-left md:text-[17px] md:leading-[1.8]">
-        <br />
-        <p class="mb-[2px]">Most people don't notice it.</p>
-        <p class="mb-[2px]">Unless something goes wrong.</p>
-        <p class="mb-[2px]">Then you know.</p>
-        <p class="mb-[2px]">It was holding everything together.</p>
-        <p class="mt-5 hidden font-medium text-ink md:block">I'm Piotr. I make sure nothing goes wrong.</p>
+      <div class="my-5"></div>
+      <p class="hero-prose">
+        <span>Most people don't notice it.</span><span class="sep"> / </span><span>Unless something goes wrong.</span><span class="sep"> / </span><span class="pivot">Then you know.</span><span class="sep"> / </span><span>It was holding everything together.</span>
+      </p>
+      <div class="hero-sig">
+        <p class="hero-name">I'm Piotr.</p>
+        <p class="hero-tagline">I make sure nothing goes wrong.</p>
       </div>
-      <div class="mt-2 mb-3 flex flex-col items-center gap-4 md:mt-8 md:mb-0 md:flex-row">
-        <a href="#work" class="w-full rounded-lg bg-accent px-6 py-4 text-center font-sans text-[15px] font-semibold text-white no-underline md:w-auto md:py-3.5">
-          View projects →
-        </a>
-        <a href="#contact" class="w-full rounded-lg border border-ink-muted px-6 py-4 text-center font-sans text-[15px] font-semibold text-ink no-underline md:w-auto md:py-3.5">
-          Get in touch
-        </a>
+      <div class="mt-8 mb-3 flex flex-col items-center gap-4 md:mb-0 md:flex-row">
+        <StampedButton label="View projects" href="#work" />
+        <NotchedButton label="Get in touch" href="#contact" />
       </div>
     </div>
 
@@ -59,3 +57,36 @@ import { SITE } from "@data/site";
   ></div>
 
 </section>
+
+<style>
+  .hero-prose {
+    font-family: var(--serif);
+    font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+    font-weight: 700;
+    line-height: 1.4;
+    color: var(--color-ink, #1a0e04);
+    margin-bottom: 1.5rem;
+  }
+  .sep {
+    color: var(--color-accent, #c44e10);
+  }
+  .pivot {
+    border-bottom: 2px solid var(--color-accent, #c44e10);
+  }
+  .hero-sig {
+    margin-bottom: 0.5rem;
+  }
+  .hero-name {
+    font-family: var(--serif);
+    font-size: 1.55rem;
+    font-weight: 800;
+    color: var(--color-ink, #1a0e04);
+    line-height: 1.2;
+  }
+  .hero-tagline {
+    font-family: var(--sans);
+    font-size: 1.1rem;
+    color: var(--color-body, #3a2a1a);
+    margin-top: 0.3rem;
+  }
+</style>

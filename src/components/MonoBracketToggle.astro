@@ -1,4 +1,4 @@
----
+﻿---
 interface Props {
   title?: string;
   category?: string;
@@ -45,11 +45,11 @@ const {
 
 <style>
   .mono-bracket-toggle {
-    border-top: 1px dashed var(--color-ink);
-    border-bottom: 2px solid var(--color-ink);
+    border-top: 1px dashed var(--color-ink, #1a0e04);
+    border-bottom: 2px solid var(--color-ink, #1a0e04);
   }
   .mono-bracket-toggle[data-active="true"] .bracket-icon {
-    color: var(--color-ink);
+    color: var(--color-ink, #1a0e04);
   }
   .mono-bracket-toggle[data-active="true"] .bracket-body {
     display: block;

@@ -1,6 +1,8 @@
 ---
+import "@styles/tokens.css";
 import "@styles/global.css";
 import { SITE } from "@data/site";
+import ToolTags from "@components/ToolTags.astro";
 
 interface TocItem {
   href: string;
@@ -68,8 +70,7 @@ const currentYear = new Date().getFullYear();
               <span class="meta-value">{role}</span>
             </div>
             <div class="meta-item">
-              <span class="meta-label">Tools</span>
-              <span class="meta-value">{tools}</span>
+              <ToolTags tools={tools} />
             </div>
           </div>
         </header>

@@ -1,0 +1,22 @@
+:root {
+  /* Colors */
+  --color-ink:        #1a0e04;
+  --color-accent:     #c44e10;
+  --color-cream:      #faf6f1;
+  --color-bg-alt:     #f5f0e8;
+  --color-muted:      #b5552a;
+  --color-separator:  #c9a07a;
+  --color-body:       #3a2a1a;
+
+  /* Typography */
+  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+
+  /* Borders */
+  --border-ink:       1.5px solid var(--color-ink);
+  --border-separator: 1px solid var(--color-separator);
+
+  /* Shadows */
+  --shadow-stamp:       6px 6px 0 0 var(--color-ink);
+  --shadow-stamp-hover: 2px 2px 0 0 var(--color-ink);
+  --shadow-card-hover:  4px 4px 0 0 var(--color-accent);
+}

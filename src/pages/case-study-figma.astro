@@ -2,6 +2,7 @@
 import CaseLayout from "@layouts/CaseLayout.astro";
 import ResultsGrid from "@components/ResultsGrid.astro";
 import Callout from "@components/Callout.astro";
+import PullQuote from "@components/PullQuote.astro";
 
 const toc = [
   { href: "#context", label: "Context" },
@@ -58,7 +59,14 @@ const toc = [
 
   <section class="case-section" id="learned">
     <h2>What I learned</h2>
-    <p>Solve the real problem, not the obvious one: the solution wasn't to hire more writers, but to remove them from repetitive tasks. Systems thinking scales better than heroics. AI-assisted learning works—the key was rapid iteration. Finally, production tools need iteration; features like batch processing came from watching how people actually used the tool.</p>
+    <PullQuote
+      lede="Solve the real problem, not the obvious one."
+      accentPhrase="not the obvious one"
+      thesis="Systems thinking scales better than heroics."
+    >
+      <p>The solution wasn't to hire more writers — it was to remove them from repetitive tasks and make their expertise available to everyone, instantly.</p>
+      <p>AI-assisted learning works when you iterate fast. Features like batch processing and RTL support didn't come from planning — they came from watching how people actually used the tool.</p>
+    </PullQuote>
   </section>
 
 </CaseLayout>

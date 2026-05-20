@@ -2,14 +2,16 @@
 import Layout from "@layouts/Layout.astro";
 import Nav from "@components/Nav.astro";
 import Hero from "@components/Hero.astro";
-import Bio from "@components/Bio.astro";
-import WorkCard from "@components/WorkCard.astro";
-import AccordionItem from "@components/AccordionItem.astro";
+import { BIO } from "@data/bio";
+import ProjectCard from "@components/ProjectCard.astro";
+import AccordionRow from "@components/AccordionRow.astro";
 import Clients from "@components/Clients.astro";
 import Contact from "@components/Contact.astro";
 import Footer from "@components/Footer.astro";
 import { PROJECTS } from "@data/projects";
 import { MINI_CASES } from "@data/miniCases";
+import SectionHeading from "@components/SectionHeading.astro";
+import PullQuote from "@components/PullQuote.astro";
 ---
 
 <Layout>
@@ -17,22 +19,35 @@ import { MINI_CASES } from "@data/miniCases";
 
   <Hero />
 
-  <Bio />
+  <div class="mx-auto max-w-[1100px] px-6 py-12 md:px-12">
+    <PullQuote
+      lede={BIO.hook}
+      accentPhrase="lost its soul"
+      thesis={BIO.footer}
+    >
+      {BIO.body.split("\n").filter((p) => p.trim()).map((p) => <p>{p}</p>)}
+    </PullQuote>
+  </div>
 
   <!-- === SELECTED WORK === -->
   <section id="work">
     <div class="section-inner">
-      <p class="eyebrow">Full stories</p>
-      <h2 class="section-title">Featured projects</h2>
+      <SectionHeading title="Featured projects" subtitle="FULL STORIES — 03" id="projects" />
 
-      <div class="work-carousel-viewport">
-        <div class="work-grid" id="work-track">
-          {PROJECTS.map((project) => <WorkCard project={project} />)}
-        </div>
-      </div>
-      <div class="carousel-controls">
-        <button class="carousel-btn" id="carousel-prev" aria-label="Previous projects" disabled>←</button>
-        <button class="carousel-btn" id="carousel-next" aria-label="Next projects">→</button>
+      <div class="flex flex-col gap-5">
+        {PROJECTS.map((project) => {
+          const [client, year] = project.meta.split(' · ');
+          return (
+            <ProjectCard
+              title={project.title}
+              description={project.description}
+              category={project.category}
+              client={client}
+              year={year}
+              href={project.href}
+            />
+          );
+        })}
       </div>
     </div>
   </section>
@@ -40,11 +55,50 @@ import { MINI_CASES } from "@data/miniCases";
   <!-- === MORE WORK (ACCORDIONS) === -->
   <section id="more-work">
     <div class="section-inner">
-      <p class="eyebrow">Mini-case studies</p>
-      <h2 class="section-title">Bytes from everyday work</h2>
+      <SectionHeading title="Bytes from everyday work" subtitle="MINI-CASE STUDIES" />
 
-      <div class="accordion-list">
-        {MINI_CASES.map((item, i) => <AccordionItem item={item} index={i} />)}
+      <div>
+        {MINI_CASES.map((item) => (
+          <AccordionRow title={item.title} meta={`${item.tag} · ${item.companyYear}`}>
+            <div class="grid grid-cols-1 gap-6 pb-6 md:grid-cols-[1fr_260px] md:gap-12">
+              <div class="space-y-4 text-[15px] leading-[1.8] text-ink-soft">
+                {item.desc1 && <p>{item.desc1}</p>}
+                {item.desc2 && <p>{item.desc2}</p>}
+                {item.desc3 && <p>{item.desc3}</p>}
+                {item.caseLink && (
+                  <p class="text-[13px]">
+                    Wanna read the full story?{" "}
+                    <a href={item.caseLink} class="font-medium text-accent hover:underline">Dive in →</a>
+                  </p>
+                )}
+              </div>
+              <div>
+                {item.skills.length > 0 && (
+                  <>
+                    <div class="mb-2 text-[10px] font-semibold uppercase tracking-[0.1em] text-ink-muted">What I did</div>
+                    <div class="flex flex-wrap gap-1.5">
+                      {item.skills.map((s) => (
+                        <span class="inline-block border border-border px-3 py-[3px] font-sans text-xs font-medium text-ink-soft [border-width:1.5px]">{s}</span>
+                      ))}
+                    </div>
+                  </>
+                )}
+                {item.industry && (
+                  <>
+                    <div class="mb-2 mt-5 text-[10px] font-semibold uppercase tracking-[0.1em] text-ink-muted">Industry</div>
+                    <div class="text-sm leading-[1.5] text-ink-soft">{item.industry}</div>
+                  </>
+                )}
+                {item.asideValue && (
+                  <>
+                    <div class="mb-2 mt-5 text-[10px] font-semibold uppercase tracking-[0.1em] text-ink-muted">{item.asideLabel ?? "Context"}</div>
+                    <div class="text-sm leading-[1.5] text-ink-soft">{item.asideValue}</div>
+                  </>
+                )}
+              </div>
+            </div>
+          </AccordionRow>
+        ))}
       </div>
     </div>
   </section>
@@ -68,25 +122,4 @@ import { MINI_CASES } from "@data/miniCases";
     });
   });
 
-  (function () {
-    const track = document.getElementById("work-track");
-    const prev = document.getElementById("carousel-prev") as HTMLButtonElement | null;
-    const next = document.getElementById("carousel-next") as HTMLButtonElement | null;
-    if (!track || !prev || !next) return;
-
-    let current = 0;
-    const visibleCards = 3;
-    const max = track.children.length - visibleCards;
-
-    function update() {
-      track!.style.transform = current === 0 ? "" : `translateX(${current * -33.333}%)`;
-      prev!.disabled = current === 0;
-      next!.disabled = current === max;
-    }
-
-    prev.addEventListener("click", () => { if (current > 0) { current--; update(); } });
-    next.addEventListener("click", () => { if (current < max) { current++; update(); } });
-
-    update();
-  })();
 </script>

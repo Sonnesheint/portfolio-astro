@@ -1,4 +1,4 @@
----
+﻿---
 interface Props {
   label?: string;
   href?: string;
@@ -19,14 +19,14 @@ const {
 
 <style>
   .stamped-btn {
-    background: #b5552a;
-    border: 1.5px solid #1a0e04;
+    background: var(--color-muted, #b5552a);
+    border: 1.5px solid var(--color-ink, #1a0e04);
     border-radius: 0;
-    box-shadow: 6px 6px 0 0 #1a0e04;
+    box-shadow: 6px 6px 0 0 var(--color-ink, #1a0e04);
     transition: transform 0.1s ease, box-shadow 0.1s ease;
   }
   .stamped-btn:hover {
     transform: translate(4px, 4px);
-    box-shadow: 2px 2px 0 0 #1a0e04;
+    box-shadow: 2px 2px 0 0 var(--color-ink, #1a0e04);
   }
 </style>

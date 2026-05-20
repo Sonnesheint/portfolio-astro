@@ -1,0 +1,121 @@
+﻿---
+interface Props {
+  lede: string;
+  accentPhrase?: string;
+  thesis?: string;
+}
+
+const { lede, accentPhrase, thesis } = Astro.props;
+
+let ledeBefore = lede;
+let ledeAfter = "";
+if (accentPhrase && lede.includes(accentPhrase)) {
+  const idx = lede.indexOf(accentPhrase);
+  ledeBefore = lede.slice(0, idx);
+  ledeAfter = lede.slice(idx + accentPhrase.length);
+}
+
+const uid = `pq-${Math.random().toString(36).slice(2, 8)}`;
+---
+
+<div class="pullquote">
+  <p class="pullquote-lede">
+    {accentPhrase ? (
+      <>{ledeBefore}<span class="accent-word">{accentPhrase}</span>{ledeAfter}</>
+    ) : lede}
+  </p>
+
+  <button class="read-more-btn" aria-expanded="false" aria-controls={uid}>
+    Read more <em class="chevron" aria-hidden="true">ˇ</em>
+  </button>
+
+  <div class="pullquote-body" id={uid} hidden>
+    <slot />
+    {thesis && <p class="thesis">{thesis}</p>}
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll<HTMLButtonElement>(".read-more-btn").forEach((btn) => {
+    const body = document.getElementById(
+      btn.getAttribute("aria-controls") ?? ""
+    ) as HTMLElement | null;
+    const chevron = btn.querySelector<HTMLElement>(".chevron");
+    if (!body || !chevron) return;
+
+    body.removeAttribute("hidden");
+    body.style.maxHeight = "0";
+    body.style.overflow = "hidden";
+    body.style.transition = "max-height 0.3s ease, margin-top 0.3s ease";
+    body.style.marginTop = "0";
+
+    btn.addEventListener("click", () => {
+      const isOpen = btn.getAttribute("aria-expanded") === "true";
+      if (isOpen) {
+        body.style.maxHeight = "0";
+        body.style.marginTop = "0";
+        chevron.style.transform = "rotate(0deg)";
+        btn.setAttribute("aria-expanded", "false");
+      } else {
+        body.style.maxHeight = body.scrollHeight + "px";
+        body.style.marginTop = "1.25rem";
+        chevron.style.transform = "rotate(180deg)";
+        btn.setAttribute("aria-expanded", "true");
+      }
+    });
+  });
+</script>
+
+<style>
+  .pullquote {
+    border-left: 3px solid var(--color-accent, #c44e10);
+    padding-left: 1.5rem;
+  }
+  .pullquote-lede {
+    font-weight: 700;
+    font-size: 1.35rem;
+    color: var(--color-ink, #1a0e04);
+    line-height: 1.4;
+    margin: 0 0 1.25rem;
+  }
+  .accent-word {
+    color: var(--color-accent, #c44e10);
+    font-style: italic;
+  }
+  .read-more-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #6b3a1f;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: color 0.1s ease;
+  }
+  .read-more-btn:hover {
+    color: var(--color-accent, #c44e10);
+  }
+  .chevron {
+    display: inline-block;
+    font-style: normal;
+    transition: transform 0.25s ease;
+  }
+  .pullquote-body :global(p) {
+    font-size: 0.95rem;
+    color: var(--color-body, #3a2a1a);
+    line-height: 1.7;
+    margin: 0 0 1rem;
+  }
+  .pullquote-body :global(p:last-child) {
+    margin-bottom: 0;
+  }
+  .thesis {
+    font-weight: 700 !important;
+    color: var(--color-ink, #1a0e04) !important;
+  }
+</style>
