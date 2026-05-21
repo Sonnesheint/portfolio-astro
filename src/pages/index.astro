@@ -35,7 +35,7 @@ import PullQuote from "@components/PullQuote.astro";
       <SectionHeading title="Featured projects" subtitle="FULL STORIES — 03" id="projects" />
 
       <div class="flex flex-col gap-5">
-        {PROJECTS.map((project) => {
+        {[...PROJECTS].sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0)).map((project) => {
           const [client, year] = project.meta.split(' · ');
           return (
             <ProjectCard
@@ -45,6 +45,7 @@ import PullQuote from "@components/PullQuote.astro";
               client={client}
               year={year}
               href={project.href}
+              featured={project.featured}
             />
           );
         })}

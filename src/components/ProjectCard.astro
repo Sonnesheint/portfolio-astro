@@ -6,13 +6,17 @@ interface Props {
   client: string;
   year: string | number;
   href?: string;
+  featured?: boolean;
 }
 
-const { title, description, category, client, year, href = "#" } = Astro.props;
+const { title, description, category, client, year, href = "#", featured = false } = Astro.props;
 ---
 
-<div class="card-wrapper">
-  <div class="card-tab">{category}</div>
+<div class={`card-wrapper${featured ? ' card-featured' : ''}`}>
+  <div class="card-tab-row">
+    <div class="card-tab">{category}</div>
+    {featured && <div class="card-featured-badge">Pinned</div>}
+  </div>
   <a class="card-body" href={href}>
     <h3 class="card-title">{title}</h3>
     <p class="card-desc">{description}</p>
@@ -31,6 +35,26 @@ const { title, description, category, client, year, href = "#" } = Astro.props;
   .card-wrapper:hover {
     transform: translate(-2px, -2px);
     box-shadow: 4px 4px 0 0 var(--color-accent, #c44e10);
+  }
+  .card-tab-row {
+    display: flex;
+    align-items: flex-end;
+    gap: 0.5rem;
+  }
+  .card-featured .card-body {
+    border-color: var(--color-accent, #c44e10);
+    border-width: 2px;
+  }
+  .card-featured-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-accent, #c44e10);
+    border: 1.5px solid var(--color-accent, #c44e10);
+    padding: 0.3rem 0.65rem;
+    margin-bottom: 0;
   }
   .card-tab {
     display: inline-block;

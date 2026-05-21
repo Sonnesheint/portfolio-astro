@@ -4,6 +4,7 @@ import ResultsGrid from "@components/ResultsGrid.astro";
 import Callout from "@components/Callout.astro";
 import PullQuote from "@components/PullQuote.astro";
 import OrbitCard from "@components/OrbitCard.astro";
+import BigStatement from "@components/BigStatement.astro";
 import { PROJECTS } from "@data/projects";
 
 const project = PROJECTS.find((p) => p.href === "/case-study-figma")!;
@@ -40,7 +41,7 @@ const toc = [
     <h2>Process</h2>
     <h3>First attempt — and the insight that killed it</h3>
     <p>My first idea was a Claude agent — a simple chatbot where designers could paste text, get it improved, and move on. I was genuinely proud of it. It felt like a real systems solution.</p>
-    <p>Then I showed it to a designer I trusted and asked if he'd use it. His answer floored me: absolutely not. It was too far from his tools. He wasn't going to leave Figma, open a browser, paste three words into a chat interface, copy the result back, and paste it into his mockup. That was never going to happen.</p>
+    <p><BigStatement>I showed it to a designer I trusted and asked if he'd use it. His answer floored me: absolutely not. It was too far from his tools.</BigStatementI> He wasn't going to leave Figma, open a browser, paste three words into a chat interface, copy the result back, and paste it into his mockup. That was never going to happen.</p>
     <p>That single conversation changed everything. The tool had to be where designers already were. At the time, that meant Figma.</p>
     <h3>Learning from zero</h3>
     <p>I knew nothing about Figma plugins, JavaScript, or API integrations. Zero. I used Claude as my programming tutor — describing what I wanted, getting code back, testing it in Figma, breaking it, figuring out why, and going again. The loop was: describe → generate → test → break → learn. I repeated it until something worked, then I repeated it some more.</p>
@@ -53,7 +54,7 @@ const toc = [
     <p>Over 86 iterations, the plugin grew into something I hadn't fully planned at the start. I added automatic frame detection so designers didn't have to select anything manually. The plugin also detects context from the interface itself — it reads layer names and structure to understand whether it's writing a button label, a form field title, or an error message, and adjusts the output accordingly. A button and a form field title aren't just different lengths. They're a different kind of language entirely. I added model selection — Sonnet gave much better results than Haiku but cost more, so giving users the choice mattered. I built a translation module supporting 12 languages.</p>
     <p>Batch editing was another step up. Designers could update copy across an entire frame at once — 20 text layers simultaneously, in a single run.</p>
     <p>One of the more impactful additions was project context. Each client project got its own set of content guidelines stored directly in the plugin. When a designer hit "Improve," the text didn't just go through Claude — it went through Claude with that project's guidelines as the system prompt. Output came back on-brand, consistent, and ready to use. Designers stopped having to remember tone-of-voice rules. The plugin remembered for them.</p>
-    <p>Security took a serious chunk of time. I integrated Cloudflare Workers to route API calls safely, hid the API key from the plugin code entirely, and built in protection against prompt injection attacks. I learned all of this through conversations with Claude — asking, reading, testing, and fixing things that broke.</p>
+    <p>Security took a serious chunk of time. <BigStatement>I integrated Cloudflare Workers to route API calls safely, hid the API key from the plugin code entirely, and built in protection against prompt injection attacks.</BigStatement>I learned all of this through conversations with Claude — asking, reading, testing, and fixing things that broke.</p>
     <div class="case-screenshots">
       <img src="/images/case_studies/figma-cs-1%20(2).png" alt="Figma plugin — plugin interface in action" class="case-img" />
       <img src="/images/case_studies/figma-cs-1%20(4).png" alt="Figma plugin — output example" class="case-img" />

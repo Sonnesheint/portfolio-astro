@@ -7,31 +7,6 @@ const currentYear = new Date().getFullYear();
 <footer class="bg-bg-alt">
   <div class="mx-auto max-w-[1100px] px-12 pb-8">
     <hr style="border: none; border-top: 0.5px solid #C5B9AB; margin: 0;" />
-    <div class="flex items-center justify-between py-7">
-      <div class="flex flex-col gap-1">
-        <span class="font-serif text-lg font-bold tracking-[-0.01em] text-ink">
-          {SITE.author}
-        </span>
-        <span class="text-[13px] text-ink-muted">{SITE.role}</span>
-      </div>
-      <div class="flex flex-col items-end gap-1.5">
-        <a
-          href={`mailto:${SITE.email}`}
-          class="text-sm font-medium text-ink underline decoration-[#A0442A] underline-offset-[3px] transition-colors duration-150 hover:text-[#A0442A]"
-        >
-          {SITE.email}
-        </a>
-        <a
-          href={SITE.linkedin}
-          target="_blank"
-          rel="noopener"
-          class="text-sm font-medium text-ink-muted transition-colors duration-150 hover:text-ink"
-        >
-          LinkedIn ↗
-        </a>
-      </div>
-    </div>
-    <hr style="border: none; border-top: 0.5px solid #C5B9AB; margin: 0;" />
-    <p class="pt-5 text-xs text-ink-muted">© {currentYear} {SITE.author}</p>
+    <p class="py-6 text-xs text-ink-muted">© {currentYear} {SITE.author}</p>
   </div>
 </footer>

@@ -8,6 +8,7 @@ import AccordionRow from "@components/AccordionRow.astro";
 import AnnotatedHero from "@components/AnnotatedHero.astro";
 import PullQuote from "@components/PullQuote.astro";
 import OrbitCard from "@components/OrbitCard.astro";
+import Accent from "@components/Accent.astro";
 import ResultsGrid from "@components/ResultsGrid.astro";
 
 const resultsData = [
@@ -72,6 +73,39 @@ const resultsData = [
           annotationLabel="The pivot"
           annotationText="The sentence where the reader realises the thing was working all along."
         />
+      </div>
+
+      <div class="component-block">
+        <span class="component-label">BigStatement — wariant 1: samo typografia, wyśrodkowana</span>
+        <div class="bs-demo bs-1">
+          <p class="bs1-text">Migrating to Astro reduced my codebase by 59%. Not through optimisation. Just by using the right tool.</p>
+        </div>
+      </div>
+
+      <div class="component-block">
+        <span class="component-label">BigStatement — wariant 2: z kreskami góra/dół (magazynowy)</span>
+        <div class="bs-demo bs-2">
+          <div class="bs2-bar"></div>
+          <p class="bs2-text">Migrating to Astro reduced my codebase by 59%. Not through optimisation. Just by using the right tool.</p>
+          <div class="bs2-bar"></div>
+        </div>
+      </div>
+
+      <div class="component-block">
+        <span class="component-label">BigStatement — wariant 3: accent block + wcięcie</span>
+        <div class="bs-demo bs-3">
+          <div class="bs3-accent"></div>
+          <p class="bs3-text">Migrating to Astro reduced my codebase by 59%. Not through optimisation. Just by using the right tool.</p>
+        </div>
+      </div>
+
+      <div class="component-block">
+        <span class="component-label">Accent</span>
+        <p style="font-size: 16px; line-height: 1.8; color: var(--color-ink);">
+          I came into this project thinking Git was a developer tool.
+          I left understanding it's <Accent>a safety net for anyone who makes decisions</Accent>.
+          Every meaningful change was a commit.
+        </p>
       </div>
 
       <div class="component-block">
@@ -192,6 +226,59 @@ const resultsData = [
     letter-spacing: 0.15em;
     color: var(--color-muted);
     margin-bottom: 1rem;
+  }
+
+  /* BigStatement demos */
+  .bs-demo { max-width: 560px; margin: 0 auto; }
+
+  /* Wariant 1: samo typografia */
+  .bs1-text {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.35;
+    color: var(--color-ink);
+    text-align: center;
+    margin: 0;
+  }
+
+  /* Wariant 2: kreski góra/dół */
+  .bs-2 { text-align: center; }
+  .bs2-bar {
+    height: 2px;
+    background: linear-gradient(to right, transparent, var(--color-accent) 30%, var(--color-accent) 70%, transparent);
+    margin: 0.75rem 0;
+  }
+  .bs2-text {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    line-height: 1.35;
+    color: var(--color-ink);
+    margin: 0;
+    padding: 0.25rem 0;
+  }
+
+  /* Wariant 3: accent block + wcięcie */
+  .bs-3 {
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+  }
+  .bs3-accent {
+    width: 4px;
+    background: var(--color-accent);
+    flex-shrink: 0;
+    align-self: stretch;
+    min-height: 100%;
+  }
+  .bs3-text {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    line-height: 1.35;
+    color: var(--color-ink);
+    margin: 0;
   }
 
   /* H2 divider demos */

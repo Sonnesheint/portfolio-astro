@@ -5,6 +5,7 @@ export interface Project {
   year: number;
   title: string;
   description: string;
+  featured?: boolean;
   stats: { value?: string; label: string }[];
 }
 
@@ -66,12 +67,13 @@ export const PROJECTS: Project[] = [
   },
   {
     href: "/case-study-portfolio",
+    featured: true,
     category: "Personal project",
     meta: "Personal project · 2026",
     year: 2026,
     title: "Can you build a portfolio website in 5 minutes?",
     description:
-      "One UX Writer. Two AI tools. Zero Figma. A full production stack — and a 10-year procrastination problem finally solved.",
+      "One UX Writer. Two AI tools. Zero Figma. A full production stack. And a 10-year procrastination problem has finally been solved.",
     stats: [
       { value: "59%" },
       { label: "codebase reduction after Astro migration" },

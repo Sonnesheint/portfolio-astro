@@ -1,0 +1,31 @@
+---
+---
+<div class="big-statement">
+  <div class="bs-bar"></div>
+  <p class="bs-text"><slot /></p>
+  <div class="bs-bar"></div>
+</div>
+
+<style>
+  .big-statement {
+    max-width: 560px;
+    margin: 2rem auto;
+    text-align: center;
+  }
+
+  .bs-bar {
+    height: 2px;
+    background: linear-gradient(to right, transparent, var(--accent, #c44e10) 30%, var(--accent, #c44e10) 70%, transparent);
+    margin: 0.75rem 0;
+  }
+
+  .bs-text {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    line-height: 1.35;
+    color: var(--ink, #1a0e04);
+    margin: 0;
+    padding: 0.25rem 0;
+  }
+</style>
