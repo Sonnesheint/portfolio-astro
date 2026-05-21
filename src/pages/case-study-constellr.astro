@@ -2,6 +2,10 @@
 import CaseLayout from "@layouts/CaseLayout.astro";
 import ResultsGrid from "@components/ResultsGrid.astro";
 import Callout from "@components/Callout.astro";
+import PullQuote from "@components/PullQuote.astro";
+import { PROJECTS } from "@data/projects";
+
+const project = PROJECTS.find((p) => p.href === "/case-study-constellr")!;
 
 const toc = [
   { href: "#company", label: "Company & product" },
@@ -18,12 +22,12 @@ const toc = [
 ---
 
 <CaseLayout
-  title="Thermal satellite data, explained in plain language."
+  title={project.title}
   tag="Deep Tech / Space"
-  heading="Thermal satellite data, explained in plain language."
-  lead="Full website copy for a B2B Earth observation platform pivoting from agriculture to government markets. Plain language as competitive differentiator — not a simplification."
+  heading={project.title}
+  lead={project.description}
   client="Constellr"
-  year={2025}
+  year={project.year}
   role="Lead UX Writer & Content Strategist"
   tools="Figma · Notion · Confluence"
   tocItems={toc}
@@ -230,20 +234,15 @@ const toc = [
 
   <section class="case-section" id="learned">
     <h2>What I learned</h2>
-    <div class="lessons-list">
-      <div class="lesson-item">
-        <span class="lesson-num">01</span>
-        <p>Deep-tech content doesn't need simplification — it needs precision of a different kind. The goal isn't to make things easier; it's to remove unnecessary complexity while preserving technical accuracy. Those are not the same thing.</p>
-      </div>
-      <div class="lesson-item">
-        <span class="lesson-num">02</span>
-        <p>In a sector where every player sounds the same, a clear voice is a competitive asset — not a stylistic preference. The Jargon Paradox isn't unique to space tech. It appears anywhere expertise is performed rather than demonstrated.</p>
-      </div>
-      <div class="lesson-item">
-        <span class="lesson-num">03</span>
-        <p>The contract was for website copy. The real deliverable was a strategic repositioning. If I repeated this project, I'd surface that gap earlier and make strategy a formal part of the scope from day one — not something discovered mid-process.</p>
-      </div>
-    </div>
+    <PullQuote
+      lede="In a sector where every player sounds the same, a clear voice can be a competitive asset."
+      accentPhrase="competitive asset"
+      thesis="The contract was for website copy. The real deliverable was a strategic repositioning."
+    >
+      <p>Deep-tech content needs precision of a different kind. The real goal is to remove unnecessary complexity while preserving technical accuracy.</p>
+      <p>The Jargon Paradox isn't unique to space tech. It appears anywhere expertise is performed rather than demonstrated.</p>
+      <p>If I repeated this project, I'd surface the strategy gap earlier and make it a formal part of the scope from day one — not something discovered mid-process.</p>
+    </PullQuote>
   </section>
 
 </CaseLayout>

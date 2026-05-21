@@ -3,6 +3,10 @@ import CaseLayout from "@layouts/CaseLayout.astro";
 import ResultsGrid from "@components/ResultsGrid.astro";
 import Callout from "@components/Callout.astro";
 import PullQuote from "@components/PullQuote.astro";
+import OrbitCard from "@components/OrbitCard.astro";
+import { PROJECTS } from "@data/projects";
+
+const project = PROJECTS.find((p) => p.href === "/case-study-figma")!;
 
 const toc = [
   { href: "#context", label: "Context" },
@@ -14,12 +18,12 @@ const toc = [
 ---
 
 <CaseLayout
-  title="One writer. Twenty designers. Zero bottleneck."
+  title={project.title}
   tag="AI / Tooling"
-  heading="One writer. Twenty designers. Zero bottleneck."
-  lead="Built a Figma plugin from scratch — no prior JS experience — that lets designers produce review-ready microcopy independently. 86 iterations in 60 days."
+  heading={project.title}
+  lead={project.description}
   client="Flying Bisons"
-  year={2024}
+  year={project.year}
   role="UX Writer & Developer"
   tools="JavaScript, Figma API, Cloudflare Workers, Claude API"
   tocItems={toc}
@@ -27,23 +31,29 @@ const toc = [
 
   <section class="case-section" id="context">
     <h2>Context</h2>
-    <p>I was the only UX writer supporting 20 designers across multiple international projects at Flying Bisons. Every piece of microcopy—button labels, error messages, form hints—needed my review before shipping. Designers faced two bad options: wait for my review (delaying their work) or ship placeholder text that often made it to production unfixed.</p>
-    <p>This bottleneck slowed down the entire design process. The real problem wasn't capacity—designers needed immediate feedback on simple microcopy decisions, but I was spending time on repetitive copy polishing instead of strategic content work. Neither worked for a fast-moving agency handling retail, e-commerce, and government clients.</p>
-    <Callout text="The real problem wasn't capacity—designers needed immediate feedback on simple microcopy decisions." />
+    <p>The ratio was uncomfortable: 20+ designers, one UX writer — me. Most projects were UI-heavy and designers worked independently. But when copy mattered — when mockups needed real text before a client presentation — everyone came to me at once.</p>
+    <p>I knew I was a bottleneck. Not theoretically. I could feel it. And I had a second, more personal problem: I wanted to take a vacation without my phone ringing every few hours because a microcopy decision was stuck.</p>
+    <Callout text="The tool had to live where designers actually work. Asking them to leave Figma just to fix three words was never going to fly." />
   </section>
 
   <section class="case-section" id="process">
     <h2>Process</h2>
-    <h3>Defining the solution</h3>
-    <p>Instead of working harder to review more copy, I built a system that made my expertise available to everyone, instantly, anytime. I built a Figma plugin that connects directly to Claude API and applies UX writing best practices through carefully crafted system prompts, allowing designers to create solid microcopy drafts independently.</p>
-    <div class="img-placeholder">[Screenshot — process diagram or whiteboard]</div>
-    <h3>Iterations & testing</h3>
-    <p>Over 60 days and 86 versions, I taught myself JavaScript, the Figma API, Cloudflare Workers for secure API routing, and environment variable management. I used Claude AI as my programming tutor, learning through AI-assisted prototyping: I'd describe what I wanted to build, Claude would generate code, I'd test it in Figma, analyze what broke, and iterate.</p>
+    <h3>First attempt — and the insight that killed it</h3>
+    <p>My first idea was a Claude agent — a simple chatbot where designers could paste text, get it improved, and move on. I was genuinely proud of it. It felt like a real systems solution.</p>
+    <p>Then I showed it to a designer I trusted and asked if he'd use it. His answer floored me: absolutely not. It was too far from his tools. He wasn't going to leave Figma, open a browser, paste three words into a chat interface, copy the result back, and paste it into his mockup. That was never going to happen.</p>
+    <p>That single conversation changed everything. The tool had to be where designers already were. At the time, that meant Figma.</p>
+    <h3>Learning from zero</h3>
+    <p>I knew nothing about Figma plugins, JavaScript, or API integrations. Zero. I used Claude as my programming tutor — describing what I wanted, getting code back, testing it in Figma, breaking it, figuring out why, and going again. The loop was: describe → generate → test → break → learn. I repeated it until something worked, then I repeated it some more.</p>
+    <OrbitCard />
   </section>
 
   <section class="case-section" id="solution">
     <h2>Solution</h2>
-    <p>Designers select text layers in Figma, choose their project context, and hit "Improve." The plugin detects all layers, sends them to Claude API with project-specific guidelines, and returns copy that follows plain language principles and brand tone. It evolved into a suite including safety guardrails, a translation module (PL, EN, AR, UA), batch processing, RTL support, and context detection based on layer names.</p>
+    <p>The first version was minimal: select a frame manually, send its text to Claude (Haiku model), get improved copy back. It worked. Then I kept going.</p>
+    <p>Over 86 iterations, the plugin grew into something I hadn't fully planned at the start. I added automatic frame detection so designers didn't have to select anything manually. The plugin also detects context from the interface itself — it reads layer names and structure to understand whether it's writing a button label, a form field title, or an error message, and adjusts the output accordingly. A button and a form field title aren't just different lengths. They're a different kind of language entirely. I added model selection — Sonnet gave much better results than Haiku but cost more, so giving users the choice mattered. I built a translation module supporting 12 languages.</p>
+    <p>Batch editing was another step up. Designers could update copy across an entire frame at once — 20 text layers simultaneously, in a single run.</p>
+    <p>One of the more impactful additions was project context. Each client project got its own set of content guidelines stored directly in the plugin. When a designer hit "Improve," the text didn't just go through Claude — it went through Claude with that project's guidelines as the system prompt. Output came back on-brand, consistent, and ready to use. Designers stopped having to remember tone-of-voice rules. The plugin remembered for them.</p>
+    <p>Security took a serious chunk of time. I integrated Cloudflare Workers to route API calls safely, hid the API key from the plugin code entirely, and built in protection against prompt injection attacks. I learned all of this through conversations with Claude — asking, reading, testing, and fixing things that broke.</p>
     <div class="case-screenshots">
       <img src="/images/case_studies/figma-cs-1%20(2).png" alt="Figma plugin — plugin interface in action" class="case-img" />
       <img src="/images/case_studies/figma-cs-1%20(4).png" alt="Figma plugin — output example" class="case-img" />
@@ -53,25 +63,27 @@ const toc = [
   <section class="case-section" id="results">
     <h2>Results</h2>
     <ResultsGrid items={[
-      { number: "86",   desc: "iterations in 60 days" },
-      { number: "10–15", desc: "daily active users" },
-      { number: "0",    desc: "prior JS experience needed" },
+      { number: "86",   desc: "iterations over 60 days" },
+      { number: "5–10", desc: "designers using it daily" },
+      { number: "12",   desc: "languages in the translation module" },
     ]} />
-    <p>Immediate results: the bottleneck is gone and the plugin became the default content ops tooling for the entire agency. Quality improved as placeholder text became solid first drafts, and the tool even served as a training aid for designers. Its success led to building 4 more plugins for different content operations needs.</p>
+    <p>Five to ten designers started using the plugin regularly. Poor-quality drafts stopped making it to client presentations. The bottleneck I'd been worried about disappeared. The plugin's success led to four more content ops tools being built at the agency.</p>
+    <p>I handed the tool over to the design team when I left Flying Bisons. I'm now developing a similar tool independently.</p>
   </section>
 
   <section class="case-section" id="learned">
     <h2>What I learned</h2>
     <PullQuote
-      lede="Solve the real problem, not the obvious one."
-      accentPhrase="not the obvious one"
-      thesis="Systems thinking scales better than heroics."
+      lede="AI is a lever. Point it at technology, not people."
+      accentPhrase="not people"
+      thesis="Technology scales better than heroics — and better than headcount."
     >
-      <p>The solution wasn't to hire more writers — it was to remove them from repetitive tasks and make their expertise available to everyone, instantly.</p>
-      <p>AI-assisted learning works when you iterate fast. Features like batch processing and RTL support didn't come from planning — they came from watching how people actually used the tool.</p>
+      <p>Working with AI requires patience and a lot of iterations. Especially when you're learning something from scratch. The high iteration count isn't a sign of failure — it's the cost of learning something you had no prior knowledge of. You have to love the process. But once you do — boy, the sky is the limit.</p>
+      <p>Some people assume a tool like this replaces the UX writer. I'd push back on that. Writing microcopy is maybe 20% of the job. The rest is tracking flows and finding communication pain points — places where copy is missing, where there's too much of it, or where what's there simply doesn't fit the moment. Should this label exist at all? Does this screen need any text, or would removing it solve the problem faster? Those are judgment calls, and they require someone accountable for the answer. When I asked designers whether they'd want to make them, the answer was consistent: no. Some were open to writing and willing to learn — but they weren't strong writers. And none of them wanted the responsibility that comes with owning content decisions.</p>
+      <p>UX writing isn't being replaced by AI. It might be squeezed by full-stack designers who pick up content skills — but the logic runs both ways: a UX writer who learns to design covers that ground too.</p>
+      <p>And for what it's worth — I'm still a little surprised by how well it turned out.</p>
     </PullQuote>
   </section>
-
 
 </CaseLayout>
 

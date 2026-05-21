@@ -2,6 +2,7 @@ export interface Project {
   href: string;
   category: string;
   meta: string;
+  year: number;
   title: string;
   description: string;
   stats: { value?: string; label: string }[];
@@ -12,9 +13,10 @@ export const PROJECTS: Project[] = [
     href: "/case-study-figma",
     category: "AI / Tooling",
     meta: "Flying Bisons · 2025",
-    title: "Devs hate him. He built a Figma plugin alone",
+    year: 2025,
+    title: "UX writers hate him. He gave designers a writing tool and walked away.",
     description:
-      "Built a Figma plugin from scratch — no prior JS experience — that lets designers produce review-ready microcopy independently. 86 iterations in 60 days.",
+      "I built a Figma plugin from scratch. It took me 60 days and 86 iterations. Literally zero JavaScript experience.  Designers can now produce review-ready microcopy independently.",
     stats: [
       { value: "86 iterations" },
       { label: "10–15 daily users" },
@@ -25,6 +27,7 @@ export const PROJECTS: Project[] = [
     href: "/case-study-ai",
     category: "AI / Content Automation",
     meta: "Flying Bisons · 2025",
+    year: 2025,
     title: "Can you replace the entire team with one button?",
     description: "I build the workflow. I tested it. Here is my conclusion.",
     stats: [
@@ -37,6 +40,7 @@ export const PROJECTS: Project[] = [
     href: "/case-study-fmcg-plugin",
     category: "FMCG / Content Ops",
     meta: "NDA · 2025",
+    year: 2025,
     title: "I used AI to build a plugin that saved 67 hours of manual work.",
     description:
       "Legal flagged a word used across 9 Figma files. I built a plugin to find, review, replace, and document every instance — with a full audit trail for compliance.",
@@ -50,9 +54,10 @@ export const PROJECTS: Project[] = [
     href: "/case-study-constellr",
     category: "Deep Tech",
     meta: "Constellr · 2025",
-    title: "Even rocket science can be written simply",
+    year: 2025,
+    title: "Even rocket science can be explained simply.",
     description:
-      "Interface copy for a B2B Earth observation platform. Plain language as precision — not simplification.",
+      "I delivered the complete copy for the redesigned constellr.com. Every page is now written as strategic content.",
     stats: [
       { label: "Interface copy" },
       { label: "Onboarding" },
@@ -63,6 +68,7 @@ export const PROJECTS: Project[] = [
     href: "/case-study-portfolio",
     category: "Personal project",
     meta: "Personal project · 2026",
+    year: 2026,
     title: "Can you build a portfolio website in 5 minutes?",
     description:
       "One UX Writer. Two AI tools. Zero Figma. A full production stack — and a 10-year procrastination problem finally solved.",

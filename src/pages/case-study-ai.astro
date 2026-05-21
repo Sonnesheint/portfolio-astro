@@ -2,6 +2,10 @@
 import CaseLayout from "@layouts/CaseLayout.astro";
 import ResultsGrid from "@components/ResultsGrid.astro";
 import Callout from "@components/Callout.astro";
+import PullQuote from "@components/PullQuote.astro";
+import { PROJECTS } from "@data/projects";
+
+const project = PROJECTS.find((p) => p.href === "/case-study-ai")!;
 
 const toc = [
   { href: "#context", label: "Context" },
@@ -14,12 +18,12 @@ const toc = [
 ---
 
 <CaseLayout
-  title="Can you replace the entire content team with a single button?"
+  title={project.title}
   tag="AI / Tooling"
-  heading="Can you replace the entire content team with a single button?"
-  lead="Six AI agents in sequence that mirror a full content team. Multi-day production cycle reduced to minutes."
+  heading={project.title}
+  lead={project.description}
   client="Flying Bisons"
-  year={2025}
+  year={project.year}
   role="UX Writer + AI Workflow Designer"
   tools="Make.com, Claude API, Notion, Figma"
   tocItems={toc}
@@ -85,9 +89,15 @@ const toc = [
 
   <section class="case-section" id="learned">
     <h2>What I learned</h2>
-    <p>This automation genuinely speeds up content production. But that's only part of the story. The flow works well for simple formats — social media posts, short updates. Anything meant to keep a profile active. Longer forms, such as full case studies or in-depth articles, are a different story. Without solid subject matter input, they sound hollow.</p>
-    <p>There's another weak spot. The agents run in sequence. If one messes up, the rest won't fix it. Hallucinations happen too. A human needs to stay in the loop.</p>
-    <p>For short-form content, I'd recommend it without hesitation. It's a great tool. Probably even a game changer if you have an active social media profile and publish content daily.</p>
+    <PullQuote
+      lede="AI doesn't remove the human from the loop. It changes where the human stands."
+      accentPhrase="where the human stands"
+      thesis="The best use of automation is buying back time for the work that actually needs a person."
+    >
+      <p>This automation genuinely speeds up content production. But that's only part of the story. The flow works well for simple formats — social media posts, short updates. Anything meant to keep a profile active. Longer forms, such as full case studies or in-depth articles, are a different story. Without solid subject matter input, they sound hollow.</p>
+      <p>There's another weak spot. The agents run in sequence. If one messes up, the rest won't fix it. Hallucinations happen too. A human needs to stay in the loop.</p>
+      <p>For short-form content, I'd recommend it without hesitation. It's a great tool. Probably even a game changer if you have an active social media profile and publish content daily.</p>
+    </PullQuote>
   </section>
 
 </CaseLayout>

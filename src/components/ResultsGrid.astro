@@ -11,11 +11,52 @@ interface Props {
 const { items } = Astro.props;
 ---
 
-<div class="my-6 grid grid-cols-3 gap-px border border-border-light bg-border-light">
-  {items.map((item) => (
-    <div class="bg-bg p-6">
-      <div class="font-sans text-4xl font-semibold leading-none text-accent">{item.number}</div>
-      <div class="mt-2 text-[13px] leading-[1.5] text-ink-soft">{item.desc}</div>
+<div class="results-list">
+  {items.map((item, i) => (
+    <div class="result-row">
+      <span class="result-num">{String(i + 1).padStart(2, "0")}</span>
+      <div class="result-body">
+        <div class="result-value">{item.number}</div>
+        <div class="result-desc">{item.desc}</div>
+      </div>
     </div>
   ))}
 </div>
+
+<style>
+  .results-list { display: flex; flex-direction: column; margin: 1.5rem 0; }
+
+  .result-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding: 1.25rem 0;
+  }
+
+  .result-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--color-accent);
+    min-width: 2rem;
+    padding-top: 0.2rem;
+    padding-bottom: 0.15rem;
+    border-bottom: 2px solid var(--color-accent);
+    align-self: flex-start;
+    flex-shrink: 0;
+  }
+
+  .result-value {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: var(--color-ink);
+    line-height: 1.2;
+    margin-bottom: 0.3rem;
+  }
+
+  .result-desc {
+    font-size: 0.8125rem;
+    line-height: 1.55;
+    color: var(--color-body);
+  }
+</style>

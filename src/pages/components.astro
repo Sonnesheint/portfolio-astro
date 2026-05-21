@@ -7,6 +7,14 @@ import ProjectCard from "@components/ProjectCard.astro";
 import AccordionRow from "@components/AccordionRow.astro";
 import AnnotatedHero from "@components/AnnotatedHero.astro";
 import PullQuote from "@components/PullQuote.astro";
+import OrbitCard from "@components/OrbitCard.astro";
+import ResultsGrid from "@components/ResultsGrid.astro";
+
+const resultsData = [
+  { number: "Weeks → hours", desc: "original time estimate collapsed after the plugin was built and deployed" },
+  { number: "9 files",       desc: "searched and processed simultaneously — something Figma's native tools cannot do" },
+  { number: "Ahead of time", desc: "task delivered before the deadline with full documentation, client satisfied" },
+] as [any, any, any];
 ---
 
 <Layout title="Component library">
@@ -67,6 +75,11 @@ import PullQuote from "@components/PullQuote.astro";
       </div>
 
       <div class="component-block">
+        <span class="component-label">OrbitCard</span>
+        <OrbitCard />
+      </div>
+
+      <div class="component-block">
         <span class="component-label">PullQuote</span>
         <PullQuote
           lede="You open an app and every sentence feels identical. Same patterns, same structures. This is Generative AI speak. It's the sound of a product that has lost its soul."
@@ -76,6 +89,83 @@ import PullQuote from "@components/PullQuote.astro";
           <p>Good writing doesn't announce itself. It just works — quietly, invisibly.</p>
           <p>That's what UX writing does. It holds the product together.</p>
         </PullQuote>
+      </div>
+
+      <div class="component-block">
+        <span class="component-label">H2 divider — CURRENT (do zastąpienia)</span>
+        <div class="demo-case-section demo-current">
+          <h2>Context</h2>
+          <p>I created a content pipeline where multiple AI agents work together like a real editorial team.</p>
+        </div>
+      </div>
+
+      <div class="component-block">
+        <span class="component-label">H2 divider — wariant A: accent bar + hairline</span>
+        <div class="demo-case-section demo-a">
+          <h2>Context</h2>
+          <p>I created a content pipeline where multiple AI agents work together like a real editorial team.</p>
+        </div>
+      </div>
+
+      <div class="component-block">
+        <span class="component-label">H2 divider — wariant B: accent left border</span>
+        <div class="demo-case-section demo-b">
+          <h2>Context</h2>
+          <p>I created a content pipeline where multiple AI agents work together like a real editorial team.</p>
+        </div>
+      </div>
+
+      <div class="component-block">
+        <span class="component-label">H2 divider — wariant C: mono eyebrow + hairline</span>
+        <div class="demo-case-section demo-c">
+          <h2><span class="demo-c-eyebrow">— </span>Context</h2>
+          <p>I created a content pipeline where multiple AI agents work together like a real editorial team.</p>
+        </div>
+      </div>
+
+      <div class="component-block">
+        <span class="component-label">Results — 1: z liniami (obecny)</span>
+        <div class="rg rg-lines">
+          {resultsData.map((item, i) => (
+            <div class="rg-row">
+              <span class="rg-num">{String(i + 1).padStart(2, "0")}</span>
+              <div class="rg-body">
+                <div class="rg-value">{item.number}</div>
+                <div class="rg-desc">{item.desc}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div class="component-block">
+        <span class="component-label">Results — 2: bez linii</span>
+        <div class="rg rg-clean">
+          {resultsData.map((item, i) => (
+            <div class="rg-row">
+              <span class="rg-num">{String(i + 1).padStart(2, "0")}</span>
+              <div class="rg-body">
+                <div class="rg-value">{item.number}</div>
+                <div class="rg-desc">{item.desc}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div class="component-block">
+        <span class="component-label">Results — 3: zmienione linie (accent)</span>
+        <div class="rg rg-accent">
+          {resultsData.map((item, i) => (
+            <div class="rg-row">
+              <span class="rg-num">{String(i + 1).padStart(2, "0")}</span>
+              <div class="rg-body">
+                <div class="rg-value">{item.number}</div>
+                <div class="rg-desc">{item.desc}</div>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
 
     </div>
@@ -102,5 +192,101 @@ import PullQuote from "@components/PullQuote.astro";
     letter-spacing: 0.15em;
     color: var(--color-muted);
     margin-bottom: 1rem;
+  }
+
+  /* H2 divider demos */
+  .demo-case-section h2 {
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--color-ink);
+    margin-bottom: 16px;
+  }
+  .demo-case-section p {
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--color-ink);
+    opacity: 0.6;
+  }
+
+  /* CURRENT */
+  .demo-current h2 {
+    padding-bottom: 12px;
+    border-bottom: 1.5px solid var(--color-border-light);
+  }
+
+  /* Wariant A: accent bar + hairline przed h2 */
+  .demo-a h2 {
+    padding-top: 20px;
+    padding-bottom: 0;
+    border-bottom: none;
+    position: relative;
+  }
+  .demo-a h2::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(to right, var(--color-accent) 48px, var(--color-border-light) 48px);
+  }
+
+  /* Wariant B: accent left border */
+  .demo-b h2 {
+    border-left: 3px solid var(--color-accent);
+    padding-left: 14px;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+
+  /* Wariant C: mono dash prefix */
+  .demo-c h2 {
+    padding-bottom: 12px;
+    border-bottom: 1.5px solid var(--color-border-light);
+  }
+  .demo-c-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 22px;
+    color: var(--color-accent);
+    font-weight: 400;
+  }
+
+  /* Results — shared base */
+  .rg { display: flex; flex-direction: column; margin: 1.5rem 0; }
+  .rg-row { display: flex; align-items: flex-start; gap: 1.5rem; padding: 1.25rem 0; }
+  .rg-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--color-accent);
+    min-width: 2rem;
+    padding-top: 0.2rem;
+    flex-shrink: 0;
+  }
+  .rg-value {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: var(--color-ink);
+    line-height: 1.2;
+    margin-bottom: 0.3rem;
+  }
+  .rg-desc { font-size: 0.8125rem; line-height: 1.55; color: var(--color-ink-soft); }
+
+  /* 1: z liniami (beżowe, obecne) */
+  .rg-lines .rg-row { border-bottom: 1px solid var(--color-border-light); }
+  .rg-lines .rg-row:first-child { border-top: 1px solid var(--color-border-light); }
+
+  /* 2: bez linii — tylko odstępy */
+  .rg-clean .rg-row { padding: 0.75rem 0; }
+
+  /* 3: linia tylko pod numerem, w kolorze accent */
+  .rg-accent .rg-row { position: relative; padding-left: 0; }
+  .rg-accent .rg-num {
+    border-bottom: 2px solid var(--color-accent);
+    padding-bottom: 0.15rem;
+    align-self: flex-start;
+    margin-top: 0.25rem;
   }
 </style>

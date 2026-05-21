@@ -2,6 +2,10 @@
 import CaseLayout from "@layouts/CaseLayout.astro";
 import ResultsGrid from "@components/ResultsGrid.astro";
 import Callout from "@components/Callout.astro";
+import PullQuote from "@components/PullQuote.astro";
+import { PROJECTS } from "@data/projects";
+
+const project = PROJECTS.find((p) => p.href === "/case-study-fmcg-plugin")!;
 
 const toc = [
   { href: "#task", label: "The task" },
@@ -17,12 +21,12 @@ const toc = [
 ---
 
 <CaseLayout
-  title="I used AI to build a plugin that saved 67 hours of manual work."
+  title={project.title}
   tag="FMCG / Content Ops"
-  heading="I used AI to build a plugin that saved 67 hours of manual work."
-  lead="One word changed across 9 Figma files, hundreds of screens — with a full audit trail for legal and compliance."
+  heading={project.title}
+  lead={project.description}
   client="NDA — FMCG sector"
-  year={2024}
+  year={project.year}
   role="Senior UX Writer"
   tools="Figma Plugin API · JavaScript · Python · python-docx · Claude"
   tocItems={toc}
@@ -103,20 +107,15 @@ const toc = [
 
   <section class="case-section" id="learned">
     <h2>What I learned</h2>
-    <div class="lessons-list">
-      <div class="lesson-item">
-        <span class="lesson-num">01</span>
-        <p>The first reaction to a task tells you nothing about whether the task is worth doing. I was annoyed. Then I built something I'm genuinely proud of. The frustration was a signal that the problem was interesting — not that it wasn't worth my time.</p>
-      </div>
-      <div class="lesson-item">
-        <span class="lesson-num">02</span>
-        <p>Seniority isn't about which tasks you accept — it's about how you approach them. A junior executes. A senior looks at the task, looks at the system around the task, and asks whether there's a better way to solve the whole problem.</p>
-      </div>
-      <div class="lesson-item">
-        <span class="lesson-num">03</span>
-        <p>Tools you build for one job often solve a broader class of problems. This plugin now exists. The next time a rebranding or compliance review lands on my desk, the estimation conversation starts from a very different place.</p>
-      </div>
-    </div>
+    <PullQuote
+      lede="Seniority isn't about which tasks you accept. It's about how you approach them."
+      accentPhrase="how you approach them"
+      thesis="Tools you build for one job often solve a broader class of problems."
+    >
+      <p>The first reaction to a task tells you nothing about whether the task is worth doing. I was annoyed. Then I built something I'm genuinely proud of. The frustration was a signal that the problem was interesting — not that it wasn't worth my time.</p>
+      <p>A junior executes. A senior looks at the task, looks at the system around the task, and asks whether there's a better way to solve the whole problem.</p>
+      <p>This plugin now exists. The next time a rebranding or compliance review lands on my desk, the estimation conversation starts from a very different place.</p>
+    </PullQuote>
   </section>
 
 </CaseLayout>

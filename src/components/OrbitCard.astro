@@ -1,0 +1,176 @@
+---
+interface Props {
+  steps?: string[];
+  interval?: number;
+}
+
+const {
+  steps = ['describe', 'generate', 'test', 'break', 'learn'],
+  interval = 2000,
+} = Astro.props;
+---
+
+<div class="orbit-card">
+  <svg class="orbit-svg" viewBox="0 0 210 210" aria-hidden="true">
+    <circle
+      cx="105" cy="105" r="88"
+      fill="none"
+      stroke="#c9a07a"
+      stroke-width="1.25"
+      stroke-dasharray="4 5"
+      opacity="0.45"
+    />
+    <path id="orbit-arc" fill="none" stroke="#C0522A" stroke-width="2.5" stroke-linecap="round" />
+    <g id="orbit-dots"></g>
+    <text
+      x="105" y="88"
+      text-anchor="middle"
+      font-size="9"
+      letter-spacing="3"
+      fill="#b09878"
+      font-weight="500"
+    >STEP</text>
+    <text
+      id="orbit-num"
+      x="105" y="133"
+      text-anchor="middle"
+      font-size="46"
+      font-weight="700"
+      fill="currentColor"
+    >01</text>
+  </svg>
+
+  <ul class="orbit-list" id="orbit-list" aria-live="polite" aria-label="Current step in the learning loop"></ul>
+</div>
+
+<style>
+  .orbit-card {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 1.5rem 2rem;
+    background-color: var(--bg-alt, #f5f0e8);
+    border-radius: 0.75rem;
+    margin: 1.5rem 0;
+  }
+
+  .orbit-svg {
+    width: 140px;
+    height: 140px;
+    flex-shrink: 0;
+  }
+
+  .orbit-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex: 1;
+  }
+
+  .orbit-row {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    padding: 4px 0;
+    transition: opacity 0.4s ease;
+  }
+
+  .orbit-num {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    min-width: 16px;
+    transition: color 0.4s ease;
+    font-family: 'JetBrains Mono', monospace;
+    flex-shrink: 0;
+  }
+
+  .orbit-label {
+    font-size: 16px;
+    color: var(--ink, #2c1810);
+    transition: font-weight 0.2s ease;
+    white-space: nowrap;
+  }
+
+  @media (max-width: 600px) {
+    .orbit-card {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1.25rem;
+      padding: 1.25rem;
+    }
+
+    .orbit-svg {
+      width: 120px;
+      height: 120px;
+      align-self: center;
+    }
+
+    .orbit-label {
+      font-size: 15px;
+    }
+  }
+</style>
+
+<script is:inline define:vars={{ steps, interval }}>
+  const CX = 105, CY = 105, R = 88, N = steps.length;
+  const ACC = '#C0522A';
+
+  function ang(i) {
+    return (i / N) * 2 * Math.PI - Math.PI / 2;
+  }
+
+  function pt(i) {
+    return [CX + R * Math.cos(ang(i)), CY + R * Math.sin(ang(i))];
+  }
+
+  function arcD(a, b) {
+    const [x1, y1] = pt(a);
+    const [x2, y2] = pt(b);
+    return `M ${x1} ${y1} A ${R} ${R} 0 0 1 ${x2} ${y2}`;
+  }
+
+  let cur = 0;
+
+  function draw() {
+    const g = document.getElementById('orbit-dots');
+    g.innerHTML = '';
+
+    for (let i = 0; i < N; i++) {
+      const [x, y] = pt(i);
+      const c = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+      c.setAttribute('cx', x);
+      c.setAttribute('cy', y);
+      if (i === cur) {
+        c.setAttribute('r', 10);
+        c.setAttribute('fill', ACC);
+        c.setAttribute('stroke', 'none');
+      } else {
+        c.setAttribute('r', 5.5);
+        c.setAttribute('fill', 'none');
+        c.setAttribute('stroke', '#c9a07a');
+        c.setAttribute('stroke-width', '1.5');
+      }
+      g.appendChild(c);
+    }
+
+    document.getElementById('orbit-arc').setAttribute('d', arcD(cur, (cur + 1) % N));
+    document.getElementById('orbit-num').textContent = String(cur + 1).padStart(2, '0');
+
+    document.getElementById('orbit-list').innerHTML = steps
+      .map(
+        (s, i) => `
+        <li class="orbit-row" style="opacity:${i === cur ? 1 : 0.35}">
+          <span class="orbit-num" style="color:${i === cur ? ACC : '#b09878'}">${String(i + 1).padStart(2, '0')}</span>
+          <span class="orbit-label" style="font-weight:${i === cur ? 600 : 400}">${s}</span>
+        </li>`
+      )
+      .join('');
+  }
+
+  draw();
+  setInterval(() => {
+    cur = (cur + 1) % N;
+    draw();
+  }, interval);
+</script>
