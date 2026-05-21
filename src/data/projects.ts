@@ -73,7 +73,7 @@ export const PROJECTS: Project[] = [
     year: 2026,
     title: "Can you build a portfolio website in 5 minutes?",
     description:
-      "One UX Writer. Two AI tools. Zero Figma. A full production stack. And a 10-year procrastination problem has finally been solved.",
+      "One UX Writer. Two AI tools. Zero Figma. Level 10 Demon of Procrastination — final battle.",
     stats: [
       { value: "59%" },
       { label: "codebase reduction after Astro migration" },

@@ -1,6 +1,6 @@
 export const BIO = {
   hook: "You open an app and every sentence feels identical. Same patterns, same structures. This is Generative AI speak. It's the sound of a product that has lost its soul.",
-  body: `A few years ago someone handed everyone a powerful tool. Deliberately or not, they forgot to mention you need to know how to use it properly.
+  body: `A few years ago someone handed everyone a powerful tool — and deliberately or not, forgot to mention you need to know how to use it properly..
 The market got flooded with new content. Millions of words. Perfectly structured and perfectly hollow.
 Every app sounds the same. Every piece of text written by the same hand.
 But AI didn't ruin content. People without craft did.

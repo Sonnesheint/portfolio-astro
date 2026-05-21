@@ -9,10 +9,7 @@ import SectionHeading from "@components/SectionHeading.astro";
     <p class="text-base font-medium leading-[1.8] text-ink">
       {
         CLIENTS.map((name, i) => (
-          <>
-            <span class="whitespace-nowrap">{name}</span>
-            {i < CLIENTS.length - 1 ? ", " : "."}
-          </>
+          <><span class="whitespace-nowrap">{name}</span>{i < CLIENTS.length - 1 ? ", " : "."}</>
         ))
       }
     </p>

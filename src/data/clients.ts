@@ -15,4 +15,5 @@ export const CLIENTS: string[] = [
   "E-point",
   "Next Apps",
   "Pacific",
+  "Carrefour"
 ];
