@@ -30,10 +30,15 @@ const { title, description, category, client, year, href = "#", featured = false
 <style>
   .card-wrapper {
     width: 100%;
-    transition: transform 0.12s ease, box-shadow 0.12s ease;
+    transition: transform 0.12s ease;
   }
   .card-wrapper:hover {
     transform: translate(-2px, -2px);
+  }
+  .card-body {
+    transition: box-shadow 0.12s ease;
+  }
+  .card-wrapper:hover .card-body {
     box-shadow: 4px 4px 0 0 var(--color-accent, #c44e10);
   }
   .card-tab-row {
