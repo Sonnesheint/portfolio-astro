@@ -1,0 +1,302 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Nav from "@components/Nav.astro";
+import Footer from "@components/Footer.astro";
+import AccordionRow from "@components/AccordionRow.astro";
+import ProjectCard from "@components/ProjectCard.astro";
+import StampedButton from "@components/StampedButton.astro";
+import PullQuote from "@components/PullQuote.astro";
+---
+
+<Layout title="CV — Piotr Dudziński" description="CV Piotra Dudzińskiego — Senior UX Writer & Content Designer. 12 lat doświadczenia w produktach cyfrowych, bankowości i systemach content design.">
+  <Nav />
+
+  <div class="max-w-[800px] mx-auto px-8 py-16">
+    <div class="space-y-20">
+
+      <!-- HEADER -->
+      <header>
+        <p
+          class="text-[10.5px] uppercase tracking-[0.14em] text-ink-muted mb-3"
+          style="font-family:'JetBrains Mono',monospace"
+        >
+          Curriculum Vitae
+        </p>
+        <h1 class="font-serif text-[42px] font-black text-ink leading-tight">Piotr Dudziński</h1>
+        <p class="mt-2 text-[17px] text-ink-soft">Senior UX Copywriter / Content Designer</p>
+        <div
+          class="mt-5 flex flex-wrap gap-x-4 gap-y-1 text-[12.5px] text-ink-muted"
+          style="font-family:'JetBrains Mono',monospace"
+        >
+          <a href="mailto:piotr.ndj.dudzinski@gmail.com" class="hover:text-accent transition-colors duration-150">piotr.ndj.dudzinski@gmail.com</a>
+          <span aria-hidden="true">·</span>
+          <a href="tel:+48727912045" class="hover:text-accent transition-colors duration-150">727 912 045</a>
+          <span aria-hidden="true">·</span>
+          <a
+            href="https://linkedin.com/in/uxw-piotr-dudzinski"
+            class="hover:text-accent transition-colors duration-150"
+            target="_blank"
+            rel="noopener noreferrer"
+          >linkedin.com/in/uxw-piotr-dudzinski</a>
+        </div>
+      </header>
+
+      <!-- SUMMARY -->
+      <section>
+        <p
+          class="text-[10.5px] uppercase tracking-[0.14em] text-ink-muted mb-6"
+          style="font-family:'JetBrains Mono',monospace"
+        >
+          Summary
+        </p>
+        <PullQuote
+          lede="UX writer with 12 years of experience, including 10 years in digital banking — from copywriting to leading content for a mobile app with 3 million active users."
+          accentPhrase="3 million active users"
+          thesis="I also build tools: Figma plugins, AI agents, and Make.com pipelines that remove bottlenecks and scale content operations across distributed teams."
+        >
+          <p>I build content design systems, voice &amp; tone standards, and content-first workflows from scratch. I mentor designers, collaborate with legal and compliance, and make sure content quality doesn't disappear during handovers.</p>
+        </PullQuote>
+      </section>
+
+      <!-- EXPERIENCE -->
+      <section>
+        <p
+          class="text-[10.5px] uppercase tracking-[0.14em] text-ink-muted mb-2"
+          style="font-family:'JetBrains Mono',monospace"
+        >
+          Professional Experience
+        </p>
+
+        <AccordionRow
+          title="Senior UX Writer · Content Operations Lead"
+          meta="Flying Bisons · Jan 2024 – present"
+          open={true}
+        >
+          <ul class="cv-bullets">
+            <li>Owned content end-to-end across every project: from strategy and UX design through UI and handover. Guarded copy consistency to prevent unreviewed changes reaching production.</li>
+            <li>Built and ran UX writing training sessions for designers and PMs — raising content quality across teams that had no dedicated writer before.</li>
+            <li>Identified repetitive workflows and built AI-powered automation (Figma plugins, Make.com pipelines) that became default team tooling, saving 40+ hours/month.</li>
+            <li>Established content design systems with component documentation and editorial standards for distributed, international teams.</li>
+            <li>Managed up to 5 concurrent projects across retail, e-commerce, and government sectors.</li>
+          </ul>
+        </AccordionRow>
+
+        <AccordionRow
+          title="Senior UX Writer · Content Lead"
+          meta="Santander Bank Polska · Nov 2022 – Oct 2024"
+        >
+          <ul class="cv-bullets">
+            <li>Led content for the Santander mobile banking app — 3M active users, 3,000+ translation keys across 5 languages (PL, EN, UA, RU, ES).</li>
+            <li>Led the team to achieve a Plain Language Certificate for the mobile app, navigating legal and compliance constraints while keeping content clear and accessible.</li>
+            <li>Built component libraries and editorial standards adopted across the organisation.</li>
+            <li>Presented content strategy to senior stakeholders using user research and data analytics.</li>
+          </ul>
+        </AccordionRow>
+
+        <AccordionRow
+          title="Copywriter → UX Writer"
+          meta="Santander Bank Polska · 2014 – Oct 2022"
+        >
+          <ul class="cv-bullets">
+            <li>Created content across 6 channels: blog, website, mobile app, desktop banking, SMS, push notifications.</li>
+            <li>Led outage and maintenance communications — coordinating with press officers, deployment teams, and compliance.</li>
+            <li>Delivered internal communications and training materials for bank employees.</li>
+          </ul>
+        </AccordionRow>
+      </section>
+
+      <!-- FEATURED PROJECTS -->
+      <section>
+        <p
+          class="text-[10.5px] uppercase tracking-[0.14em] text-ink-muted mb-6"
+          style="font-family:'JetBrains Mono',monospace"
+        >
+          Featured Projects
+        </p>
+        <div class="flex flex-col gap-5">
+          <ProjectCard
+            title="Figma Plugin Suite for Content Operations"
+            description="One UX writer, 20 designers. Every microcopy draft required a writer review — a bottleneck that slowed the entire design process. With no prior JavaScript experience, I built a Figma plugin that lets designers create solid microcopy drafts without waiting for a writer. Self-taught the full stack (JavaScript, Cloudflare Workers, Figma API) through AI-assisted learning — 86 iterations over 60 days. Result: 10–15 active daily users, designers produce review-ready copy independently, bottleneck eliminated."
+            category="AI / Tooling"
+            client="Flying Bisons"
+            year="2024"
+            href="#"
+          />
+          <ProjectCard
+            title="Plain Language Certificate — Santander Mobile Banking"
+            description="Led the content and process work that resulted in a formal Plain Language Certificate for Santander's mobile banking app — one of the first in the Polish banking sector. The project required coordinating content decisions across legal, compliance, and UX teams, rewriting hundreds of microcopy strings, and building internal standards that made plain language a default — not an afterthought. The certificate is an industry-recognised proof that complex financial content can be made genuinely accessible to users."
+            category="Fintech"
+            client="Santander Bank Polska"
+            year="2023"
+            href="#"
+          />
+          <ProjectCard
+            title="AI Content Pipeline"
+            description="Built an automated content pipeline in Make.com connected to Claude API — 6 specialised AI agents in sequence (Strategic Writer → Content Writer → Copywriter → UX Writer → Corrector → Editor). Turns a multi-day production cycle into minutes. Saves 40+ hours/month. Now the default starting point for content projects at the agency."
+            category="AI / Tooling"
+            client="Flying Bisons"
+            year="2024"
+            href="#"
+          />
+        </div>
+      </section>
+
+      <!-- SKILLS -->
+      <section>
+        <p
+          class="text-[10.5px] uppercase tracking-[0.14em] text-ink-muted mb-6"
+          style="font-family:'JetBrains Mono',monospace"
+        >
+          Skills &amp; Tools
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="cv-skill-block">
+            <p class="cv-skill-label">UX Writing &amp; Content Design</p>
+            <p class="cv-skill-body">Voice &amp; tone, content systems, plain language, WCAG, microcopy, multilingual content (PL, EN, UA, RU, AR)</p>
+          </div>
+          <div class="cv-skill-block">
+            <p class="cv-skill-label">Banking &amp; Regulated Content</p>
+            <p class="cv-skill-body">10 years in fintech/banking, legal review, compliance coordination, onboarding flows, transactional UX</p>
+          </div>
+          <div class="cv-skill-block">
+            <p class="cv-skill-label">Content Operations</p>
+            <p class="cv-skill-body">Figma, PO Editor, Frontitude, Lokalise, SULU CMS, Jira, Confluence, Productive</p>
+          </div>
+          <div class="cv-skill-block">
+            <p class="cv-skill-label">Building &amp; Automation</p>
+            <p class="cv-skill-body">JavaScript, Figma API, Cloudflare Workers, Make.com, Claude API, Git/GitHub, webhook integrations</p>
+          </div>
+          <div class="cv-skill-block">
+            <p class="cv-skill-label">Research &amp; Collaboration</p>
+            <p class="cv-skill-body">Agile/Scrum, Design Thinking, A/B testing, user research, stakeholder presentations</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CERTIFICATIONS + LANGUAGES -->
+      <section>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div>
+            <p
+              class="text-[10.5px] uppercase tracking-[0.14em] text-ink-muted mb-1"
+              style="font-family:'JetBrains Mono',monospace"
+            >
+              Certifications
+            </p>
+            <div class="cv-list-item">
+              <span class="cv-list-year">2024</span>
+              <span class="cv-list-text">Advanced UX Writing — Learn Design</span>
+            </div>
+            <div class="cv-list-item">
+              <span class="cv-list-year">2023</span>
+              <span class="cv-list-text">Web Accessibility (WCAG) — Widzialni.eu</span>
+            </div>
+            <div class="cv-list-item">
+              <span class="cv-list-year">2023</span>
+              <span class="cv-list-text">UX-PM Level 1 — Symetria</span>
+            </div>
+          </div>
+          <div>
+            <p
+              class="text-[10.5px] uppercase tracking-[0.14em] text-ink-muted mb-1"
+              style="font-family:'JetBrains Mono',monospace"
+            >
+              Languages
+            </p>
+            <div class="cv-list-item">
+              <span class="cv-list-year">PL</span>
+              <span class="cv-list-text">Polish — Native</span>
+            </div>
+            <div class="cv-list-item">
+              <span class="cv-list-year">EN</span>
+              <span class="cv-list-text">English — C1 Professional</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <footer class="no-print pt-8 border-t border-border-light flex flex-wrap gap-5 items-center">
+        <StampedButton label="Download PDF" href="/cv-piotr-dudzinski.pdf" target="_blank" />
+        <StampedButton label="Back to portfolio" href="/" />
+      </footer>
+
+    </div>
+  </div>
+
+  <Footer />
+</Layout>
+
+<style>
+  .cv-bullets {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+  }
+  .cv-bullets li {
+    font-size: 15px;
+    line-height: 1.75;
+    color: var(--ink-soft, #5c3d1e);
+    padding-left: 1.25rem;
+    position: relative;
+  }
+  .cv-bullets li::before {
+    content: "–";
+    position: absolute;
+    left: 0;
+    color: var(--accent, #c44e10);
+  }
+
+  .cv-skill-block {
+    border-top: 1px solid var(--border-light, #e2d0b8);
+    padding-top: 1rem;
+  }
+  .cv-skill-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-muted, #7a4e28);
+    margin-bottom: 0.4rem;
+  }
+  .cv-skill-body {
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--ink-soft, #5c3d1e);
+  }
+
+  .cv-list-item {
+    display: flex;
+    gap: 1.25rem;
+    padding: 0.7rem 0;
+    border-bottom: 1px solid var(--border-light, #e2d0b8);
+    align-items: baseline;
+  }
+  .cv-list-year {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent, #c44e10);
+    flex-shrink: 0;
+    min-width: 2.5rem;
+  }
+  .cv-list-text {
+    font-size: 14px;
+    color: var(--ink-soft, #5c3d1e);
+    line-height: 1.5;
+  }
+
+  @media print {
+    nav, footer, .no-print { display: none !important; }
+    body { background: white; color: #1a0e04; }
+    .shadow-stamp { box-shadow: none; border: 1.5px solid #1a0e04; }
+    h2, h3 { page-break-after: avoid; }
+    section { page-break-inside: avoid; }
+  }
+</style>
