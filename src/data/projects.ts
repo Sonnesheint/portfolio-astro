@@ -19,7 +19,7 @@ export const PROJECTS: Project[] = [
     year: 2025,
     image: "/images/case_studies/figma-cs-1 (1).png",
     imagePosition: "center top",
-    title: "UX writers hate him. He gave designers a writing tool and walked away.",
+    title: "UX writers hate him. He gave designers a writing tool and…",
     description:
       "I built a Figma plugin from scratch. It took me 60 days and 86 iterations. Literally zero JavaScript experience.  Designers can now produce review-ready microcopy independently.",
     stats: [

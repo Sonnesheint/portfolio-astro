@@ -6,34 +6,26 @@ import SectionHeading from "@components/SectionHeading.astro";
 <section id="clients" class="border-b border-b-border/30 bg-bg">
   <div class="section-inner">
     <SectionHeading title="Companies I've worked with" />
-    <div class="clients-pills">
-      {CLIENTS.map((name) => <span class="clients-pill">{name}</span>)}
-    </div>
+    <p class="clients-flow">
+      {CLIENTS.map((name, i) => (
+        <><span class="clients-name">{name}</span>{i < CLIENTS.length - 1 ? <span class="clients-sep"> · </span> : "."}</>
+      ))}
+    </p>
     <p class="clients-cta">Want to be next?</p>
   </div>
 </section>
 
 <style>
-  .clients-pills {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.65rem;
-    align-items: center;
-  }
-  .clients-pill {
+  .clients-flow {
     font-family: var(--serif, Georgia, serif);
     font-size: clamp(1.1rem, 2vw, 1.5rem);
     font-weight: 700;
+    line-height: 1.6;
     color: var(--color-ink, #1a0e04);
-    border: 1.5px solid var(--color-ink, #1a0e04);
-    padding: 0.4rem 1rem;
-    white-space: nowrap;
-    line-height: 1.3;
-    transition: background 0.12s, color 0.12s;
   }
-  .clients-pill:hover {
-    background: var(--color-ink, #1a0e04);
-    color: var(--color-cream, #faf6f1);
+  .clients-sep {
+    color: var(--color-accent, #c44e10);
+    font-weight: 400;
   }
   .clients-cta {
     margin-top: 1.75rem;
