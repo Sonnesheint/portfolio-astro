@@ -48,6 +48,8 @@ export const PROJECTS: Project[] = [
     category: "FMCG / Content Ops",
     meta: "NDA · 2025",
     year: 2025,
+    image: "/images/case_studies/fmcg-content-ops.png",
+    imagePosition: "center",
     title: "I used AI to build a plugin that saved 67 hours of manual work.",
     description:
       "Legal flagged a word used across 9 Figma files. I built a plugin to find, review, replace, and document every instance — with a full audit trail for compliance.",
