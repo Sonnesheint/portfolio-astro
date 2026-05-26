@@ -6,6 +6,7 @@ export interface Project {
   title: string;
   description: string;
   featured?: boolean;
+  image?: string;
   stats: { value?: string; label: string }[];
 }
 

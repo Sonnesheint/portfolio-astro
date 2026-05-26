@@ -1,0 +1,91 @@
+---
+import Layout from "@layouts/Layout.astro";
+
+const tools = [
+  { name: "JavaScript",         src: "/images/tools/javascript.svg" },
+  { name: "Figma",              src: "/images/tools/figma.svg" },
+  { name: "Cloudflare Workers", src: "/images/tools/cloudflare.svg" },
+  { name: "Claude API",         src: "/images/tools/anthropic.svg" },
+  { name: "Make.com",           src: "/images/tools/make.svg" },
+  { name: "Notion",             src: "/images/tools/notion.svg" },
+  { name: "Python",             src: "/images/tools/python.svg" },
+  { name: "Confluence",         src: "/images/tools/confluence.svg" },
+];
+
+const colors = [
+  { id: "a", label: "A — Brand colors (oryginalne)", color: null },
+  { id: "b", label: "B — Ink dark #1a0e04",          color: "#1a0e04" },
+  { id: "c", label: "C — Muted brown #b5552a",        color: "#b5552a" },
+  { id: "d", label: "D — Accent orange #c44e10",      color: "#c44e10" },
+];
+---
+
+<Layout title="Tools — kolory">
+  <div class="wrap">
+    {colors.map(({ id, label, color }) => (
+      <section class="variant" id={id}>
+        <p class="variant-label">{label}</p>
+        <div class="tools-row">
+          {tools.map((t) => (
+            <span class="tool-tag">
+              {color
+                ? <span class="mask-icon" style={`background-color:${color};-webkit-mask-image:url(${t.src});mask-image:url(${t.src});-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;`}></span>
+                : <img src={t.src} alt={t.name} width="22" height="22" />
+              }
+              <span>{t.name}</span>
+            </span>
+          ))}
+        </div>
+      </section>
+    ))}
+  </div>
+</Layout>
+
+<style>
+  .wrap {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem 3rem 4rem;
+  }
+  .variant {
+    padding: 2rem 0;
+    border-top: 1px solid var(--color-separator);
+  }
+  .variant-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--color-muted);
+    margin-bottom: 1.25rem;
+  }
+  .tools-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 24px;
+    align-items: center;
+  }
+  .tool-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--color-ink);
+    white-space: nowrap;
+  }
+  .tool-tag img {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+    display: block;
+    flex-shrink: 0;
+  }
+  .mask-icon {
+    display: block;
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+  }
+</style>

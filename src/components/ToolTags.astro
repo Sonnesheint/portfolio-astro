@@ -1,23 +1,53 @@
-﻿---
+---
 interface Props {
   tools: string;
   label?: string;
 }
 
 const { tools, label = "Tools" } = Astro.props;
-const tags = tools.split(",").map((t) => t.trim()).filter(Boolean);
+
+const tags = tools
+  .split(/[,·]/)
+  .map((t) => t.trim())
+  .filter(Boolean);
+
+const LOGOS: Record<string, { src: string }> = {
+  "JavaScript":       { src: "/images/tools/javascript.svg" },
+  "Figma":            { src: "/images/tools/figma.svg" },
+  "Figma API":        { src: "/images/tools/figma.svg" },
+  "Figma Plugin API": { src: "/images/tools/figma.svg" },
+  "Cloudflare Workers": { src: "/images/tools/cloudflare.svg" },
+  "Claude API":       { src: "/images/tools/anthropic.svg" },
+  "Claude":           { src: "/images/tools/anthropic.svg" },
+  "Make.com":         { src: "/images/tools/make.svg" },
+  "Notion":           { src: "/images/tools/notion.svg" },
+  "Python":           { src: "/images/tools/python.svg" },
+  "python-docx":      { src: "/images/tools/python.svg" },
+  "Confluence":       { src: "/images/tools/confluence.svg" },
+};
 ---
 
 <div class="tool-tags">
   <span class="tool-tags-label">{label}</span>
   <div class="tool-tags-list">
-    {tags.map((tag) => (
-      <span class="tool-tag">
-        <span class="bracket">[</span>
-        {" "}{tag}{" "}
-        <span class="bracket">]</span>
-      </span>
-    ))}
+    {tags.map((tag) => {
+      const logo = LOGOS[tag];
+      return (
+        <span class="tool-tag">
+          {logo && (
+            <span
+              class="tool-logo"
+              role="img"
+              aria-label={tag}
+              style={`background-color:var(--color-ink,#1a0e04);-webkit-mask-image:url(${logo.src});mask-image:url(${logo.src});-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;`}
+            ></span>
+          )}
+          <span class={logo ? "tool-name" : "tool-name tool-name-bracketed"}>
+            {logo ? tag : <><span class="bracket">[</span>{" "}{tag}{" "}<span class="bracket">]</span></>}
+          </span>
+        </span>
+      );
+    })}
   </div>
 </div>
 
@@ -38,24 +68,28 @@ const tags = tools.split(",").map((t) => t.trim()).filter(Boolean);
   .tool-tags-list {
     display: flex;
     flex-wrap: wrap;
-    row-gap: 10px;
-    column-gap: 4px;
+    row-gap: 8px;
+    column-gap: 12px;
   }
   .tool-tag {
+    display: flex;
+    align-items: center;
+    gap: 5px;
     font-family: 'JetBrains Mono', monospace;
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 400;
     color: var(--color-ink, #1a0e04);
-    background: transparent;
-    border: none;
-    padding: 0;
+    padding: 2px 0;
     white-space: nowrap;
-    transition: background-color 0.12s ease;
-    padding: 2px 4px;
-    border-radius: 2px;
   }
-  .tool-tag:hover {
-    background-color: #f5ede0;
+  .tool-logo {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    display: block;
+  }
+  .tool-name {
+    line-height: 1;
   }
   .bracket {
     color: var(--color-accent, #c44e10);

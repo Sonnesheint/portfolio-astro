@@ -1,0 +1,302 @@
+---
+import Layout from "@layouts/Layout.astro";
+---
+
+<Layout title="Thumbnail Preview">
+  <div class="preview-page">
+    <header class="preview-header">
+      <p class="preview-label">PREVIEW — Project card thumbnails</p>
+      <h1>Warianty miniatur</h1>
+      <p class="preview-sub">Wybierz wariant, który chcesz wdrożyć. Każda karta zachowuje istniejące hover i shadow effects.</p>
+    </header>
+
+    <div class="variants-grid">
+
+      <!-- VARIANT A: Gradient stripe -->
+      <div class="variant">
+        <p class="variant-label">A — Gradient</p>
+        <div class="card-wrapper">
+          <div class="card-tab-row">
+            <div class="card-tab">AI / Tooling</div>
+          </div>
+          <a class="card-body" href="#">
+            <div class="thumb thumb-gradient">
+              <span class="thumb-icon">◈</span>
+            </div>
+            <h3 class="card-title">UX writers hate him. He gave designers a writing tool and walked away.</h3>
+            <p class="card-desc">I built a Figma plugin from scratch. 60 days, 86 iterations. Designers can now produce review-ready microcopy independently.</p>
+            <div class="card-meta">
+              <span class="card-client">Flying Bisons · 2025</span>
+              <span class="card-arrow">→</span>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- VARIANT B: Crosshatch pattern -->
+      <div class="variant">
+        <p class="variant-label">B — Pattern</p>
+        <div class="card-wrapper">
+          <div class="card-tab-row">
+            <div class="card-tab">AI / Content Automation</div>
+          </div>
+          <a class="card-body" href="#">
+            <div class="thumb thumb-pattern">
+              <span class="thumb-text">case study</span>
+            </div>
+            <h3 class="card-title">Can you replace the entire team with one button?</h3>
+            <p class="card-desc">I build the workflow. I tested it. Here is my conclusion.</p>
+            <div class="card-meta">
+              <span class="card-client">Flying Bisons · 2025</span>
+              <span class="card-arrow">→</span>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- VARIANT C: Solid accent bar (minimal) -->
+      <div class="variant">
+        <p class="variant-label">C — Solid bar</p>
+        <div class="card-wrapper">
+          <div class="card-tab-row">
+            <div class="card-tab">Deep Tech</div>
+          </div>
+          <a class="card-body" href="#">
+            <div class="thumb thumb-bar"></div>
+            <h3 class="card-title">Even rocket science can be explained simply.</h3>
+            <p class="card-desc">I delivered the complete copy for the redesigned constellr.com. Every page written as strategic content.</p>
+            <div class="card-meta">
+              <span class="card-client">Constellr · 2025</span>
+              <span class="card-arrow">→</span>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- VARIANT D: Featured z gradientem (pinned) -->
+      <div class="variant">
+        <p class="variant-label">A — Featured (pinned)</p>
+        <div class="card-wrapper card-featured">
+          <div class="card-tab-row">
+            <div class="card-tab">Personal project</div>
+            <div class="card-featured-badge">Pinned</div>
+          </div>
+          <a class="card-body" href="#">
+            <div class="thumb thumb-gradient thumb-featured">
+              <span class="thumb-icon">◈</span>
+            </div>
+            <h3 class="card-title">Can you build a portfolio website in 5 minutes?</h3>
+            <p class="card-desc">One UX Writer. Two AI tools. Zero Figma. Level 10 Demon of Procrastination — final battle.</p>
+            <div class="card-meta">
+              <span class="card-client">Personal project · 2026</span>
+              <span class="card-arrow">→</span>
+            </div>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .preview-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 2rem 6rem;
+  }
+  .preview-header {
+    margin-bottom: 3rem;
+    border-bottom: 1px solid var(--color-separator);
+    padding-bottom: 2rem;
+  }
+  .preview-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-accent);
+    margin-bottom: 0.5rem;
+  }
+  .preview-header h1 {
+    font-family: var(--serif, Georgia, serif);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-ink);
+    margin-bottom: 0.5rem;
+  }
+  .preview-sub {
+    color: var(--color-body);
+    font-size: 0.95rem;
+  }
+  .variants-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem 2.5rem;
+  }
+  .variant-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-muted);
+    margin-bottom: 0.75rem;
+  }
+
+  /* === Card base (copied from ProjectCard) === */
+  .card-wrapper {
+    width: 100%;
+    transition: transform 0.12s ease;
+  }
+  .card-wrapper:hover {
+    transform: translate(-2px, -2px);
+  }
+  .card-wrapper:hover .card-body {
+    box-shadow: 4px 4px 0 0 var(--color-accent);
+  }
+  .card-tab-row {
+    display: flex;
+    align-items: flex-end;
+    gap: 0.5rem;
+  }
+  .card-tab {
+    display: inline-block;
+    background: var(--color-ink);
+    color: var(--color-cream);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    padding: 0.45rem 1.5rem 0.45rem 0.75rem;
+    clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 100%, 0 100%);
+  }
+  .card-featured .card-body {
+    border-color: var(--color-accent);
+    border-width: 2px;
+  }
+  .card-featured-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-accent);
+    border: 1.5px solid var(--color-accent);
+    padding: 0.3rem 0.65rem;
+  }
+  .card-body {
+    display: block;
+    border: 1.5px solid var(--color-ink);
+    background: var(--color-bg-alt);
+    padding: 0;
+    border-radius: 0;
+    text-decoration: none;
+    color: inherit;
+    transition: box-shadow 0.12s ease;
+    overflow: hidden;
+  }
+  .card-body > :not(.thumb) {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  .card-title {
+    font-family: var(--serif, Georgia, serif);
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--color-ink);
+    line-height: 1.25;
+    margin: 1.25rem 0 0.65rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  .card-desc {
+    font-size: 0.95rem;
+    color: var(--color-body);
+    line-height: 1.6;
+    margin-bottom: 1.25rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  .card-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem 1.5rem;
+  }
+  .card-client {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-muted);
+  }
+  .card-arrow {
+    color: var(--color-accent);
+    font-size: 1rem;
+  }
+
+  /* === THUMBNAILS === */
+  .thumb {
+    width: 100%;
+    aspect-ratio: 16 / 7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* A: warm gradient + icon */
+  .thumb-gradient {
+    background: linear-gradient(135deg, #f5ede0 0%, #e8d5bc 50%, #dfc5a4 100%);
+    position: relative;
+  }
+  .thumb-gradient::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 20px,
+      rgba(196, 78, 16, 0.04) 20px,
+      rgba(196, 78, 16, 0.04) 21px
+    );
+  }
+  .thumb-icon {
+    font-size: 2rem;
+    color: rgba(196, 78, 16, 0.35);
+    position: relative;
+    z-index: 1;
+  }
+  .thumb-featured.thumb-gradient {
+    background: linear-gradient(135deg, #f0e0cc 0%, #e0c4a0 50%, #c9a07a 100%);
+  }
+
+  /* B: dot pattern */
+  .thumb-pattern {
+    background-color: var(--color-bg-alt);
+    background-image: radial-gradient(circle, rgba(196, 78, 16, 0.2) 1px, transparent 1px);
+    background-size: 18px 18px;
+  }
+  .thumb-text {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: rgba(196, 78, 16, 0.45);
+    border: 1px solid rgba(196, 78, 16, 0.25);
+    padding: 0.35rem 0.75rem;
+  }
+
+  /* C: solid accent bar (minimal height) */
+  .thumb-bar {
+    aspect-ratio: unset;
+    height: 6px;
+    background: var(--color-accent);
+    opacity: 0.7;
+  }
+
+  @media (max-width: 800px) {
+    .variants-grid { grid-template-columns: 1fr; }
+  }
+</style>

@@ -2,7 +2,6 @@
 import Layout from "@layouts/Layout.astro";
 import Nav from "@components/Nav.astro";
 import Hero from "@components/Hero.astro";
-import { BIO } from "@data/bio";
 import ProjectCard from "@components/ProjectCard.astro";
 import AccordionRow from "@components/AccordionRow.astro";
 import Clients from "@components/Clients.astro";
@@ -11,7 +10,6 @@ import Footer from "@components/Footer.astro";
 import { PROJECTS } from "@data/projects";
 import { MINI_CASES } from "@data/miniCases";
 import SectionHeading from "@components/SectionHeading.astro";
-import PullQuote from "@components/PullQuote.astro";
 ---
 
 <Layout>
@@ -19,22 +17,12 @@ import PullQuote from "@components/PullQuote.astro";
 
   <Hero />
 
-  <div class="mx-auto max-w-[1100px] px-6 py-12 md:px-12">
-    <PullQuote
-      lede={BIO.hook}
-      accentPhrase="lost its soul"
-      thesis={BIO.footer}
-    >
-      {BIO.body.split("\n").filter((p) => p.trim()).map((p) => <p>{p}</p>)}
-    </PullQuote>
-  </div>
-
   <!-- === SELECTED WORK === -->
   <section id="work">
     <div class="section-inner">
       <SectionHeading title="Featured projects" subtitle="FULL STORIES" id="projects" />
 
-      <div class="flex flex-col gap-5">
+      <div class="grid grid-cols-1 gap-5 md:grid-cols-2">
         {[...PROJECTS].sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0)).map((project) => {
           const [client, year] = project.meta.split(' · ');
           return (
