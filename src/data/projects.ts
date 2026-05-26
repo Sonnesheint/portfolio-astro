@@ -7,6 +7,7 @@ export interface Project {
   description: string;
   featured?: boolean;
   image?: string;
+  imagePosition?: string;
   stats: { value?: string; label: string }[];
 }
 
@@ -16,6 +17,8 @@ export const PROJECTS: Project[] = [
     category: "AI / Tooling",
     meta: "Flying Bisons · 2025",
     year: 2025,
+    image: "/images/case_studies/figma-cs-1 (1).png",
+    imagePosition: "center top",
     title: "UX writers hate him. He gave designers a writing tool and walked away.",
     description:
       "I built a Figma plugin from scratch. It took me 60 days and 86 iterations. Literally zero JavaScript experience.  Designers can now produce review-ready microcopy independently.",
@@ -30,6 +33,8 @@ export const PROJECTS: Project[] = [
     category: "AI / Content Automation",
     meta: "Flying Bisons · 2025",
     year: 2025,
+    image: "/images/case_studies/make_com_workflow.png",
+    imagePosition: "center",
     title: "Can you replace the entire team with one button?",
     description: "I build the workflow. I tested it. Here is my conclusion.",
     stats: [
@@ -57,6 +62,8 @@ export const PROJECTS: Project[] = [
     category: "Deep Tech",
     meta: "Constellr · 2025",
     year: 2025,
+    image: "/images/case_studies/constellr/constellr-main.png",
+    imagePosition: "center",
     title: "Even rocket science can be explained simply.",
     description:
       "I delivered the complete copy for the redesigned constellr.com. Every page is now written as strategic content.",
@@ -72,6 +79,8 @@ export const PROJECTS: Project[] = [
     category: "Personal project",
     meta: "Personal project · 2026",
     year: 2026,
+    image: "/images/case_studies/portfolio/wireframes-sketch.png",
+    imagePosition: "center",
     title: "Can you build a portfolio website in 5 minutes?",
     description:
       "One UX Writer. Two AI tools. Zero Figma. Level 10 Demon of Procrastination — final battle.",

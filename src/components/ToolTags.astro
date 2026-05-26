@@ -12,18 +12,25 @@ const tags = tools
   .filter(Boolean);
 
 const LOGOS: Record<string, { src: string }> = {
-  "JavaScript":       { src: "/images/tools/javascript.svg" },
-  "Figma":            { src: "/images/tools/figma.svg" },
-  "Figma API":        { src: "/images/tools/figma.svg" },
-  "Figma Plugin API": { src: "/images/tools/figma.svg" },
+  "JavaScript":         { src: "/images/tools/javascript.svg" },
+  "Figma":              { src: "/images/tools/figma.svg" },
+  "Figma API":          { src: "/images/tools/figma.svg" },
+  "Figma Plugin API":   { src: "/images/tools/figma.svg" },
+  "Cloudflare":         { src: "/images/tools/cloudflare.svg" },
   "Cloudflare Workers": { src: "/images/tools/cloudflare.svg" },
-  "Claude API":       { src: "/images/tools/anthropic.svg" },
-  "Claude":           { src: "/images/tools/anthropic.svg" },
-  "Make.com":         { src: "/images/tools/make.svg" },
-  "Notion":           { src: "/images/tools/notion.svg" },
-  "Python":           { src: "/images/tools/python.svg" },
-  "python-docx":      { src: "/images/tools/python.svg" },
-  "Confluence":       { src: "/images/tools/confluence.svg" },
+  "Claude":             { src: "/images/tools/anthropic.svg" },
+  "Claude API":         { src: "/images/tools/anthropic.svg" },
+  "Claude Code":        { src: "/images/tools/anthropic.svg" },
+  "Claude Design":      { src: "/images/tools/anthropic.svg" },
+  "Make.com":           { src: "/images/tools/make.svg" },
+  "Notion":             { src: "/images/tools/notion.svg" },
+  "Python":             { src: "/images/tools/python.svg" },
+  "python-docx":        { src: "/images/tools/python.svg" },
+  "Confluence":         { src: "/images/tools/confluence.svg" },
+  "Astro":              { src: "/images/tools/astro.svg" },
+  "Tailwind":           { src: "/images/tools/tailwind.svg" },
+  "Git":                { src: "/images/tools/git.svg" },
+  "Netlify":            { src: "/images/tools/netlify.svg" },
 };
 ---
 
@@ -39,7 +46,7 @@ const LOGOS: Record<string, { src: string }> = {
               class="tool-logo"
               role="img"
               aria-label={tag}
-              style={`background-color:var(--color-ink,#1a0e04);-webkit-mask-image:url(${logo.src});mask-image:url(${logo.src});-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;`}
+              style={`width:26px;height:26px;background-color:var(--color-ink,#1a0e04);-webkit-mask-image:url(${logo.src});mask-image:url(${logo.src});-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;`}
             ></span>
           )}
           <span class={logo ? "tool-name" : "tool-name tool-name-bracketed"}>
@@ -74,17 +81,17 @@ const LOGOS: Record<string, { src: string }> = {
   .tool-tag {
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 8px;
     font-family: 'JetBrains Mono', monospace;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 400;
     color: var(--color-ink, #1a0e04);
     padding: 2px 0;
     white-space: nowrap;
   }
   .tool-logo {
-    width: 16px;
-    height: 16px;
+    width: 26px;
+    height: 26px;
     flex-shrink: 0;
     display: block;
   }

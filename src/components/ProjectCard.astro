@@ -8,9 +8,10 @@ interface Props {
   href?: string;
   featured?: boolean;
   image?: string;
+  imagePosition?: string;
 }
 
-const { title, description, category, client, year, href = "#", featured = false, image } = Astro.props;
+const { title, description, category, client, year, href = "#", featured = false, image, imagePosition = "center" } = Astro.props;
 ---
 
 <div class={`card-wrapper${featured ? ' card-featured' : ''}`}>
@@ -21,7 +22,7 @@ const { title, description, category, client, year, href = "#", featured = false
   <a class="card-body" href={href}>
     <div class={`card-thumb${featured ? ' card-thumb-featured' : ''}`}>
       {image
-        ? <img src={image} alt={title} class="card-thumb-img" />
+        ? <img src={image} alt={title} class="card-thumb-img" style={`object-position: ${imagePosition}`} />
         : <span class="card-thumb-icon">◈</span>
       }
     </div>

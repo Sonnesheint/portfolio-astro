@@ -12,26 +12,28 @@ const tools = [
   { name: "Confluence",         src: "/images/tools/confluence.svg" },
 ];
 
-const colors = [
-  { id: "a", label: "A — Brand colors (oryginalne)", color: null },
-  { id: "b", label: "B — Ink dark #1a0e04",          color: "#1a0e04" },
-  { id: "c", label: "C — Muted brown #b5552a",        color: "#b5552a" },
-  { id: "d", label: "D — Accent orange #c44e10",      color: "#c44e10" },
+const sizes = [
+  { id: "current", label: "Obecne — 16px", size: 16, fontSize: "12px", gap: "6px" },
+  { id: "s20",     label: "A — 20px",      size: 20, fontSize: "13px", gap: "7px" },
+  { id: "s26",     label: "B — 26px",      size: 26, fontSize: "14px", gap: "8px" },
+  { id: "s32",     label: "C — 32px",      size: 32, fontSize: "15px", gap: "10px" },
 ];
 ---
 
-<Layout title="Tools — kolory">
+<Layout title="Tools — rozmiary">
   <div class="wrap">
-    {colors.map(({ id, label, color }) => (
+    {sizes.map(({ id, label, size, fontSize, gap }) => (
       <section class="variant" id={id}>
         <p class="variant-label">{label}</p>
-        <div class="tools-row">
+        <div class="tools-row" style={`gap: 10px 28px;`}>
           {tools.map((t) => (
-            <span class="tool-tag">
-              {color
-                ? <span class="mask-icon" style={`background-color:${color};-webkit-mask-image:url(${t.src});mask-image:url(${t.src});-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;`}></span>
-                : <img src={t.src} alt={t.name} width="22" height="22" />
-              }
+            <span class="tool-tag" style={`gap:${gap}; font-size:${fontSize};`}>
+              <span
+                class="mask-icon"
+                role="img"
+                aria-label={t.name}
+                style={`width:${size}px;height:${size}px;background-color:#1a0e04;-webkit-mask-image:url(${t.src});mask-image:url(${t.src});-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;`}
+              ></span>
               <span>{t.name}</span>
             </span>
           ))}
@@ -62,30 +64,18 @@ const colors = [
   .tools-row {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px 24px;
     align-items: center;
   }
   .tool-tag {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
     font-family: 'JetBrains Mono', monospace;
-    font-size: 13px;
     font-weight: 500;
     color: var(--color-ink);
     white-space: nowrap;
   }
-  .tool-tag img {
-    width: 22px;
-    height: 22px;
-    object-fit: contain;
-    display: block;
-    flex-shrink: 0;
-  }
   .mask-icon {
     display: block;
-    width: 22px;
-    height: 22px;
     flex-shrink: 0;
   }
 </style>
