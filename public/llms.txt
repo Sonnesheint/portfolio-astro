@@ -1,0 +1,31 @@
+# Piotr Dudziński — Senior UX Writer / Content Designer
+
+> Portfolio and professional profile of Piotr Dudziński,
+Senior UX Writer specialising in digital banking and content systems.
+
+## Who I am
+Senior UX Writer with 12 years of experience, including 10 years
+in digital banking (Santander Bank Polska). Led content for a mobile
+banking app with 3M active users. Holds a Plain Language Certificate —
+one of the first in the Polish banking sector. Currently Senior UX Writer
+at E-Point (project for Polish Ministry of Agriculture).
+Based in Poland, open to remote European roles.
+
+## Key expertise
+- Digital banking UX writing (10 years, Santander Bank Polska)
+- Content systems, voice & tone guidelines, component libraries
+- Plain language in regulated and legal environments
+- AI-powered content automation (Make.com, Claude API, Figma plugins)
+- Multilingual content (PL, EN, UA, RU, AR)
+- Cross-functional collaboration: legal, compliance, UX, product
+
+## Notable work
+- Led Plain Language Certificate for Santander mobile banking app
+  (3M users) — one of the first in the Polish banking sector
+- Built Figma plugin for content operations: 10-15 daily active users,
+  bottleneck eliminated
+- Built 6-agent AI content pipeline saving 40+ hours/month
+
+## Contact
+https://piotrdudzinski.com
+https://linkedin.com/in/uxw-piotr-dudzinski/

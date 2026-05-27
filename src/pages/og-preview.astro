@@ -1,0 +1,240 @@
+---
+// Preview page for og:image concepts — remove before deploy
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OG Image Preview</title>
+    <style>
+      body {
+        background: #e8e8e8;
+        font-family: 'Outfit', 'Helvetica Neue', sans-serif;
+        padding: 48px 32px;
+        margin: 0;
+      }
+      h2 {
+        font-family: monospace;
+        font-size: 13px;
+        color: #666;
+        margin: 40px 0 12px;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+      h2:first-of-type { margin-top: 0; }
+      .frame {
+        width: 1200px;
+        height: 630px;
+        position: relative;
+        overflow: hidden;
+        transform-origin: top left;
+        transform: scale(0.6);
+        margin-bottom: calc(630px * 0.6 - 630px + 16px);
+      }
+
+      /* ── A: Dark / minimal ── */
+      .og-a {
+        background: #1a0e04;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 80px 96px;
+        box-sizing: border-box;
+      }
+      .og-a .name {
+        font-size: 80px;
+        font-weight: 700;
+        color: #faf6f1;
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+        margin: 0 0 20px;
+      }
+      .og-a .divider {
+        width: 80px;
+        height: 4px;
+        background: #c44e10;
+        margin-bottom: 24px;
+      }
+      .og-a .role {
+        font-size: 28px;
+        color: #c44e10;
+        font-weight: 500;
+        margin: 0 0 12px;
+      }
+      .og-a .sub {
+        font-size: 22px;
+        color: #c9a07a;
+        font-weight: 400;
+        margin: 0;
+      }
+      .og-a .url {
+        position: absolute;
+        bottom: 52px;
+        right: 96px;
+        font-size: 18px;
+        color: #c9a07a;
+        font-family: 'JetBrains Mono', monospace;
+        letter-spacing: 0.02em;
+      }
+
+      /* ── B: Light / editorial ── */
+      .og-b {
+        background: #faf6f1;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 0 96px 72px;
+        box-sizing: border-box;
+      }
+      .og-b .bar {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 12px;
+        background: #c44e10;
+      }
+      .og-b .name {
+        font-size: 96px;
+        font-weight: 700;
+        color: #1a0e04;
+        line-height: 1.0;
+        letter-spacing: -0.03em;
+        margin: 0 0 24px;
+      }
+      .og-b .role {
+        font-size: 26px;
+        color: #3a2a1a;
+        font-weight: 500;
+        margin: 0 0 8px;
+      }
+      .og-b .tags {
+        font-size: 20px;
+        color: #b5552a;
+        font-weight: 400;
+        margin: 0;
+      }
+      .og-b .url {
+        position: absolute;
+        bottom: 52px;
+        right: 96px;
+        font-size: 18px;
+        color: #c9a07a;
+        font-family: 'JetBrains Mono', monospace;
+      }
+
+      /* ── C: Split layout ── */
+      .og-c {
+        display: flex;
+        box-sizing: border-box;
+      }
+      .og-c .left {
+        background: #c44e10;
+        width: 460px;
+        flex-shrink: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 64px 64px;
+        box-sizing: border-box;
+      }
+      .og-c .left .name {
+        font-size: 64px;
+        font-weight: 700;
+        color: #faf6f1;
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+        margin: 0 0 20px;
+      }
+      .og-c .left .role {
+        font-size: 20px;
+        color: rgba(250,246,241,0.75);
+        font-weight: 500;
+        line-height: 1.5;
+        margin: 0;
+      }
+      .og-c .right {
+        background: #faf6f1;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 64px 64px;
+        box-sizing: border-box;
+      }
+      .og-c .right ul {
+        list-style: none;
+        margin: 0 0 40px;
+        padding: 0;
+      }
+      .og-c .right ul li {
+        font-size: 22px;
+        color: #3a2a1a;
+        font-weight: 500;
+        line-height: 1.8;
+        padding-left: 20px;
+        position: relative;
+      }
+      .og-c .right ul li::before {
+        content: '·';
+        position: absolute;
+        left: 0;
+        color: #c44e10;
+      }
+      .og-c .right .url {
+        font-size: 17px;
+        color: #c9a07a;
+        font-family: 'JetBrains Mono', monospace;
+      }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700&family=JetBrains+Mono&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <h2>A — Dark / minimal</h2>
+    <div class="frame">
+      <div class="og-a frame">
+        <div class="name">Piotr Dudziński</div>
+        <div class="divider"></div>
+        <div class="role">Senior UX Designer | Content Designer | UX Writer</div>
+        <div class="sub">10 years in digital banking · Plain Language · AI</div>
+        <div class="url">piotrdudzinski.com</div>
+      </div>
+    </div>
+
+    <h2>B — Light / editorial</h2>
+    <div class="frame">
+      <div class="og-b frame">
+        <div class="bar"></div>
+        <div class="name">Piotr Dudziński</div>
+        <div class="role">Senior UX Designer | Content Designer | UX Writer</div>
+        <div class="tags">Digital banking · Plain language · AI automation</div>
+        <div class="url">piotrdudzinski.com</div>
+      </div>
+    </div>
+
+    <h2>C — Split layout</h2>
+    <div class="frame">
+      <div class="og-c frame">
+        <div class="left">
+          <div class="name">Piotr Dudziński</div>
+          <div class="role">Senior UX Designer<br/>Content Designer | UX Writer</div>
+        </div>
+        <div class="right">
+          <ul>
+            <li>Digital banking (10 years)</li>
+            <li>Plain language</li>
+            <li>Content systems</li>
+            <li>AI automation</li>
+          </ul>
+          <div class="url">piotrdudzinski.com</div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

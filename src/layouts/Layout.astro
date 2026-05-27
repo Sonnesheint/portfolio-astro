@@ -9,8 +9,28 @@ interface Props {
 
 const {
   title = "Piotr Dudziński — Senior UX Designer · UX Writer · Content Designer",
-  description = "Piotr Dudziński — Senior UX Designer · UX Writer · Content Designer. 12 years of experience in digital products, banking, and AI-powered content systems.",
+  description = "Senior UX Writer with 12 years of experience, including 10 years in digital banking. Led Plain Language Certificate for Santander mobile banking app (3M active users). Specialises in content systems, regulated content, and AI-powered content operations. Based in Poland, open to remote European roles.",
 } = Astro.props;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Piotr Dudziński",
+  jobTitle: "Senior UX Designer · UX Writer · Content Designer",
+  url: "https://piotrdudzinski.com",
+  sameAs: ["https://linkedin.com/in/uxw-piotr-dudzinski/"],
+  knowsAbout: [
+    "UX Writing",
+    "Content Design",
+    "Digital Banking",
+    "Plain Language",
+    "Content Systems",
+    "Fintech",
+    "AI Automation",
+  ],
+  description:
+    "Senior UX Writer with 12 years of experience, including 10 years in digital banking. Led Plain Language Certificate for Santander mobile banking app (3M active users). Specialises in content systems, regulated content, and AI-powered content operations. Based in Poland, open to remote European roles.",
+};
 ---
 
 <!doctype html>
@@ -19,6 +39,10 @@ const {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={new URL(Astro.url.pathname, "https://piotrdudzinski.com").href} />
+    <meta property="og:image" content="https://piotrdudzinski.com/og-image.png" />
     <link rel="icon" type="image/svg+xml" href="/favicon-pencil.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -28,7 +52,7 @@ const {
     />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
-
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
   </head>
   <body>
     <slot />
