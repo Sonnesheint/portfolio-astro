@@ -9,18 +9,30 @@ interface Props {
 }
 
 const { items } = Astro.props;
+
+function parseCountable(str: string): { value: number | null; suffix: string } {
+  const m = str.match(/^(\d+(?:\.\d+)?)(.*)/);
+  return m ? { value: parseFloat(m[1]), suffix: m[2] } : { value: null, suffix: '' };
+}
 ---
 
 <div class="results-list">
-  {items.map((item, i) => (
-    <div class="result-row">
-      <span class="result-num">{String(i + 1).padStart(2, "0")}</span>
-      <div class="result-body">
-        <div class="result-value">{item.number}</div>
-        <div class="result-desc">{item.desc}</div>
+  {items.map((item, i) => {
+    const { value, suffix } = parseCountable(item.number);
+    return (
+      <div class="result-row">
+        <span class="result-num">{String(i + 1).padStart(2, "0")}</span>
+        <div class="result-body">
+          <div
+            class="result-value"
+            data-count={value !== null ? String(value) : undefined}
+            data-suffix={value !== null ? suffix : undefined}
+          >{item.number}</div>
+          <div class="result-desc">{item.desc}</div>
+        </div>
       </div>
-    </div>
-  ))}
+    );
+  })}
 </div>
 
 <style>
@@ -60,3 +72,41 @@ const { items } = Astro.props;
     color: var(--color-body);
   }
 </style>
+
+<script>
+  function initCounters() {
+    const els = document.querySelectorAll<HTMLElement>('.result-value[data-count]');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target as HTMLElement;
+        if (el.dataset.animated) return;
+        el.dataset.animated = 'true';
+        observer.unobserve(el);
+
+        const target = parseFloat(el.dataset.count!);
+        const suffix = el.dataset.suffix ?? '';
+        const duration = 1400;
+        const start = performance.now();
+
+        const tick = (now: number) => {
+          const t = Math.min((now - start) / duration, 1);
+          const eased = 1 - Math.pow(1 - t, 3);
+          el.textContent = Math.round(target * eased) + suffix;
+          if (t < 1) requestAnimationFrame(tick);
+        };
+
+        requestAnimationFrame(tick);
+      });
+    }, { threshold: 0.4 });
+
+    els.forEach(el => observer.observe(el));
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initCounters);
+  } else {
+    initCounters();
+  }
+</script>
