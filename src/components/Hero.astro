@@ -1,4 +1,4 @@
-﻿---
+---
 import { SITE } from "@data/site";
 import StampedButton from "@components/StampedButton.astro";
 import NotchedButton from "@components/NotchedButton.astro";
@@ -13,22 +13,31 @@ import NotchedButton from "@components/NotchedButton.astro";
 
     <div>
       <p class="mb-7 hidden font-sans text-[11px] font-semibold uppercase tracking-[0.12em] text-ink-muted md:block">
-        <span>SENIOR UX DESIGNER</span> ·
-        <span>UX WRITER</span> ·
+        <span>SENIOR UX WRITER</span> ·
         <span>CONTENT DESIGNER</span>
       </p>
+
       <h1 class="font-serif text-center text-[36px] font-bold leading-none tracking-[-0.02em] text-ink md:text-left md:text-[56px]">
-        Good UX writing<br />
-        is like <em class="mt-2 inline-block bg-accent px-2 pb-[6px] text-white">bass guitar</em>
+        I'm Piotr.
       </h1>
-      <div class="my-5"></div>
-      <p class="hero-prose">
-        <span>Most people don't notice it.</span><span class="sep"> / </span><span>Unless something goes wrong.</span><span class="sep"> / </span><span class="pivot">Then you know.</span><span class="sep"> / </span><span>It was holding everything together.</span>
+
+      <p class="hero-aside">
+        Probably the best UX Writer among bassists.
       </p>
-      <div class="hero-sig">
-        <p class="hero-name">I'm Piotr.</p>
-        <p class="hero-tagline">I make sure nothing goes wrong.</p>
-      </div>
+
+      <h2 class="font-serif text-center text-[36px] font-bold leading-none tracking-[-0.02em] text-ink md:text-left md:text-[56px] mt-2">
+        I <em class="inline-block bg-accent px-2 pb-[6px] text-white not-italic">tune</em> the voice<br />
+        of your product.
+      </h2>
+
+      <div class="my-5"></div>
+
+      <p class="hero-usp">
+        <strong>In-house for 10 years. Agency for 3.</strong><br />
+        Whatever model you need.<br />
+        Been there, done that.
+      </p>
+
       <div class="mt-8 mb-3 flex flex-col items-center gap-4 md:mb-0 md:flex-row">
         <StampedButton label="View projects" href="#work" />
         <NotchedButton label="Get in touch" href="#contact" />
@@ -44,9 +53,66 @@ import NotchedButton from "@components/NotchedButton.astro";
             src="/images/piotr.jpg"
             width="320"
             height="380"
-            alt={`${SITE.author} — Senior UX Designer · UX Writer · Content Designer`}
+            alt={`${SITE.author} — Senior UX Writer · Content Designer`}
           />
         </div>
+
+        <!-- Kredkowy dymek -->
+        <div class="hero-bubble-wrap">
+          <svg
+            class="hero-bubble-svg"
+            viewBox="0 0 260 150"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <defs>
+              <filter id="bubbleRough" x="-8%" y="-14%" width="116%" height="128%">
+                <feTurbulence
+                  type="fractalNoise"
+                  baseFrequency="0.02"
+                  numOctaves="4"
+                  seed="7"
+                  result="noise"
+                />
+                <feDisplacementMap
+                  in="SourceGraphic"
+                  in2="noise"
+                  scale="6"
+                  xChannelSelector="R"
+                  yChannelSelector="G"
+                />
+              </filter>
+            </defs>
+            <path
+              d="
+                M 22 38
+                Q 90 32 118 35
+                L 130 6
+                L 148 35
+                Q 200 30 244 38
+                Q 254 40 254 52
+                Q 257 84 252 116
+                Q 251 128 238 130
+                Q 195 134 155 130
+                Q 110 127 70 130
+                Q 20 129 8 116
+                Q 4 84  6 52
+                Q 6 39 22 38
+                Z
+              "
+              fill="#fffdf9"
+              stroke="#1a0e04"
+              stroke-width="5"
+              stroke-linejoin="round"
+              stroke-linecap="round"
+              filter="url(#bubbleRough)"
+            />
+          </svg>
+          <p class="hero-bubble-text">
+            Hello there
+          </p>
+        </div>
+
       </div>
     </div>
 
@@ -60,34 +126,77 @@ import NotchedButton from "@components/NotchedButton.astro";
 </section>
 
 <style>
+  .hero-aside {
+    font-family: var(--sans);
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--color-body, #3a2a1a);
+    margin-top: 0.5rem;
+    margin-bottom: 0.25rem;
+    text-align: center;
+  }
+  @media (min-width: 768px) {
+    .hero-aside {
+      text-align: left;
+    }
+  }
+
+  .hero-usp {
+    font-family: var(--serif);
+    font-size: clamp(1.1rem, 2vw, 1.45rem);
+    font-weight: 700;
+    line-height: 1.4;
+    color: var(--color-ink, #1a0e04);
+    border-left: 2px solid var(--color-accent, #be4e10);
+    padding-left: 0.85rem;
+    margin-bottom: 1.5rem;
+  }
+  .hero-usp strong {
+    color: var(--color-accent, #be4e10);
+  }
+
   .hero-prose {
     font-family: var(--serif);
-    font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+    font-size: clamp(1.1rem, 2vw, 1.45rem);
     font-weight: 700;
     line-height: 1.4;
     color: var(--color-ink, #1a0e04);
     margin-bottom: 1.5rem;
   }
   .sep {
-    color: var(--color-accent, #c44e10);
+    color: var(--color-accent, #be4e10);
   }
   .pivot {
-    border-bottom: 2px solid var(--color-accent, #c44e10);
+    border-bottom: 2px solid var(--color-accent, #be4e10);
   }
-  .hero-sig {
-    margin-bottom: 0.5rem;
+
+  .hero-bubble-wrap {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 10;
+    width: 260px;
+    transform: translate(-50%, -40%) rotate(-2deg);
+    display: none;
   }
-  .hero-name {
-    font-family: var(--serif);
-    font-size: 1.55rem;
-    font-weight: 800;
+
+  .hero-bubble-svg {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .hero-bubble-text {
+    position: absolute;
+    top: 62%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 180px;
+    font-family: var(--font-mono, 'JetBrains Mono', monospace);
+    font-size: 1rem;
+    line-height: 1.5;
     color: var(--color-ink, #1a0e04);
-    line-height: 1.2;
-  }
-  .hero-tagline {
-    font-family: var(--sans);
-    font-size: 1.1rem;
-    color: var(--color-body, #3a2a1a);
-    margin-top: 0.3rem;
+    text-align: left;
+    pointer-events: none;
   }
 </style>
