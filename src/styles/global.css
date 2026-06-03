@@ -285,7 +285,7 @@ body {
 
 .container { max-width: 760px; margin: 0 auto; padding: 0 48px; }
 
-.case-hero { padding: 64px 0 48px; border-bottom: 1.5px solid var(--border-light); margin-bottom: 56px; }
+.case-hero { padding: 64px 0 48px; margin-bottom: 56px; }
 .back-link { display: inline-flex; align-items: center; gap: 6px; color: var(--ink-muted); font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 32px; transition: color 0.15s; }
 .back-link::before { content: "←"; }
 .back-link:hover { color: var(--accent); }
@@ -294,7 +294,7 @@ body {
 .lead { font-size: 18px; line-height: 1.75; color: var(--ink-mid); max-width: 640px; margin-bottom: 40px; }
 .case-meta { display: flex; gap: 40px; flex-wrap: wrap; }
 .meta-item { display: flex; flex-direction: column; gap: 4px; }
-.meta-label { font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-muted); }
+.meta-label { font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-muted, #b5552a); }
 .meta-value { font-size: 14px; font-weight: 500; color: var(--ink-mid); }
 
 .case-section { margin-bottom: 56px; }

@@ -1,3 +1,8 @@
+export interface ResultItem {
+  number: string;
+  desc: string;
+}
+
 export interface Project {
   href: string;
   category: string;
@@ -9,11 +14,13 @@ export interface Project {
   image?: string;
   imagePosition?: string;
   stats: { value?: string; label: string }[];
+  results?: [ResultItem, ResultItem, ResultItem];
 }
 
 export const PROJECTS: Project[] = [
   {
     href: "/case-study-figma",
+    featured: true,
     category: "AI / Tooling",
     meta: "Flying Bisons · 2025",
     year: 2025,
@@ -26,6 +33,11 @@ export const PROJECTS: Project[] = [
       { value: "86 iterations" },
       { label: "10–15 daily users" },
       { label: "60 days" },
+    ],
+    results: [
+      { number: "86",   desc: "iterations over 60 days" },
+      { number: "5–10", desc: "designers using it daily" },
+      { number: "12",   desc: "languages in the translation module" },
     ],
   },
   {
@@ -41,6 +53,11 @@ export const PROJECTS: Project[] = [
       { value: "40+" },
       { label: "hours saved / month" },
       { label: "minutes vs. multi-day cycle" },
+    ],
+    results: [
+      { number: "40+",   desc: "hours saved per month" },
+      { number: "2 min", desc: "vs. multi-day production cycle" },
+      { number: "v1.0",  desc: "with clear roadmap for expansion" },
     ],
   },
   {
@@ -58,9 +75,15 @@ export const PROJECTS: Project[] = [
       { label: "9 files processed" },
       { label: "Full audit trail" },
     ],
+    results: [
+      { number: "67 hours", desc: "saved vs original estimation" },
+      { number: "9 files",  desc: "searched and processed simultaneously" },
+      { number: "~96%",     desc: "faster vs manual job" },
+    ],
   },
   {
     href: "/case-study-constellr",
+    featured: true,
     category: "Deep Tech",
     meta: "Constellr · 2025",
     year: 2025,
@@ -74,10 +97,14 @@ export const PROJECTS: Project[] = [
       { label: "Onboarding" },
       { label: "Error states" },
     ],
+    results: [
+      { number: "0 of 9",        desc: "direct competitors combined plain language with an institutional audience — Constellr was the first" },
+      { number: "Content-first", desc: "workflow adopted from day one — copy drove design, not the other way around" },
+      { number: "Extra mile",    desc: "client noted the team went beyond contract scope to deliver strategic quality" },
+    ],
   },
   {
     href: "/case-study-portfolio",
-    featured: true,
     category: "Personal project",
     meta: "Personal project · 2026",
     year: 2026,
@@ -90,6 +117,11 @@ export const PROJECTS: Project[] = [
       { value: "59%" },
       { label: "codebase reduction after Astro migration" },
       { label: "0 templates used" },
+    ],
+    results: [
+      { number: "59%",  desc: "reduction in codebase size after migrating to Astro — no optimisation, just the right tool" },
+      { number: "One",  desc: "solo owner — from discovery to maintenance" },
+      { number: "Zero", desc: "templates, builders, or frameworks used in v1" },
     ],
   },
 ];

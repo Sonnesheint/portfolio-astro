@@ -28,6 +28,7 @@ const toc = [
   role="UX Writer + AI Workflow Designer"
   tools="Make.com, Claude API, Notion, Figma"
   tocItems={toc}
+  results={project.results}
 >
 
   <section class="case-section" id="context">
@@ -80,11 +81,7 @@ const toc = [
 
   <section class="case-section" id="results">
     <h2>Results</h2>
-    <ResultsGrid items={[
-      { number: "40+",   desc: "hours saved per month" },
-      { number: "2 min", desc: "vs. multi-day production cycle" },
-      { number: "v1.0",  desc: "with clear roadmap for expansion" },
-    ]} />
+    <ResultsGrid items={project.results!} />
     <p>And the quality? Better than I expected. If this isn't a "wow" moment for content teams, I don't know what is.</p>
   </section>
 

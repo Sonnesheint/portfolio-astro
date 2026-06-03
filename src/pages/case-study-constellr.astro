@@ -31,6 +31,7 @@ const toc = [
   role="Lead UX Writer & Content Strategist"
   tools="Figma · Notion · Confluence"
   tocItems={toc}
+  results={project.results}
 >
 
   <section class="case-section" id="company">
@@ -220,11 +221,7 @@ const toc = [
 
   <section class="case-section" id="results">
     <h2>Results</h2>
-    <ResultsGrid items={[
-      { number: "0 of 9",        desc: "direct competitors combined plain language with an institutional audience — Constellr was the first" },
-      { number: "Content-first", desc: "workflow adopted from day one — copy drove design, not the other way around" },
-      { number: "Extra mile",    desc: "Client noted the team went beyond contract scope to deliver strategic quality" },
-    ]} />
+    <ResultsGrid items={project.results!} />
     <p>No post-launch metrics were shared — the project concluded before measurement data became available. What's documented: strong client satisfaction expressed consistently at stakeholder touchpoints, and a strategic repositioning implemented in full.</p>
     <div class="result-quote-block">
       <blockquote>Treat this as a collaborative partnership, not a transactional engagement. Flying Bisons brings strong thinking, moves quickly, and will go the extra mile to deliver high-quality results.</blockquote>

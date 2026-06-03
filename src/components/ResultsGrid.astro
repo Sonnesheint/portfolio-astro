@@ -6,9 +6,10 @@ interface Result {
 
 interface Props {
   items: [Result, Result, Result];
+  horizontal?: boolean;
 }
 
-const { items } = Astro.props;
+const { items, horizontal = false } = Astro.props;
 
 function parseCountable(str: string): { value: number | null; suffix: string } {
   const m = str.match(/^(\d+(?:\.\d+)?)(.*)/);
@@ -16,12 +17,14 @@ function parseCountable(str: string): { value: number | null; suffix: string } {
 }
 ---
 
-<div class="results-list">
+<div class={`results-wrap${horizontal ? ' results-wrap--h' : ''}`}>
+{horizontal && <span class="results-label">Results</span>}
+<div class={`results-list${horizontal ? ' results-list--h' : ''}`}>
   {items.map((item, i) => {
     const { value, suffix } = parseCountable(item.number);
     return (
       <div class="result-row">
-        <span class="result-num">{String(i + 1).padStart(2, "0")}</span>
+        {!horizontal && <span class="result-num">{String(i + 1).padStart(2, "0")}</span>}
         <div class="result-body">
           <div
             class="result-value"
@@ -34,9 +37,39 @@ function parseCountable(str: string): { value: number | null; suffix: string } {
     );
   })}
 </div>
+</div>
 
 <style>
+  .results-wrap { display: contents; }
+  .results-wrap--h { display: block; margin-top: 1.75rem; }
+
+  .results-label {
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--color-muted, #b5552a);
+    margin-bottom: 0.75rem;
+  }
+
   .results-list { display: flex; flex-direction: column; margin: 1.5rem 0; }
+
+  .results-list--h {
+    flex-direction: row;
+    gap: 0;
+    margin: 0;
+  }
+  .results-list--h .result-row {
+    flex: 1;
+    flex-direction: column;
+    gap: 0.4rem;
+    padding: 1.25rem 2rem 1.25rem 0;
+  }
+  .results-list--h .result-num {
+    font-size: 0.7rem;
+  }
 
   .result-row {
     display: flex;

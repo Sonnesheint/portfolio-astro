@@ -30,6 +30,7 @@ const toc = [
   role="Senior UX Writer"
   tools="Figma Plugin API · JavaScript · Python · python-docx · Claude"
   tocItems={toc}
+  results={project.results}
 >
 
   <section class="case-section" id="task">
@@ -89,11 +90,7 @@ const toc = [
 
   <section class="case-section" id="results">
     <h2>Results</h2>
-    <ResultsGrid items={[
-      { number: "Weeks → hours", desc: "original time estimate collapsed after the plugin was built and deployed" },
-      { number: "9 files",       desc: "searched and processed simultaneously — something Figma's native tools cannot do" },
-      { number: "Ahead of time", desc: "task delivered before the deadline with full documentation, client satisfied" },
-    ]} />
+    <ResultsGrid items={project.results!} />
     <p>The client received a complete audit trail: every changed instance documented, linked, and formatted into a single report. Legal and compliance had the evidence they needed. The project closed without a single follow-up correction request.</p>
   </section>
 

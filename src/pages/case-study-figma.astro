@@ -28,6 +28,7 @@ const toc = [
   role="UX Writer & Developer"
   tools="JavaScript, Figma API, Cloudflare Workers, Claude API"
   tocItems={toc}
+  results={project.results}
 >
 
   <section class="case-section" id="context">
@@ -63,11 +64,7 @@ const toc = [
 
   <section class="case-section" id="results">
     <h2>Results</h2>
-    <ResultsGrid items={[
-      { number: "86",   desc: "iterations over 60 days" },
-      { number: "5–10", desc: "designers using it daily" },
-      { number: "12",   desc: "languages in the translation module" },
-    ]} />
+    <ResultsGrid items={project.results!} />
     <p>Five to ten designers started using the plugin regularly. Poor-quality drafts stopped making it to client presentations. The bottleneck I'd been worried about disappeared. The plugin's success led to four more content ops tools being built at the agency.</p>
     <p>I handed the tool over to the design team when I left Flying Bisons. I'm now developing a similar tool independently.</p>
   </section>

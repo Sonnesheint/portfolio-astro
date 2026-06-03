@@ -3,11 +3,17 @@ import "@styles/tokens.css";
 import "@styles/global.css";
 import { SITE } from "@data/site";
 import ToolTags from "@components/ToolTags.astro";
+import ResultsGrid from "@components/ResultsGrid.astro";
 import Lightbox from "@components/Lightbox.astro";
 
 interface TocItem {
   href: string;
   label: string;
+}
+
+interface ResultItem {
+  number: string;
+  desc: string;
 }
 
 interface Props {
@@ -20,9 +26,10 @@ interface Props {
   role: string;
   tools: string;
   tocItems: TocItem[];
+  results?: [ResultItem, ResultItem, ResultItem];
 }
 
-const { title, tag, heading, lead, client, year, role, tools, tocItems } = Astro.props;
+const { title, tag, heading, lead, client, year, role, tools, tocItems, results } = Astro.props;
 const currentYear = new Date().getFullYear();
 ---
 
@@ -83,6 +90,7 @@ const currentYear = new Date().getFullYear();
               <ToolTags tools={tools} />
             </div>
           </div>
+          {results && <ResultsGrid horizontal items={results} />}
         </header>
       </div>
 

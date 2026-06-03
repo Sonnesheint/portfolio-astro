@@ -31,6 +31,7 @@ const toc = [
   role="Designer, developer, writer"
   tools="Claude Design, Claude Code, Astro, Tailwind, Git, Netlify, Cloudflare"
   tocItems={toc}
+  results={project.results}
 >
 
   <section class="case-section" id="context">
@@ -220,11 +221,7 @@ const toc = [
   <section class="case-section" id="results">
     <h2>Results</h2>
 
-    <ResultsGrid items={[
-      { number: "59%", desc: "reduction in codebase size after migrating to Astro — no optimisation, just the right tool" },
-      { number: "One",  desc: "solo owner — from discovery to maintenance" },
-      { number: "Zero", desc: "templates, builders, or frameworks used in v1" },
-    ]} />
+    <ResultsGrid items={project.results!} />
 
 
 <p>Time to answer the title question.</p>

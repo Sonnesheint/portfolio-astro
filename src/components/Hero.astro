@@ -22,7 +22,7 @@ import NotchedButton from "@components/NotchedButton.astro";
       </h1>
 
       <p class="hero-aside">
-        Probably the best UX Writer among bassists.
+        Probably the best UX Writer<br class="md:hidden" /> among bassists.
       </p>
 
       <h2 class="font-serif text-center text-[36px] font-bold leading-none tracking-[-0.02em] text-ink md:text-left md:text-[56px] mt-2">
@@ -34,8 +34,6 @@ import NotchedButton from "@components/NotchedButton.astro";
 
       <p class="hero-usp">
         <strong>In-house for 10 years. Agency for 3.</strong><br />
-        Whatever model you need.<br />
-        Been there, done that.
       </p>
 
       <div class="mt-8 mb-3 flex flex-col items-center gap-4 md:mb-0 md:flex-row">
@@ -45,6 +43,7 @@ import NotchedButton from "@components/NotchedButton.astro";
     </div>
 
     <div class="order-first flex justify-center md:order-none">
+      <div class="flex flex-col items-center">
       <div class="relative mb-3 mr-3 h-[240px] w-[200px] shrink-0 md:h-[380px] md:w-[320px]">
         <div class="absolute -bottom-2 -right-2 z-0 h-full w-full rounded-[4px] border-2 border-accent md:-bottom-3 md:-right-3"></div>
         <div class="relative z-[1] h-full w-full overflow-hidden rounded-[4px]">
@@ -114,6 +113,11 @@ import NotchedButton from "@components/NotchedButton.astro";
         </div>
 
       </div>
+      <div class="hero-availability">
+        <span class="hero-availability-dot"></span>
+        Available for new projects
+      </div>
+      </div>
     </div>
 
   </div>
@@ -147,9 +151,15 @@ import NotchedButton from "@components/NotchedButton.astro";
     font-weight: 700;
     line-height: 1.4;
     color: var(--color-ink, #1a0e04);
-    border-left: 2px solid var(--color-accent, #be4e10);
-    padding-left: 0.85rem;
+    text-align: center;
     margin-bottom: 1.5rem;
+  }
+  @media (min-width: 768px) {
+    .hero-usp {
+      text-align: left;
+      border-left: 2px solid var(--color-accent, #be4e10);
+      padding-left: 0.85rem;
+    }
   }
   .hero-usp strong {
     color: var(--color-accent, #be4e10);
@@ -168,6 +178,24 @@ import NotchedButton from "@components/NotchedButton.astro";
   }
   .pivot {
     border-bottom: 2px solid var(--color-accent, #be4e10);
+  }
+
+  .hero-availability {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-mono, monospace);
+    font-size: 0.8rem;
+    color: var(--color-body, #3a2a1a);
+    margin-top: 0.6rem;
+  }
+
+  .hero-availability-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #639922;
+    flex-shrink: 0;
   }
 
   .hero-bubble-wrap {
